@@ -1,0 +1,56 @@
+name: Deploy Gatsby website on GitHub Pages
+
+on:
+  push:
+    branches: source
+
+env:
+  PAT: ${{ secrets.ACCESS_TOKEN }}
+  REPO_NAME: ${{ github.repository }}
+  ACTOR: ${{ github.actor }}
+
+jobs:
+  deploy-job:
+    if: needs.check-pat-job.outputs.ci-available == 'true'
+    runs-on: ubuntu-latest
+    needs: check-pat-job
+    env:
+      DEPLOY: ${{ needs.check-pat-job.outputs.ci-available }}
+    steps:
+      - name: Print Deploy Variable
+        run: echo $DEPLOY
+
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Node Configuration
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Deploy to GitHub Pages
+        run: npm run deploy:ci
+
+  check-pat-job:
+    runs-on: ubuntu-latest
+    outputs:
+      ci-available: ${{ steps.step0.outputs.CI_AVAILABLE }}
+    steps:
+      - name: Check if PAT exists & Set output variable
+        id: step0
+        run: |
+          if [ "$PAT" != '' ]; then 
+            echo "CI_AVAILABLE=true" >> $GITHUB_OUTPUT
+          else
+            echo "CI_AVAILABLE=false" >> $GITHUB_OUTPUT
+            echo "
+                  WARNING: Public Access Token not provided.\n 
+                  You MUST provide PAT to your repository's secret variable by the name of 'ACCESS_TOKEN' to automate deployment.\n
+                  Or you could manually deploy your Gatsby Blog by using command \"npm run deploy\" or \"yarn deploy\" on your local device.\n
+                  Please read the document linked blow. \n
+                  $DOCUMENT
+                 "
+          fi
