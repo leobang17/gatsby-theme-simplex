@@ -27,6 +27,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+      - name: Git Configuration
+        run: |
+          git config --global user.email "email@example.com"
+          git config --global user.name "${{ github.actor }}"
 
       - name: Install Dependencies
         run: npm ci
