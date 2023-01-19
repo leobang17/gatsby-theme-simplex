@@ -1,16 +1,48 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "gatsby-theme",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "version": "0.0.1",
+  "author": "Leo Bang <bluke8489@gmail.com>",
+  "license": "0BSD",
+  "keywords": [
+    "gatsby"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leobang17/gatsby-theme"
+  },
+  "bugs": {
+    "url": "https://github.com/leobang17/gatsby-theme/issues"
+  },
+  "scripts": {
+    "deploy": "gatsby build && gh-pages -d public -b main",
+    "deploy:ci": "gatsby build && gh-pages -d public -b main -r https://$PAT@github.com/$REPO_NAME.git",
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mdx-js/react": "^2.2.1",
     "gatsby": "^5.3.3",
+    "gatsby-plugin-emotion": "^8.4.0",
     "gatsby-plugin-image": "^3.3.2",
+    "gatsby-plugin-mdx": "^5.4.0",
     "gatsby-plugin-sharp": "^5.3.2",
     "gatsby-plugin-typescript": "^5.3.1",
+    "gatsby-remark-autolink-headers": "^6.4.0",
+    "gatsby-remark-images": "^7.4.0",
+    "gatsby-remark-prismjs": "^7.4.0",
+    "gatsby-remark-smartypants": "^6.4.0",
     "gatsby-source-filesystem": "^5.3.1",
     "gatsby-transformer-sharp": "^5.3.1",
+    "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -23,26 +55,5 @@
     "gh-pages": "^4.0.0",
     "prettier": "^2.8.2",
     "typescript": "^4.9.4"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
-  "scripts": {
-    "deploy": "gatsby build && gh-pages -d public -b main",
-    "build": "gatsby build",
-    "dev": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
-    "start": "gatsby develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
