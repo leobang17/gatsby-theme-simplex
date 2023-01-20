@@ -5,17 +5,22 @@
  */
 
 import { GatsbyConfig } from 'gatsby'
-import { url } from 'inspector'
 
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `Leo Bang의 블로그`,
+    description: `Gatsby와 Typescript로 만든 Leo Bang의 블로그입니다`,
+    author: `@leobang17`,
+    siteUrl: `https://leobang17.github.io`,
+    githubUsername: `leobang17`,
+  },
+  graphqlTypegen: {
+    typesOutputPath: `./src/types/graphql-types.d.ts`,
+    generateOnBuild: false,
+    documentSearchPaths: [`./gatsby-node.ts`, `./plugins/**/gatsby-node.ts`],
   },
   plugins: [
     /**
