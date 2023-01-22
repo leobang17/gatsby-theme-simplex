@@ -5,20 +5,15 @@
  */
 
 import { GatsbyConfig } from 'gatsby'
+import configs from './configs'
 
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
 const config: GatsbyConfig = {
-  siteMetadata: {
-    title: `Leo Bang의 블로그`,
-    description: `Gatsby와 Typescript로 만든 Leo Bang의 블로그입니다`,
-    author: `@leobang17`,
-    siteUrl: `https://leobang17.github.io`,
-    githubUsername: `leobang17`,
-  },
+  siteMetadata: configs,
   graphqlTypegen: {
-    typesOutputPath: `./src/types/graphql-types.d.ts`,
+    typesOutputPath: `./src/@types/graphql-types.d.ts`,
     generateOnBuild: false,
     documentSearchPaths: [`./gatsby-node.ts`, `./plugins/**/gatsby-node.ts`],
   },

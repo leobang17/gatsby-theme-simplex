@@ -1,19 +1,33 @@
-import React, { FC } from 'react'
-import { fetchSiteMetadata } from 'hooks/StaticQueries'
+/** @jsx jsx */
+
+import { FC } from 'react'
+import { fetchBlogDetail } from 'hooks/StaticQueries'
 import TitleCell from './cells/Title'
 import GithubCell from './cells/Github'
+import { css, jsx } from '@emotion/react'
+import { mq, NAV_HEIGHT_REM } from '../../styles/Responsive'
+import Mapper from 'utils/Mapper'
+
+const navcss = css(
+  mq({
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    height: NAV_HEIGHT_REM,
+    maxHeight: NAV_HEIGHT_REM,
+    padding: Mapper.mapRemFlatten([0, 6, 0, 6]),
+    borderBottom: '1px solid #ECECEF',
+  }),
+)
 
 const Nav: FC = () => {
-  const { title, githubUsername } = fetchSiteMetadata()
-  console.log(title)
-  // title 넣을 수 있도록. static query로 가져옴
-  // 하단 스크롤 시 없어지게
+  const { title, githubUsername } = fetchBlogDetail()
   return (
-    <>
-      {title}, {githubUsername}
+    <div css={navcss}>
       <TitleCell title={title} />
       {githubUsername ? <GithubCell username={githubUsername} /> : null}
-    </>
+    </div>
   )
 }
 

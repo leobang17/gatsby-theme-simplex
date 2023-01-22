@@ -1,4 +1,8 @@
-import React, { FC } from 'react'
+/** @jsx jsx */
+
+import { StaticImage } from 'gatsby-plugin-image'
+import { FC } from 'react'
+import { css, jsx } from '@emotion/react'
 
 type GithubCellProps = {
   username: string
@@ -7,7 +11,13 @@ type GithubCellProps = {
 const GithubCell: FC<GithubCellProps> = ({ username }) => {
   return (
     <div>
-      <a href={`https://github.com/${username}`}>GithubCell</a>
+      <a href={`https://github.com/${username}`}>
+        <StaticImage
+          alt={`${username}'s Github Page`}
+          src="../../../images/github-mark.svg"
+          height={30}
+        />
+      </a>
     </div>
   )
 }
