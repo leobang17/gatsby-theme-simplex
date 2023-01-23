@@ -1,24 +1,20 @@
 /** @jsx jsx */
 
-import { StaticImage } from 'gatsby-plugin-image'
 import { FC } from 'react'
-import { css, jsx } from '@emotion/react'
+import { jsx } from '@emotion/react'
+import { fetchSvgLogoUrl } from 'hooks/assetQueries'
 
 type GithubCellProps = {
   username: string
 }
 
 const GithubCell: FC<GithubCellProps> = ({ username }) => {
+  const githubUrl = fetchSvgLogoUrl('github')
+
   return (
-    <div>
-      <a href={`https://github.com/${username}`}>
-        <StaticImage
-          alt={`${username}'s Github Page`}
-          src="../../../images/github-mark.svg"
-          height={30}
-        />
-      </a>
-    </div>
+    <a href={`https://github.com/${username}`}>
+      <img alt={`${username}'s Github Page`} src={githubUrl} height={30} />
+    </a>
   )
 }
 
