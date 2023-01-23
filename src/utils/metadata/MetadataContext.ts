@@ -11,6 +11,8 @@ import {
 import StringProperty from './properties/StringProperty'
 import EmailProperty from './properties/EmailProperty'
 import WebLinkProperty from './properties/WebLiinkProperty'
+import { SocialProvider } from 'types/social-provider-types'
+import ConfigProperty from './properties/abstracts/ConfigProperty'
 
 class MetadataContext {
   private static instance: MetadataContext
@@ -38,8 +40,12 @@ class MetadataContext {
     return this.bioProperty
   }
 
-  getSocial() {
+  getAllSocials() {
     return this.socialProperty
+  }
+
+  getSocial(social: SocialProvider): ConfigProperty {
+    return this.socialProperty[social]
   }
 
   getBlogDetail() {
@@ -81,7 +87,7 @@ class MetadataContext {
       github: new WebLinkProperty(data.github),
       instagram: new WebLinkProperty(data.instagram),
       facebook: new WebLinkProperty(data.facebook),
-      linkedIn: new WebLinkProperty(data.linkedIn),
+      linkedin: new WebLinkProperty(data.linkedin),
       twitter: new WebLinkProperty(data.twitter),
     } as SocialProperty
   }

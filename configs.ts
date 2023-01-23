@@ -18,9 +18,9 @@ export default <SiteMetadata>{
   },
   social: {
     github: 'https://github.com/leobang17',
-    instagram: '',
-    facebook: '',
-    linkedIn: '',
-    twitter: '',
+    instagram: 'https://instagram.com/ba1vg',
+    facebook: 'https://www.facebook.com/profile.php?id=100003518871943',
+    linkedin: 'https://www.linkedin.com/in/seok-jin-bang-877882249/',
+    twitter: 'https://twitter.com/Arsenal',
   },
 }

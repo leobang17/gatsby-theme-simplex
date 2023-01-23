@@ -24,7 +24,7 @@
     "start": "gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "jest"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",

@@ -25,7 +25,7 @@ export const fetchSiteMetadata = (): SiteMetadata => {
             github
             instagram
             facebook
-            linkedIn
+            linkedin
             twitter
           }
         }

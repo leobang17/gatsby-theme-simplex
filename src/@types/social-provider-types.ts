@@ -1,9 +1,9 @@
 export const socialProviders = [
-  'twitter',
+  'github',
+  'linkedin',
   'facebook',
   'instagram',
-  'linkedin',
-  'github',
+  'twitter',
 ] as const
 
 export type SocialProvider = (typeof socialProviders)[number]

@@ -27,7 +27,7 @@ export type Social = {
   github: string
   instagram: string
   facebook: string
-  linkedIn: string
+  linkedin: string
   twitter: string
 }
 
