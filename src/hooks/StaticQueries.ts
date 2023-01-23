@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import { Bio, BlogDetail, SiteMetadata, Social } from '../@types/metadata-types'
+import { Bio, BlogDetail, SiteMetadata, Social } from 'types/metadata-types'
 
 export const fetchSiteMetadata = (): SiteMetadata => {
   const data = useStaticQuery(graphql`
@@ -25,7 +25,7 @@ export const fetchSiteMetadata = (): SiteMetadata => {
             github
             instagram
             facebook
-            linkedIn
+            linkedin
             twitter
           }
         }

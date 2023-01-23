@@ -2613,7 +2613,7 @@ type SiteSiteMetadataSocial = {
   readonly facebook: Maybe<Scalars['String']>;
   readonly github: Maybe<Scalars['String']>;
   readonly instagram: Maybe<Scalars['String']>;
-  readonly linkedIn: Maybe<Scalars['String']>;
+  readonly linkedin: Maybe<Scalars['String']>;
   readonly twitter: Maybe<Scalars['String']>;
 };
 
@@ -2621,7 +2621,7 @@ type SiteSiteMetadataSocialFieldSelector = {
   readonly facebook: InputMaybe<FieldSelectorEnum>;
   readonly github: InputMaybe<FieldSelectorEnum>;
   readonly instagram: InputMaybe<FieldSelectorEnum>;
-  readonly linkedIn: InputMaybe<FieldSelectorEnum>;
+  readonly linkedin: InputMaybe<FieldSelectorEnum>;
   readonly twitter: InputMaybe<FieldSelectorEnum>;
 };
 
@@ -2629,7 +2629,7 @@ type SiteSiteMetadataSocialFilterInput = {
   readonly facebook: InputMaybe<StringQueryOperatorInput>;
   readonly github: InputMaybe<StringQueryOperatorInput>;
   readonly instagram: InputMaybe<StringQueryOperatorInput>;
-  readonly linkedIn: InputMaybe<StringQueryOperatorInput>;
+  readonly linkedin: InputMaybe<StringQueryOperatorInput>;
   readonly twitter: InputMaybe<StringQueryOperatorInput>;
 };
 
@@ -2637,7 +2637,7 @@ type SiteSiteMetadataSocialSortInput = {
   readonly facebook: InputMaybe<SortOrderEnum>;
   readonly github: InputMaybe<SortOrderEnum>;
   readonly instagram: InputMaybe<SortOrderEnum>;
-  readonly linkedIn: InputMaybe<SortOrderEnum>;
+  readonly linkedin: InputMaybe<SortOrderEnum>;
   readonly twitter: InputMaybe<SortOrderEnum>;
 };
 
@@ -2720,12 +2720,17 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type SiteMetadataQuery = { readonly site: { readonly siteMetadata: { readonly bio: { readonly name: string | null, readonly thumbnail: string | null, readonly introduction: string | null, readonly email: string | null, readonly website: string | null, readonly location: string | null, readonly company: string | null } | null, readonly blogDetail: { readonly title: string | null, readonly description: string | null, readonly siteUrl: string | null, readonly githubUsername: string | null } | null, readonly social: { readonly github: string | null, readonly instagram: string | null, readonly facebook: string | null, readonly linkedIn: string | null, readonly twitter: string | null } | null } | null } | null };
+type SiteMetadataQuery = { readonly site: { readonly siteMetadata: { readonly bio: { readonly name: string | null, readonly thumbnail: string | null, readonly introduction: string | null, readonly email: string | null, readonly website: string | null, readonly location: string | null, readonly company: string | null } | null, readonly blogDetail: { readonly title: string | null, readonly description: string | null, readonly siteUrl: string | null, readonly githubUsername: string | null } | null, readonly social: { readonly github: string | null, readonly instagram: string | null, readonly facebook: string | null, readonly linkedin: string | null, readonly twitter: string | null } | null } | null } | null };
 
 type SiteTitleQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type SiteTitleQueryQuery = { readonly site: { readonly siteMetadata: { readonly title: string | null } | null } | null };
+
+type SvgQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SvgQueryQuery = { readonly allFile: { readonly edges: ReadonlyArray<{ readonly node: { readonly id: string, readonly name: string, readonly publicURL: string | null } }> } };
 
 
 }
