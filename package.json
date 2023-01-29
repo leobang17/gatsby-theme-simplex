@@ -29,6 +29,8 @@
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@fontsource/nanum-gothic": "^4.5.7",
+    "@fontsource/noto-sans": "^4.5.11",
     "@mdx-js/react": "^2.2.1",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.5",
@@ -51,6 +53,7 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.4.1",
+    "@types/facepaint": "^1.2.2",
     "@types/jest": "^29.4.0",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
