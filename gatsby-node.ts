@@ -6,19 +6,10 @@
 
 import { GatsbyNode } from 'gatsby'
 import path from 'path'
+import { createArticlePages } from './src/hooks/createArticlePages'
 
-/**
- * @type {import('gatsby').GatsbyNode['createPages']}
- */
-// exports.createPages = async ({ actions }) => {
-//   const { createPage } = actions
-//   createPage({
-//     path: "/using-dsg",
-//     component: require.resolve("./src/templates/using-dsg.js"),
-//     context: {},
-//     defer: true,
-//   })
-// }
+import { onMdxCreateCategories } from './src/hooks/createCategories'
+import { createCategoryPages } from './src/hooks/createCategoryPages'
 
 // Setup Import Alias
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
@@ -39,4 +30,20 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
       },
     },
   })
+}
+
+export const onCreateNode: GatsbyNode['onCreateNode'] = ({
+  node,
+  getNode,
+  actions,
+}) => {
+  onMdxCreateCategories({ node, getNode, actions })
+}
+
+export const createPages: GatsbyNode['createPages'] = async ({
+  actions,
+  graphql,
+}) => {
+  await createCategoryPages({ actions, graphql })
+  await createArticlePages({ actions, graphql })
 }
