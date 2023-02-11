@@ -1,10 +1,11 @@
 /** @jsx jsx */
 
 import React, { FC } from 'react'
+import { jsx } from '@emotion/react'
+
+import MetadataContext from 'datastructures/metadata/MetadataContext'
 
 import BioProperty from './cells/BioProperty'
-import { jsx } from '@emotion/react'
-import MetadataContext from 'utils/metadata/MetadataContext'
 import SocialList from './SocialList'
 
 const Bio: FC = () => {

@@ -1,5 +1,5 @@
-import * as module from '../../src/utils/metadata/urlExtractor'
-import { socialProviders } from '../../src/@types/social-provider-types'
+import * as module from 'utils/urlExtractor'
+import { socialProviders } from 'types/social-provider-types'
 
 // extractDomain Test
 test('extractDomain - 실패 (빈 url)', () => {

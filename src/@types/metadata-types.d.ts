@@ -1,4 +1,4 @@
-import { ConfigProperty } from 'utils/metadata/properties/abstracts/ConfigProperty'
+import { ConfigProperty } from 'datastructures/metadata/properties/abstracts/ConfigProperty'
 
 export type SiteMetadata = {
   blogDetail: BlogDetail

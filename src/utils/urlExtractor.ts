@@ -1,7 +1,4 @@
-import {
-  SocialProvider,
-  socialProviders,
-} from '../../@types/social-provider-types'
+import { SocialProvider, socialProviders } from 'types/social-provider-types'
 
 export const extractDomain = (url: string): string | undefined => {
   const regex = new RegExp('^(https://)?(www.)?([A-Za-z0-9-_]+).com/')

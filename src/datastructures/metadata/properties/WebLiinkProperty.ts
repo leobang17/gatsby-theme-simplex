@@ -1,4 +1,4 @@
-import { extractSocialProvider } from '../urlExtractor'
+import { extractSocialProvider } from 'utils/urlExtractor'
 import RegexConfigProperty from './abstracts/RegexConfigProperty'
 
 class WebLinkProperty extends RegexConfigProperty {

@@ -1,10 +1,11 @@
 /** @jsx jsx */
 
-import { css, jsx } from '@emotion/react'
-import { fetchSvgLogoUrl } from 'hooks/assetQueries'
 import React, { FC } from 'react'
+import { css, jsx } from '@emotion/react'
+
+import { fetchSvgLogoUrl } from 'hooks/assetQueries'
 import { SocialProvider } from 'types/social-provider-types'
-import MetadataContext from 'utils/metadata/MetadataContext'
+import MetadataContext from 'datastructures/metadata/MetadataContext'
 import { SOCIAL_DEFAULT, SOCIAL_HOVERED } from 'styles/social'
 
 type SocialIconProp = {
