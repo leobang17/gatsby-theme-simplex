@@ -41,3 +41,9 @@ export type MdxFrontmatter = {
   createdAt: string
   updatedAt: string
 }
+
+export type MdxTableOfContent = {
+  url?: string
+  title?: string
+  items?: MdxTableOfContent[]
+}
