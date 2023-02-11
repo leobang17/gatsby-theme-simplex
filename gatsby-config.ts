@@ -53,7 +53,12 @@ const config: GatsbyConfig = {
       options: {
         extensions: [`.mdx`, `.md`],
         gatsbyRemarkPlugins: [
-          `gatsby-remark-autolink-headers`,
+          {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              className: 'header-links',
+            },
+          },
           {
             resolve: 'gatsby-remark-prismjs',
             options: {
