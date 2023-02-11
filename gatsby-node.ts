@@ -27,6 +27,8 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
         hooks: path.resolve(__dirname, 'src/hooks'),
         types: path.resolve(__dirname, 'src/@types'),
         styles: path.resolve(__dirname, 'src/styles'),
+        contexts: path.resolve(__dirname, 'src/contexts'),
+        datastructures: path.resolve(__dirname, 'src/datastructures'),
       },
     },
   })

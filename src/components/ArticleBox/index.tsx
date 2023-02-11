@@ -6,7 +6,7 @@ import { FC } from 'react'
 import { MdxNode } from 'types/mdx-types'
 import ArticleBoxTitle from './ArticleBoxTitle'
 import { GRAY } from 'styles/Color'
-import ArticleCategoryLink from './ArticleCategoryLink'
+import ArticleBoxCategoryLink from './ArticleBoxCategoryLink'
 
 const style = css`
   width: 600px;
@@ -26,7 +26,7 @@ const ArticleBox: FC<MdxNode> = ({
 }) => {
   return (
     <div css={style}>
-      <ArticleCategoryLink {...category} />
+      <ArticleBoxCategoryLink {...category} />
       <ArticleBoxTitle slug={slug} title={title} />
       <div>{excerpt}</div>
       <CreatedAt>{createdAt}</CreatedAt>
