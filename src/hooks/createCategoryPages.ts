@@ -1,7 +1,7 @@
 import { resolve } from 'path'
 import { Actions } from 'gatsby'
 import { CreatePage, PageGraphQL } from '../@types/nodeapi-types'
-import { CategoryTreeObject } from './CategoryTree'
+import { CategoryTreeObject } from '../datastructures/category/CategoryTree'
 import { graphqlToTree } from './dtos/graphqlToTree'
 import { slugToCategory } from '../utils/slug'
 import { CategoryPageContext } from '../templates/CategoryPage'

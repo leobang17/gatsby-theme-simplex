@@ -2,7 +2,7 @@
 
 import { jsx, css } from '@emotion/react'
 import { Link } from 'gatsby'
-import { CategoryTreeObject } from 'hooks/CategoryTree'
+import { CategoryTreeObject } from 'datastructures/category/CategoryTree'
 import { FC } from 'react'
 
 type CategoryCellProps = {
