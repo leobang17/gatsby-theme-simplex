@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { css, jsx } from '@emotion/react'
-import { FC, useContext, useState } from 'react'
+import { FC, useContext } from 'react'
 
 import { ArticleContext } from 'contexts/article/ArticleContext'
 import useTableOfContentsObserver from 'hooks/useTableOfContentsObserver'

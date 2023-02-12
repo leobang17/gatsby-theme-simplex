@@ -1,6 +1,8 @@
-import TableOfContents from 'components/RightStack/TableOfContents'
 import React, { FC } from 'react'
+
+import TableOfContents from 'components/RightStack/TableOfContents'
 import { ChildrenProps } from 'types/react-types'
+
 import Layout from '.'
 
 type ArticleLayoutProps = {} & ChildrenProps

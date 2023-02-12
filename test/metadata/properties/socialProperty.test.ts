@@ -1,4 +1,4 @@
-import WebLinkProperty from '../../../src/utils/metadata/properties/WebLiinkProperty'
+import WebLinkProperty from 'datastructures/metadata/properties/WebLiinkProperty'
 
 test('isValid - 실패 (지원하지 않는 social)', () => {
   const url = 'twitterr.com/Arsenal'

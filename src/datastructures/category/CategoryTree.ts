@@ -1,5 +1,5 @@
 import { GroupByNode } from 'types/mdx-types'
-import { slugToCategory } from '../utils/slug'
+import { slugToCategory } from '../../utils/slug'
 
 export type CategoryTreeObject = {
   name: string

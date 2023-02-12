@@ -1,9 +1,10 @@
 /** @jsx jsx */
 
+import { FC } from 'react'
 import { css, jsx } from '@emotion/react'
+
 import Bio from 'components/Bio'
 import Categories from 'components/Categories'
-import { FC } from 'react'
 import { sidestack_mq } from 'styles/Responsive'
 
 type LeftStackProps = {

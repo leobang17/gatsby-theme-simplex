@@ -1,5 +1,5 @@
 import { graphql, useStaticQuery } from 'gatsby'
-import { SocialProvider } from '../@types/social-provider-types'
+import { SocialProvider } from 'types/social-provider-types'
 
 type SvgResult = {
   node: {

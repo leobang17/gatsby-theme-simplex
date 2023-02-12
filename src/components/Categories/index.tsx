@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { getCategoryTree } from 'hooks/categoryQueries'
 import CategoryCell from './cells/CategoryCell'
 

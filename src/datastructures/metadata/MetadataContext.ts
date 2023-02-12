@@ -1,4 +1,4 @@
-import { fetchSiteMetadata } from '../../hooks/StaticQueries'
+import { fetchSiteMetadata } from 'hooks/StaticQueries'
 import {
   Bio,
   BioProperty,
@@ -7,11 +7,12 @@ import {
   SiteMetadata,
   Social,
   SocialProperty,
-} from '../../@types/metadata-types'
+} from 'types/metadata-types'
+import { SocialProvider } from 'types/social-provider-types'
+
 import StringProperty from './properties/StringProperty'
 import EmailProperty from './properties/EmailProperty'
 import WebLinkProperty from './properties/WebLiinkProperty'
-import { SocialProvider } from 'types/social-provider-types'
 import ConfigProperty from './properties/abstracts/ConfigProperty'
 
 class MetadataContext {

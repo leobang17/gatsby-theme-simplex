@@ -1,5 +1,5 @@
-import { ArticleContext } from 'contexts/article/ArticleContext'
 import { useContext, useEffect, useState } from 'react'
+import { ArticleContext } from 'contexts/article/ArticleContext'
 
 export default function useTableOfContentsObserver() {
   const { activateTarget } = useContext(ArticleContext)

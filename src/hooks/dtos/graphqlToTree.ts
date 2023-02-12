@@ -1,4 +1,4 @@
-import { CategoryTree } from '../CategoryTree'
+import { CategoryTree } from '../../datastructures/category/CategoryTree'
 import { GroupByNode } from 'types/mdx-types'
 
 export const graphqlToTree = (results: GroupByNode[]) => {

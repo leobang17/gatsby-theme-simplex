@@ -1,8 +1,9 @@
+import React from 'react'
+import { graphql } from 'gatsby'
+
 import ArticleLayout from 'components/Layout/ArticleLayout'
 import MarkdownWrapper from 'components/MarkdownWrapper'
 import ArticleContextProvider from 'contexts/article/ArticleContextProvider'
-import { graphql } from 'gatsby'
-import React from 'react'
 
 // @ts-ignore
 const ArticlePage = ({ data, children }) => {

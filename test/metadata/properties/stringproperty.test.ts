@@ -1,4 +1,4 @@
-import StringProperty from '../../../src/utils/metadata/properties/StringProperty'
+import StringProperty from 'datastructures/metadata/properties/StringProperty'
 
 test('StringProperty.isValid - 실패 (빈 문자열)', () => {
   const value = ''

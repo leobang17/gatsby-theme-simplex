@@ -1,4 +1,4 @@
-import EmailProperty from '../../../src/utils/metadata/properties/EmailProperty'
+import EmailProperty from 'datastructures/metadata/properties/EmailProperty'
 
 test('isValid - 실패 (@ 없음)', () => {
   const email = new EmailProperty('bluke8489gmail.com')
