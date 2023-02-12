@@ -1,7 +1,8 @@
-import ArticleBox from 'components/ArticleBox'
-import Layout from 'components/Layout'
 import { graphql, PageProps } from 'gatsby'
 import React, { FC } from 'react'
+
+import ArticleBox from 'components/ArticleBox'
+import Layout from 'components/Layout'
 import { AllMdxQuery, MdxNode } from '../@types/mdx-types'
 
 export type CategoryPageContext = {

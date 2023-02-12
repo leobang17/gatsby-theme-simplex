@@ -1,12 +1,13 @@
 /** @jsx jsx */
 
 import { FC } from 'react'
+import styled from '@emotion/styled'
+import { css, jsx } from '@emotion/react'
+
 import Footer from 'components/Footer'
 import Nav from 'components/Nav'
-import styled from '@emotion/styled'
 import LeftStack from 'components/LeftStack'
 import RightStack from 'components/RightStack'
-import { css, jsx } from '@emotion/react'
 import { ChildrenProps } from 'types/react-types'
 
 type LayoutProps = {

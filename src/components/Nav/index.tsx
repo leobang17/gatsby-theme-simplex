@@ -1,12 +1,14 @@
 /** @jsx jsx */
 
 import { FC } from 'react'
+import { css, jsx } from '@emotion/react'
+
 import { fetchBlogDetail } from 'hooks/StaticQueries'
+import { mq, NAV_HEIGHT_REM } from 'styles/Responsive'
+import Mapper from 'utils/Mapper'
+
 import TitleCell from './cells/Title'
 import GithubCell from './cells/Github'
-import { css, jsx } from '@emotion/react'
-import { mq, NAV_HEIGHT_REM } from '../../styles/Responsive'
-import Mapper from 'utils/Mapper'
 
 const navcss = css(
   mq({

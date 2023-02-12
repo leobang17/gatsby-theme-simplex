@@ -2,6 +2,7 @@
 
 import { css, jsx } from '@emotion/react'
 import { FC } from 'react'
+
 import { sidestack_mq } from 'styles/Responsive'
 
 type RightStackProps = {

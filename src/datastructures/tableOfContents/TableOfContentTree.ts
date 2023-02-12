@@ -1,4 +1,4 @@
-import { MdxTableOfContent } from '../../@types/mdx-types'
+import { MdxTableOfContent } from 'types/mdx-types'
 import TableNode from './TableNode'
 
 export default class TableOfContentTree {

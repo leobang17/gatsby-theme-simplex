@@ -1,8 +1,10 @@
 import { FC, useState } from 'react'
+
 import { MdxField, MdxFrontmatter, MdxTableOfContent } from 'types/mdx-types'
 import { ChildrenProps } from 'types/react-types'
-import { ArticleContext } from './ArticleContext'
 import TableOfContentTree from 'datastructures/tableOfContents/TableOfContentTree'
+
+import { ArticleContext } from './ArticleContext'
 
 type ArticlePageQueryType = {
   mdx: {
