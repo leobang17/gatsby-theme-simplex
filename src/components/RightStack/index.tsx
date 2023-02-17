@@ -17,7 +17,7 @@ const style = css(
 )
 
 const RightStack: FC<RightStackProps> = ({ stack }) => {
-  return <div css={style}>{stack ?? 'Default Right Stack'}</div>
+  return <div css={style}>{stack ?? null}</div>
 }
 
 export default RightStack

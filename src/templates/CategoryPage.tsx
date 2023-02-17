@@ -2,8 +2,8 @@ import { graphql, PageProps } from 'gatsby'
 import React, { FC } from 'react'
 
 import ArticleBox from 'components/ArticleBox'
-import Layout from 'components/Layout'
-import { AllMdxQuery, MdxNode } from '../@types/mdx-types'
+import { AllMdxQuery, MdxNode } from 'types/mdx-types'
+import CategoryLayout from 'components/Layout/CategoryLayout'
 
 export type CategoryPageContext = {
   major?: string
@@ -17,11 +17,11 @@ const CategoryPage: FC<PageProps<AllMdxQuery, CategoryPageContext>> = ({
   const articles = filterArticleByCategories(data.allMdx.nodes, pageContext)
 
   return (
-    <Layout>
+    <CategoryLayout>
       {articles.map(article => {
         return <ArticleBox {...article} />
       })}
-    </Layout>
+    </CategoryLayout>
   )
 }
 
