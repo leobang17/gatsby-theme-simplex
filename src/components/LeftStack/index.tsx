@@ -2,15 +2,14 @@
 
 import { FC } from 'react'
 import { css, jsx } from '@emotion/react'
-
-import { sidestack_mq } from 'styles/Responsive'
+import { l_mq } from 'styles/facepaint'
 
 type LeftStackProps = {
   stack?: JSX.Element
 }
 
 const style = css(
-  sidestack_mq({
+  l_mq({
     width: '256px',
     display: ['none', 'block'],
   }),
