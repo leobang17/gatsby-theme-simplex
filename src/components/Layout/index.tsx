@@ -16,29 +16,35 @@ type LayoutProps = {
 } & ChildrenProps
 
 const LayoutWrapper = styled.div`
-  max-width: 1440px;
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
-const VStack = styled.div`
+const HStack = styled.div`
   display: flex;
+  max-width: 1440px;
   flex-direction: row;
   justify-content: space-between;
+  flex: 1;
 `
 
-const style = css({
-  maxWidth: '770px',
-})
+const style = css`
+  max-width: 770px;
+  margin-inline: 20px;
+`
 
 const Layout: FC<LayoutProps> = ({ children, leftStack, rightStack }) => {
   return (
     <LayoutWrapper>
       <Nav />
-      <VStack>
+      <HStack>
         <LeftStack stack={leftStack} />
         <div css={style}>{children}</div>
         <RightStack stack={rightStack} />
-      </VStack>
-
+      </HStack>
       <Footer />
     </LayoutWrapper>
   )
