@@ -9,7 +9,7 @@ import { GRAY } from 'styles/Color'
 import ArticleBoxCategoryLink from './ArticleBoxCategoryLink'
 
 const style = css`
-  width: 600px;
+  /* width: 600px; */
   margin: 3rem 0 3rem 0;
 `
 

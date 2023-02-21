@@ -2,22 +2,21 @@
 
 import { css, jsx } from '@emotion/react'
 import { FC } from 'react'
-
-import { sidestack_mq } from 'styles/Responsive'
+import { l_mq } from 'styles/facepaint'
 
 type RightStackProps = {
   stack?: JSX.Element
 }
 
 const style = css(
-  sidestack_mq({
+  l_mq({
     width: '256px',
     display: ['none', 'flex'],
   }),
 )
 
 const RightStack: FC<RightStackProps> = ({ stack }) => {
-  return <div css={style}>{stack ?? 'Default Right Stack'}</div>
+  return <div css={style}>{stack ?? null}</div>
 }
 
 export default RightStack

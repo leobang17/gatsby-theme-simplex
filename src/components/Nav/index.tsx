@@ -4,22 +4,27 @@ import { FC } from 'react'
 import { css, jsx } from '@emotion/react'
 
 import { fetchBlogDetail } from 'hooks/StaticQueries'
-import { mq, NAV_HEIGHT_REM } from 'styles/Responsive'
-import Mapper from 'utils/Mapper'
+import RESPONSIVE from 'styles/responsive'
+import { mq, s_mq } from 'styles/facepaint'
 
 import TitleCell from './cells/Title'
 import GithubCell from './cells/Github'
+import { BORDER_MUSK } from 'styles/Color'
 
 const navcss = css(
-  mq({
+  {
+    width: '100vw',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    height: NAV_HEIGHT_REM,
-    maxHeight: NAV_HEIGHT_REM,
-    padding: Mapper.mapRemFlatten([0, 6, 0, 6]),
-    borderBottom: '1px solid #ECECEF',
+    borderBottom: `1px solid ${BORDER_MUSK}`,
+  },
+  mq({
+    height: RESPONSIVE.NAV.HEIGHT,
+    maxHeight: RESPONSIVE.NAV.HEIGHT,
+  }),
+  s_mq({
+    justifyContent: ['center', 'space-between'],
   }),
 )
 

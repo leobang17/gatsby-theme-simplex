@@ -2,29 +2,21 @@
 
 import { FC } from 'react'
 import { css, jsx } from '@emotion/react'
-
-import Bio from 'components/Bio'
-import Categories from 'components/Categories'
-import { sidestack_mq } from 'styles/Responsive'
+import { l_mq } from 'styles/facepaint'
 
 type LeftStackProps = {
   stack?: JSX.Element
 }
 
 const style = css(
-  sidestack_mq({
+  l_mq({
     width: '256px',
     display: ['none', 'block'],
   }),
 )
 
 const LeftStack: FC<LeftStackProps> = ({ stack }) => {
-  return (
-    <div css={style}>
-      <Bio />
-      <Categories />
-    </div>
-  )
+  return <div css={style}>{stack ?? null}</div>
 }
 
 export default LeftStack

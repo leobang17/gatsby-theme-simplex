@@ -1,34 +1,34 @@
 import { ConfigProperty } from 'datastructures/metadata/properties/abstracts/ConfigProperty'
 
 export type SiteMetadata = {
-  blogDetail: BlogDetail
-  bio: Bio
-  social: Social
+  blogDetail: Readonly<BlogDetail>
+  bio: Readonly<Bio>
+  social: Readonly<Social>
 }
 
 export type BlogDetail = {
-  title: string // REQUIRED
-  description: string // REQUIRED
-  siteUrl: string
-  githubUsername: string
+  title: readonly string // REQUIRED
+  description: readonly string // REQUIRED
+  siteUrl: readonly string
+  githubUsername: readonly string
 }
 
 export type Bio = {
-  name: string // REQUIRED
-  thumbnail: string
-  introduction: string // REQUIRED
-  email: string // REQUIRED
-  website: string
-  location: string
-  company: string
+  name: readonly string // REQUIRED
+  thumbnail: readonly string
+  introduction: readonly string // REQUIRED
+  email: readonly string // REQUIRED
+  website: readonly string
+  location: readonly string
+  company: readonly string
 }
 
 export type Social = {
-  github: string
-  instagram: string
-  facebook: string
-  linkedin: string
-  twitter: string
+  github: readonly string
+  instagram: readonly string
+  facebook: readonly string
+  linkedin: readonly string
+  twitter: readonly string
 }
 
 export type SiteMetadataProperty = {

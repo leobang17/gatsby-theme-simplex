@@ -1,12 +1,24 @@
-import facepaint from 'facepaint'
 import Mapper from '../utils/Mapper'
+import { ResponsiveStyles } from 'types/style-types'
 
-const SIDE_STACK_BP: Readonly<number[]> = [1300]
-const BREAKPOINTS: Readonly<number[]> = [576, 768, 992, 1200]
-const NAV_HEIGHT: Readonly<number[]> = [3, 3.5, 3.5, 4]
+/**
+ * @BreakPoints
+ *      ~ 576           // 모바일 (Mobile)
+ *
+ * 576  ~ 769           // 작은 태블릿 (Tablet - small)
+ *
+ * 768  ~ 1200          // 큰 태블릿 (Tablet - large)
+ *
+ * 1200 ~               // 데스크탑 (Desktop)
+ */
 
-export const NAV_HEIGHT_REM = Mapper.mapRem(NAV_HEIGHT)
+const responsive: ResponsiveStyles = {
+  NAV: {
+    HEIGHT: Mapper.mapRem([3, 3.5, 3.5, 4]),
+  },
+  SIDE_STACK: {
+    DISPLAY: ['none', 'flex'],
+  },
+}
 
-export const mq = facepaint(Mapper.mapMediaQuery(BREAKPOINTS))
-
-export const sidestack_mq = facepaint(Mapper.mapMediaQuery(SIDE_STACK_BP))
+export default responsive
