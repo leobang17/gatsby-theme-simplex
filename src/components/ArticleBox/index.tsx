@@ -8,6 +8,7 @@ import { MdxNode } from 'types/mdx-types'
 import { GRAY } from 'styles/Color'
 import ArticleBoxTitle from './ArticleBoxTitle'
 import ArticleBoxCategoryLink from './ArticleBoxCategoryLink'
+import CategoryStrings from 'datastructures/category/CategoryStrings'
 
 const style = css`
   /* width: 600px; */
@@ -27,7 +28,9 @@ const ArticleBox: FC<MdxNode> = ({
 }) => {
   return (
     <div css={style}>
-      <ArticleBoxCategoryLink categoryDirectory={categoryDirectory} />
+      <ArticleBoxCategoryLink
+        categoryString={CategoryStrings.initialize(categoryDirectory)}
+      />
       <ArticleBoxTitle slug={slug} title={title} />
       <div>{excerpt}</div>
       <CreatedAt>{createdAt}</CreatedAt>

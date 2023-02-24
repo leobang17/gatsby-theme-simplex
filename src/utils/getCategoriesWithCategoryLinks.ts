@@ -1,12 +1,12 @@
-import parseCategory from './nodeApi/parseCategory'
+import CategoryStrings from 'datastructures/category/CategoryStrings'
 import { slugify } from './slug'
 
-export default function getCategoriesWidhCategoryLinks(
-  categoryDirectory: string,
+export default function getCategoriesWithCategoryLinks(
+  categoryString: CategoryStrings,
 ): Array<[string, string]> {
-  const categories = parseCategory(categoryDirectory)
-  const categoryWithCategoryLinks =
-    createCategoriesWithCategoryLinks(categories)
+  const categoryWithCategoryLinks = createCategoriesWithCategoryLinks(
+    categoryString.categories,
+  )
 
   return categoryWithCategoryLinks
 }

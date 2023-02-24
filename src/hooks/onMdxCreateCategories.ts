@@ -3,8 +3,8 @@ import { CreateNode, GraphQLNode } from '../@types/nodeapi-types'
 import { CreateNodeArgs } from 'gatsby'
 import { createFilePath } from 'gatsby-source-filesystem'
 
-import createCategoryDirectory from '../utils/nodeApi/createCategoryDirectory'
 import { appendNewNode } from '../utils/nodeApi/appendNode'
+import CategoryStrings from '../datastructures/category/CategoryStrings'
 
 type CreateCategoriesArgs = Pick<CreateNodeArgs, 'node' | 'actions' | 'getNode'>
 
@@ -16,8 +16,8 @@ export default function onMdxCreateCategories(args: CreateCategoriesArgs) {
 
   if (isMdx(node)) {
     const path = createFilePath({ node, getNode, trailingSlash: false })
-    const categoryDirectory = createCategoryDirectory(path)
-    createCategoryNode(node, createNode, categoryDirectory)
+    const categoryStrings = CategoryStrings.initializeWithFilePath(path)
+    createCategoryNode(node, createNode, categoryStrings.categoryDirectory)
   }
 }
 
