@@ -1,16 +1,16 @@
 import { MdxNode } from 'types/mdx-types'
-import { CategoryPageContext } from 'templates/CategoryPage'
+import CategoryStrings from 'datastructures/category/CategoryStrings'
 
 export default function filterArticleByCategories(
   nodes: MdxNode[],
-  pageContext: CategoryPageContext,
+  categoryString: CategoryStrings,
 ) {
-  const { rawSlug } = pageContext
-  return nodes.filter(node =>
-    isParentDirectory(rawSlug, node.fields.categoryDirectory),
-  )
+  return nodes.filter(node => isSubDirectory(node, categoryString))
 }
 
-function isParentDirectory(parentDir: string, childDir: string) {
-  return childDir.startsWith(parentDir)
+function isSubDirectory(node: MdxNode, categoryString: CategoryStrings) {
+  const iteratingCategory = CategoryStrings.initialize(
+    node.fields.categoryDirectory,
+  )
+  return categoryString.isParentOf(iteratingCategory)
 }

@@ -1,10 +1,11 @@
 import { CreateNodeArgs, Node } from 'gatsby'
 import { createFilePath } from 'gatsby-source-filesystem'
+
 import { MdxNode } from '../@types/mdx-types'
 import { CreateNodeField, GraphQLNode } from '../@types/nodeapi-types'
+import CategoryStrings from '../datastructures/category/CategoryStrings'
 import * as appendNode from '../utils/nodeApi/appendNode'
-import createCategoryDirectory from '../utils/nodeApi/createCategoryDirectory'
-import { slugifyFilepath } from '../utils/slug'
+import { slugify } from '../utils/slug'
 
 type CreateCategoriesArgs = Pick<CreateNodeArgs, 'node' | 'actions' | 'getNode'>
 
@@ -13,11 +14,15 @@ export default function onMdxAppendFields(args: CreateCategoriesArgs) {
   const { createNodeField } = actions
   if (isMdx(node)) {
     const path = createFilePath({ node, getNode })
-    const categoryDirectory = createCategoryDirectory(path)
-    const slug = buildSlug(node, categoryDirectory)
+    const categoryString = CategoryStrings.initializeWithFilePath(path)
+    const articleSlug = buildArticleSlug(node, categoryString)
 
-    appendSlugField(createNodeField, node, slug)
-    appendCategoryDirectoryField(createNodeField, node, categoryDirectory)
+    appendSlugField(createNodeField, node, articleSlug)
+    appendCategoryDirectoryField(
+      createNodeField,
+      node,
+      categoryString.categoryDirectory,
+    )
   }
 }
 
@@ -25,11 +30,10 @@ function isMdx(node: GraphQLNode): boolean {
   return node.internal.type === 'Mdx'
 }
 
-function buildSlug(node: Node, categoryDirectory: string) {
+function buildArticleSlug(node: Node, categoryString: CategoryStrings) {
   escapeIfNotMdx(node)
   const mdxNode = node as MdxNode
-  const rawSlugPath = categoryDirectory + '/' + mdxNode.frontmatter.title
-  return slugifyFilepath(rawSlugPath)
+  return categoryString.slug + slugify(mdxNode.frontmatter.title)
 }
 
 function escapeIfNotMdx(node: Node) {
@@ -45,7 +49,7 @@ function appendSlugField(
 ) {
   appendNode.appendNodeField(createNodeField, node, {
     key: 'slug',
-    value: slugifyFilepath(slug),
+    value: slug,
   })
 }
 

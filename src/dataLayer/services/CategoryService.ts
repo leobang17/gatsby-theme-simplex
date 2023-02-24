@@ -1,7 +1,7 @@
 import { CategoryTree } from '../../datastructures/category/CategoryTree'
 import { GroupByNode } from '../../@types/mdx-types'
 import CategoryQueryService from './CategoryQueryService'
-import parseCategory from '../../utils/nodeApi/parseCategory'
+import CategoryStrings from '../../datastructures/category/CategoryStrings'
 
 class CategoryService {
   constructor(private categoryQueryService: CategoryQueryService) {}
@@ -23,9 +23,9 @@ class CategoryService {
     const categoryTree = new CategoryTree()
 
     categoryNodes.forEach(node => {
-      const parsedCategories = parseCategory(node.fieldValue)
+      const categoryString = CategoryStrings.initialize(node.fieldValue)
       const count = node.totalCount
-      categoryTree.append(parsedCategories, count)
+      categoryTree.append(categoryString.categories, count)
     })
 
     return categoryTree

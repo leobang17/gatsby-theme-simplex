@@ -1,12 +1,13 @@
 /** @jsx jsx */
 
 import { css, jsx } from '@emotion/react'
+import CategoryStrings from 'datastructures/category/CategoryStrings'
 import { Link } from 'gatsby'
 import { FC } from 'react'
 import getCategoriesWithCategoryLinks from 'utils/getCategoriesWithCategoryLinks'
 
 type ArticleCategoryLinkProps = {
-  categoryDirectory: string
+  categoryString: CategoryStrings
 }
 
 const style = css`
@@ -17,10 +18,10 @@ const style = css`
 `
 
 const ArticleBoxCategoryLink: FC<ArticleCategoryLinkProps> = ({
-  categoryDirectory,
+  categoryString,
 }) => {
   const categoriesWithCategoryLinks =
-    getCategoriesWithCategoryLinks(categoryDirectory)
+    getCategoriesWithCategoryLinks(categoryString)
 
   return (
     <div css={style}>

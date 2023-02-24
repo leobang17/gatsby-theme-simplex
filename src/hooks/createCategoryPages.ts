@@ -27,7 +27,7 @@ const createPageRecur = (
   category: CategoryTreeObject,
 ) => {
   const context: CategoryPageContext = {
-    rawSlug: category.rawSlug,
+    categoryDirectory: category.categoryDirectory,
   }
   createPage({
     path: 'posts' + category.slug,

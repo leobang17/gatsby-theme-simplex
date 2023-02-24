@@ -5,16 +5,18 @@ import ArticleBox from 'components/ArticleBox'
 import { AllMdxQuery } from 'types/mdx-types'
 import CategoryLayout from 'components/Layout/CategoryLayout'
 import filterArticleByCategories from 'utils/pageApi/filterArticleByCategories'
+import CategoryStrings from 'datastructures/category/CategoryStrings'
 
 export type CategoryPageContext = {
-  rawSlug: string
+  categoryDirectory: string
 }
 
 const CategoryPage: FC<PageProps<AllMdxQuery, CategoryPageContext>> = ({
   data,
-  pageContext,
+  pageContext: { categoryDirectory },
 }) => {
-  const articles = filterArticleByCategories(data.allMdx.nodes, pageContext)
+  const categoryString = CategoryStrings.initialize(categoryDirectory)
+  const articles = filterArticleByCategories(data.allMdx.nodes, categoryString)
 
   return (
     <CategoryLayout>

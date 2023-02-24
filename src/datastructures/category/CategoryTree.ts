@@ -1,11 +1,11 @@
-import { slugify } from '../../utils/slug'
 import { CATEGORY_THRESHOLD } from '../../constants/CategoryConsts'
+import CategoryStrings from './CategoryStrings'
 
 export type CategoryTreeObject = {
   name: string
   count: number
+  categoryDirectory: string
   slug: string
-  rawSlug: string
   sub: CategoryTreeObject[]
 }
 
@@ -30,16 +30,15 @@ class CategoryNode {
   private static readonly MAX_DEPTH = CATEGORY_THRESHOLD
   private count: number = 0
   readonly subCategories: Map<string, CategoryNode> = new Map()
-  readonly slug: string
-  readonly rawSlug: string
+  readonly categoryString: CategoryStrings
 
   constructor(
     readonly name: string,
     readonly nodeDepth: number = 0,
     readonly parent?: CategoryNode,
   ) {
-    this.slug = this.parent ? this.createSlug() : ''
-    this.rawSlug = this.parent ? this.createRawSlug() : ''
+    const categoryDirectory = this.constructCategoryDirectory()
+    this.categoryString = CategoryStrings.initialize(categoryDirectory)
   }
 
   add(categories: string[], count: number) {
@@ -65,8 +64,8 @@ class CategoryNode {
     return {
       name: this.name,
       count: this.count,
-      slug: this.slug,
-      rawSlug: this.rawSlug,
+      slug: this.categoryString.slug,
+      categoryDirectory: this.categoryString.categoryDirectory,
       sub: [],
     }
   }
@@ -86,12 +85,11 @@ class CategoryNode {
     this.subCategories.set(name, subNode)
   }
 
-  private createSlug() {
-    return this.parent!.slug + '/' + slugify(this.name)
-  }
-
-  private createRawSlug() {
-    return this.parent!.rawSlug + '/' + this.name
+  private constructCategoryDirectory() {
+    if (this.parent) {
+      return this.parent.categoryString.categoryDirectory + this.name
+    }
+    return ''
   }
 
   private isEmpty(arr: Array<unknown>) {
