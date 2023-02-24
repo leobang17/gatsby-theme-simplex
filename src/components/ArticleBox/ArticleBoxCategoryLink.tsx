@@ -3,10 +3,10 @@
 import { css, jsx } from '@emotion/react'
 import { Link } from 'gatsby'
 import { FC } from 'react'
+import getCategoriesWithCategoryLinks from 'utils/getCategoriesWithCategoryLinks'
 
 type ArticleCategoryLinkProps = {
-  major?: string
-  minor?: string
+  categoryDirectory: string
 }
 
 const style = css`
@@ -17,25 +17,23 @@ const style = css`
 `
 
 const ArticleBoxCategoryLink: FC<ArticleCategoryLinkProps> = ({
-  major,
-  minor,
+  categoryDirectory,
 }) => {
+  const categoriesWithCategoryLinks =
+    getCategoriesWithCategoryLinks(categoryDirectory)
+
   return (
     <div css={style}>
       <Link to="/posts">total</Link>
-      {major ? (
-        <text>
-          {' > '}
-          <Link to={`/posts/${major}`}>{major}</Link>
-        </text>
-      ) : null}
-
-      {minor ? (
-        <text>
-          {' > '}
-          <Link to={`/posts/${major}/${minor}`}>{minor} </Link>
-        </text>
-      ) : null}
+      {categoriesWithCategoryLinks.map(categoryWithCategoryLink => {
+        const [category, categoryLink] = categoryWithCategoryLink
+        return (
+          <text>
+            {' > '}
+            <Link to={`/posts${categoryLink}`}>{category}</Link>
+          </text>
+        )
+      })}
     </div>
   )
 }

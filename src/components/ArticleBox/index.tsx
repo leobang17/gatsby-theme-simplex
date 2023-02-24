@@ -3,9 +3,10 @@
 import { css, jsx } from '@emotion/react'
 import styled from '@emotion/styled'
 import { FC } from 'react'
+
 import { MdxNode } from 'types/mdx-types'
-import ArticleBoxTitle from './ArticleBoxTitle'
 import { GRAY } from 'styles/Color'
+import ArticleBoxTitle from './ArticleBoxTitle'
 import ArticleBoxCategoryLink from './ArticleBoxCategoryLink'
 
 const style = css`
@@ -20,13 +21,13 @@ const CreatedAt = styled.div`
 `
 
 const ArticleBox: FC<MdxNode> = ({
-  fields: { slug, category },
+  fields: { slug, categoryDirectory },
   frontmatter: { title, createdAt },
   excerpt,
 }) => {
   return (
     <div css={style}>
-      <ArticleBoxCategoryLink {...category} />
+      <ArticleBoxCategoryLink categoryDirectory={categoryDirectory} />
       <ArticleBoxTitle slug={slug} title={title} />
       <div>{excerpt}</div>
       <CreatedAt>{createdAt}</CreatedAt>
