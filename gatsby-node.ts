@@ -8,8 +8,9 @@ import { GatsbyNode } from 'gatsby'
 import path from 'path'
 import { createArticlePages } from './src/hooks/createArticlePages'
 
-import { onMdxCreateCategories } from './src/hooks/createCategories'
 import { createCategoryPages } from './src/hooks/createCategoryPages'
+import onMdxAppendFields from './src/hooks/onMdxAppendFields'
+import onMdxCreateCategories from './src/hooks/onMdxCreateCategories'
 
 // Setup Import Alias
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
@@ -41,6 +42,7 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({
   getNode,
   actions,
 }) => {
+  onMdxAppendFields({ node, getNode, actions })
   onMdxCreateCategories({ node, getNode, actions })
 }
 
