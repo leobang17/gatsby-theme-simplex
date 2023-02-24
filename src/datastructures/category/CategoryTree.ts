@@ -1,10 +1,11 @@
-import { GroupByNode } from 'types/mdx-types'
-import { slugToCategory } from '../../utils/slug'
+import { slugify } from '../../utils/slug'
+import { CATEGORY_THRESHOLD } from '../../constants/CategoryConsts'
 
 export type CategoryTreeObject = {
   name: string
   count: number
   slug: string
+  rawSlug: string
   sub: CategoryTreeObject[]
 }
 
@@ -16,10 +17,8 @@ export class CategoryTree {
     this.root = new CategoryNode(CategoryTree.ROOT_NODE_NAME)
   }
 
-  append(category: GroupByNode) {
-    const { fieldValue, totalCount } = category
-    const categories = slugToCategory(fieldValue)
-    this.root.add(categories, totalCount)
+  append(categories: string[], count: number) {
+    this.root.add(categories, count)
   }
 
   toObject() {
@@ -28,10 +27,11 @@ export class CategoryTree {
 }
 
 class CategoryNode {
-  private static readonly MAX_DEPTH = 2
+  private static readonly MAX_DEPTH = CATEGORY_THRESHOLD
   private count: number = 0
   readonly subCategories: Map<string, CategoryNode> = new Map()
   readonly slug: string
+  readonly rawSlug: string
 
   constructor(
     readonly name: string,
@@ -39,6 +39,7 @@ class CategoryNode {
     readonly parent?: CategoryNode,
   ) {
     this.slug = this.parent ? this.createSlug() : ''
+    this.rawSlug = this.parent ? this.createRawSlug() : ''
   }
 
   add(categories: string[], count: number) {
@@ -65,6 +66,7 @@ class CategoryNode {
       name: this.name,
       count: this.count,
       slug: this.slug,
+      rawSlug: this.rawSlug,
       sub: [],
     }
   }
@@ -85,7 +87,11 @@ class CategoryNode {
   }
 
   private createSlug() {
-    return this.parent!.slug + '/' + this.name
+    return this.parent!.slug + '/' + slugify(this.name)
+  }
+
+  private createRawSlug() {
+    return this.parent!.rawSlug + '/' + this.name
   }
 
   private isEmpty(arr: Array<unknown>) {

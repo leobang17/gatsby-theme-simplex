@@ -9,6 +9,7 @@ import Nav from 'components/Nav'
 import LeftStack from 'components/LeftStack'
 import RightStack from 'components/RightStack'
 import { ChildrenProps } from 'types/react-types'
+import CategoryContextProvider from 'contexts/category/CategoryContextProvider'
 
 type LayoutProps = {
   leftStack?: JSX.Element
@@ -38,15 +39,17 @@ const style = css`
 
 const Layout: FC<LayoutProps> = ({ children, leftStack, rightStack }) => {
   return (
-    <LayoutWrapper>
-      <Nav />
-      <HStack>
-        <LeftStack stack={leftStack} />
-        <div css={style}>{children}</div>
-        <RightStack stack={rightStack} />
-      </HStack>
-      <Footer />
-    </LayoutWrapper>
+    <CategoryContextProvider>
+      <LayoutWrapper>
+        <Nav />
+        <HStack>
+          <LeftStack stack={leftStack} />
+          <div css={style}>{children}</div>
+          <RightStack stack={rightStack} />
+        </HStack>
+        <Footer />
+      </LayoutWrapper>
+    </CategoryContextProvider>
   )
 }
 

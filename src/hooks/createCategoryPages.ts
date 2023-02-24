@@ -1,11 +1,10 @@
 import { resolve } from 'path'
 import { Actions } from 'gatsby'
+
 import { CreatePage, PageGraphQL } from '../@types/nodeapi-types'
 import { CategoryTreeObject } from '../datastructures/category/CategoryTree'
-import { graphqlToTree } from './dtos/graphqlToTree'
-import { slugToCategory } from '../utils/slug'
 import { CategoryPageContext } from '../templates/CategoryPage'
-import { AllMdxGroupByQuery } from '../@types/mdx-types'
+import DataLayer from '../dataLayer/DataLayer'
 
 export type CreatePagesArgs = {
   actions: Actions
@@ -18,37 +17,17 @@ export const createCategoryPages = async (args: CreatePagesArgs) => {
     graphql,
   } = args
 
-  const results = await getCategoryGroupbySlugPage(graphql)
-  const categoryObject = graphqlToTree(results).toObject()
+  const api = DataLayer.singleton(graphql).API
+  const categoryObject = (await api.getCategoryTree()).toObject()
   createPageRecur(createPage, categoryObject)
-}
-
-const getCategoryGroupbySlugPage = async (graphql: PageGraphQL) => {
-  const results = await mdxGroupBySlugQuery(graphql)
-  return results.data.allMdx.group
-}
-
-const mdxGroupBySlugQuery = async (graphql: PageGraphQL) => {
-  return (await graphql(`
-    query mdxGroupBySlug {
-      allMdx(sort: { fields: { category: { slug: ASC } } }) {
-        group(field: { fields: { category: { slug: SELECT } } }) {
-          fieldValue
-          totalCount
-        }
-      }
-    }
-  `)) as { data: AllMdxGroupByQuery }
 }
 
 const createPageRecur = (
   createPage: CreatePage,
   category: CategoryTreeObject,
 ) => {
-  const [major, minor] = slugToCategory(category.slug)
   const context: CategoryPageContext = {
-    major,
-    minor,
+    rawSlug: category.rawSlug,
   }
   createPage({
     path: 'posts' + category.slug,

@@ -49,35 +49,11 @@ type BooleanQueryOperatorInput = {
 };
 
 type Category = Node & {
-  readonly category: Maybe<CategoryCategory>;
+  readonly categoryDirectory: Maybe<Scalars['String']>;
   readonly children: ReadonlyArray<Node>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly parent: Maybe<Node>;
-};
-
-type CategoryCategory = {
-  readonly major: Maybe<Scalars['String']>;
-  readonly minor: Maybe<Scalars['String']>;
-  readonly slug: Maybe<Scalars['String']>;
-};
-
-type CategoryCategoryFieldSelector = {
-  readonly major: InputMaybe<FieldSelectorEnum>;
-  readonly minor: InputMaybe<FieldSelectorEnum>;
-  readonly slug: InputMaybe<FieldSelectorEnum>;
-};
-
-type CategoryCategoryFilterInput = {
-  readonly major: InputMaybe<StringQueryOperatorInput>;
-  readonly minor: InputMaybe<StringQueryOperatorInput>;
-  readonly slug: InputMaybe<StringQueryOperatorInput>;
-};
-
-type CategoryCategorySortInput = {
-  readonly major: InputMaybe<SortOrderEnum>;
-  readonly minor: InputMaybe<SortOrderEnum>;
-  readonly slug: InputMaybe<SortOrderEnum>;
 };
 
 type CategoryConnection = {
@@ -126,7 +102,7 @@ type CategoryEdge = {
 };
 
 type CategoryFieldSelector = {
-  readonly category: InputMaybe<CategoryCategoryFieldSelector>;
+  readonly categoryDirectory: InputMaybe<FieldSelectorEnum>;
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
@@ -134,7 +110,7 @@ type CategoryFieldSelector = {
 };
 
 type CategoryFilterInput = {
-  readonly category: InputMaybe<CategoryCategoryFilterInput>;
+  readonly categoryDirectory: InputMaybe<StringQueryOperatorInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
@@ -183,7 +159,7 @@ type CategoryGroupConnection_sumArgs = {
 };
 
 type CategorySortInput = {
-  readonly category: InputMaybe<CategoryCategorySortInput>;
+  readonly categoryDirectory: InputMaybe<SortOrderEnum>;
   readonly children: InputMaybe<NodeSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
@@ -1467,46 +1443,22 @@ type MdxFieldSelector = {
 };
 
 type MdxFields = {
-  readonly category: Maybe<MdxFieldsCategory>;
+  readonly categoryDirectory: Maybe<Scalars['String']>;
   readonly slug: Maybe<Scalars['String']>;
-};
-
-type MdxFieldsCategory = {
-  readonly major: Maybe<Scalars['String']>;
-  readonly minor: Maybe<Scalars['String']>;
-  readonly slug: Maybe<Scalars['String']>;
-};
-
-type MdxFieldsCategoryFieldSelector = {
-  readonly major: InputMaybe<FieldSelectorEnum>;
-  readonly minor: InputMaybe<FieldSelectorEnum>;
-  readonly slug: InputMaybe<FieldSelectorEnum>;
-};
-
-type MdxFieldsCategoryFilterInput = {
-  readonly major: InputMaybe<StringQueryOperatorInput>;
-  readonly minor: InputMaybe<StringQueryOperatorInput>;
-  readonly slug: InputMaybe<StringQueryOperatorInput>;
-};
-
-type MdxFieldsCategorySortInput = {
-  readonly major: InputMaybe<SortOrderEnum>;
-  readonly minor: InputMaybe<SortOrderEnum>;
-  readonly slug: InputMaybe<SortOrderEnum>;
 };
 
 type MdxFieldsFieldSelector = {
-  readonly category: InputMaybe<MdxFieldsCategoryFieldSelector>;
+  readonly categoryDirectory: InputMaybe<FieldSelectorEnum>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
 };
 
 type MdxFieldsFilterInput = {
-  readonly category: InputMaybe<MdxFieldsCategoryFilterInput>;
+  readonly categoryDirectory: InputMaybe<StringQueryOperatorInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
 };
 
 type MdxFieldsSortInput = {
-  readonly category: InputMaybe<MdxFieldsCategorySortInput>;
+  readonly categoryDirectory: InputMaybe<SortOrderEnum>;
   readonly slug: InputMaybe<SortOrderEnum>;
 };
 
@@ -1800,7 +1752,7 @@ type Query_allSitePluginArgs = {
 
 
 type Query_categoryArgs = {
-  category: InputMaybe<CategoryCategoryFilterInput>;
+  categoryDirectory: InputMaybe<StringQueryOperatorInput>;
   children: InputMaybe<NodeFilterListInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
@@ -2894,7 +2846,7 @@ type WebPOptions = {
 type allMdxQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type allMdxQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly excerpt: string | null, readonly fields: { readonly slug: string | null, readonly category: { readonly major: string | null, readonly minor: string | null, readonly slug: string | null } | null } | null, readonly frontmatter: { readonly createdAt: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly title: string | null, readonly updatedAt: string | null } | null }> } };
+type allMdxQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly excerpt: string | null, readonly fields: { readonly slug: string | null, readonly categoryDirectory: string | null } | null, readonly frontmatter: { readonly createdAt: string | null, readonly slug: string | null, readonly tags: ReadonlyArray<string | null> | null, readonly title: string | null, readonly updatedAt: string | null } | null }> } };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
@@ -2925,7 +2877,7 @@ type GatsbyImageSharpFluidLimitPresentationSizeFragment = { readonly maxHeight: 
 type mdxGroupBySlugQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type mdxGroupBySlugQuery = { readonly allMdx: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> } };
+type mdxGroupBySlugQuery = { readonly allCategory: { readonly group: ReadonlyArray<{ readonly fieldValue: string | null, readonly totalCount: number }> } };
 
 type SiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 

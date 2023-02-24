@@ -30,11 +30,6 @@ const getAllMdx = async (graphql: PageGraphQL) => {
           id
           fields {
             slug
-            category {
-              major
-              minor
-              slug
-            }
           }
           frontmatter {
             createdAt(formatString: "MMM DD YYYY")

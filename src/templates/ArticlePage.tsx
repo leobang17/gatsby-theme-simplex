@@ -29,11 +29,6 @@ export const query = graphql`
       body
       excerpt
       fields {
-        category {
-          major
-          minor
-          slug
-        }
         slug
       }
       frontmatter {

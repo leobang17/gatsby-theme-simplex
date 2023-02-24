@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 
-import { getCategoryTree } from 'hooks/categoryQueries'
 import CategoryCell from './cells/CategoryCell'
+import { CategoryContext } from 'contexts/category/CategoryContext'
 
 const Categories = () => {
-  const root = getCategoryTree()
+  const { categoryTree } = useContext(CategoryContext)
+
   return (
     <div>
-      <CategoryCell category={root} />
+      <CategoryCell category={categoryTree.toObject()} />
     </div>
   )
 }

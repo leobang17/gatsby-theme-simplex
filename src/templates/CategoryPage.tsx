@@ -2,12 +2,12 @@ import { graphql, PageProps } from 'gatsby'
 import React, { FC } from 'react'
 
 import ArticleBox from 'components/ArticleBox'
-import { AllMdxQuery, MdxNode } from 'types/mdx-types'
+import { AllMdxQuery } from 'types/mdx-types'
 import CategoryLayout from 'components/Layout/CategoryLayout'
+import filterArticleByCategories from 'utils/pageApi/filterArticleByCategories'
 
 export type CategoryPageContext = {
-  major?: string
-  minor?: string
+  rawSlug: string
 }
 
 const CategoryPage: FC<PageProps<AllMdxQuery, CategoryPageContext>> = ({
@@ -27,16 +27,6 @@ const CategoryPage: FC<PageProps<AllMdxQuery, CategoryPageContext>> = ({
 
 export default CategoryPage
 
-export function filterArticleByCategories(
-  nodes: MdxNode[],
-  pageContext: CategoryPageContext,
-) {
-  const { major, minor } = pageContext
-  return nodes
-    .filter(node => (major ? major === node.fields.category.major : true))
-    .filter(node => (minor ? minor === node.fields.category.minor : true))
-}
-
 export const query = graphql`
   query allMdx {
     allMdx(sort: { frontmatter: { createdAt: DESC } }) {
@@ -44,11 +34,7 @@ export const query = graphql`
         id
         fields {
           slug
-          category {
-            major
-            minor
-            slug
-          }
+          categoryDirectory
         }
         frontmatter {
           createdAt(formatString: "MMMM DD, YYYY")
