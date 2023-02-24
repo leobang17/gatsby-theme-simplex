@@ -1,3 +1,5 @@
+import { Node } from 'gatsby'
+
 export type AllMdxQuery = {
   allMdx: {
     nodes: MdxNode[]
@@ -15,23 +17,15 @@ export type GroupByNode = {
   totalCount: number
 }
 
-export type MdxNode = {
-  id: string
+export type MdxNode = Node & {
   fields: MdxField
   frontmatter: MdxFrontmatter
   excerpt: string
-  internal: {
-    contentFilePath: string
-  }
 }
 
 export type MdxField = {
   slug: string
-  category: {
-    major: string
-    minor: string
-    slug: string
-  }
+  categoryDirectory: string
 }
 
 export type MdxFrontmatter = {
