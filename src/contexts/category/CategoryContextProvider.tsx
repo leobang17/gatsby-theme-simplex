@@ -1,24 +1,24 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 
 import DataLayer from 'datalayer/DataLayer'
-import { CategoryTree } from 'datastructures/category/CategoryTree'
 import { ChildrenProps } from 'types/react-types'
+import activateCurrentCategories from 'utils/pageApi/activateCurrentCatgeories'
 
 import { CategoryContext } from './CategoryContext'
 
-type CategoryContextProviderProps = {} & ChildrenProps
+export type CategoryContextProviderProps = {} & ChildrenProps
 
 const CategoryContextProvider: FC<CategoryContextProviderProps> = ({
   children,
 }) => {
   const API = DataLayer.singleton().API
   const categoryTree = API.getCategoryTreeSync()
-  const [tree, mutateTree] = useState<CategoryTree>(categoryTree)
+  activateCurrentCategories(categoryTree)
 
   return (
     <CategoryContext.Provider
       value={{
-        categoryTree: tree,
+        categoryTree,
       }}
     >
       {children}

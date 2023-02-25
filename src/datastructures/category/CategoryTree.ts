@@ -5,13 +5,14 @@ export type CategoryTreeObject = {
   name: string
   count: number
   categoryDirectory: string
+  activated: boolean
   slug: string
   sub: CategoryTreeObject[]
 }
 
 export class CategoryTree {
   private static readonly ROOT_NODE_NAME = 'total'
-  root: CategoryNode
+  private root: CategoryNode
 
   constructor() {
     this.root = new CategoryNode(CategoryTree.ROOT_NODE_NAME)
@@ -19,6 +20,10 @@ export class CategoryTree {
 
   append(categories: string[], count: number) {
     this.root.add(categories, count)
+  }
+
+  activateCurrentCategory(currentSlug: string) {
+    this.root.activateRecursively(currentSlug)
   }
 
   toObject() {
@@ -29,6 +34,7 @@ export class CategoryTree {
 class CategoryNode {
   private static readonly MAX_DEPTH = CATEGORY_THRESHOLD
   private count: number = 0
+  private activated: boolean = false
   readonly subCategories: Map<string, CategoryNode> = new Map()
   readonly categoryString: CategoryStrings
 
@@ -50,6 +56,13 @@ class CategoryNode {
     this.addSubNodeRecursively(categories, count)
   }
 
+  activateRecursively(currentSlug: string) {
+    if (currentSlug.startsWith(this.categoryString.slug)) {
+      this._activate()
+    }
+    this.subCategories.forEach(cat => cat.activateRecursively(currentSlug))
+  }
+
   toObject() {
     const current: CategoryTreeObject = this.createCurrentObject()
     this.subCategories.forEach(category => {
@@ -60,11 +73,18 @@ class CategoryNode {
     return current
   }
 
+  private _activate() {
+    if (this.parent) {
+      this.activated = true
+    }
+  }
+
   private createCurrentObject() {
     return {
       name: this.name,
       count: this.count,
       slug: this.categoryString.slug,
+      activated: this.activated,
       categoryDirectory: this.categoryString.categoryDirectory,
       sub: [],
     }
