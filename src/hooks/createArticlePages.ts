@@ -1,7 +1,9 @@
+import { resolve } from 'path'
+
 import { AllMdxQuery } from '../@types/mdx-types'
 import { PageGraphQL } from '../@types/nodeapi-types'
 import { CreatePagesArgs } from './createCategoryPages'
-import { resolve } from 'path'
+import { PAGE_PREFIX } from '../constants/PageConsts'
 
 export const createArticlePages = async (args: CreatePagesArgs) => {
   const {
@@ -13,7 +15,7 @@ export const createArticlePages = async (args: CreatePagesArgs) => {
   const results = await getAllMdx(graphql)
   results.forEach(node => {
     createPage({
-      path: 'posts' + node.fields.slug,
+      path: PAGE_PREFIX.ARTICLE + node.fields.slug,
       component: `${postTemplate}?__contentFilePath=${node.internal.contentFilePath}`,
       context: {
         id: node.id,
