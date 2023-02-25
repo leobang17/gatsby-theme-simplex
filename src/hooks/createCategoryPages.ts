@@ -4,6 +4,7 @@ import { Actions } from 'gatsby'
 import { CreatePage, PageGraphQL } from '../@types/nodeapi-types'
 import { CategoryTreeObject } from '../datastructures/category/CategoryTree'
 import { CategoryPageContext } from '../templates/CategoryPage'
+import { PAGE_PREFIX } from '../constants/PageConsts'
 import DataLayer from '../dataLayer/DataLayer'
 
 export type CreatePagesArgs = {
@@ -30,7 +31,7 @@ const createPageRecur = (
     categoryDirectory: category.categoryDirectory,
   }
   createPage({
-    path: 'posts' + category.slug,
+    path: PAGE_PREFIX.CATEGORY + category.slug,
     component: resolve('./src/templates/CategoryPage.tsx'),
     context,
   })

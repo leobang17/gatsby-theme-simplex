@@ -1,3 +1,4 @@
+import { PAGE_PREFIX } from 'constants/PageConsts'
 import CategoryStrings from 'datastructures/category/CategoryStrings'
 import { slugify } from './slug'
 
@@ -26,5 +27,5 @@ function copySlicedListofCategory(categories: string[], end: number) {
 function createCategoryLink(categories: string[]) {
   return categories.reduce((prev, curr) => {
     return prev + '/' + slugify(curr)
-  }, '')
+  }, PAGE_PREFIX.CATEGORY)
 }

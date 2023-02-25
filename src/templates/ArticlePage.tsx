@@ -3,12 +3,12 @@ import { graphql } from 'gatsby'
 
 import ArticleLayout from 'components/Layout/ArticleLayout'
 import MarkdownWrapper from 'components/MarkdownWrapper'
-import ArticleContextProvider from 'contexts/article/ArticleContextProvider'
+import ArticlePageContext from 'contexts/ArticlePageContext'
 
 // @ts-ignore
 const ArticlePage = ({ data, children }) => {
   return (
-    <ArticleContextProvider data={data}>
+    <ArticlePageContext data={data}>
       <ArticleLayout>
         <div>
           <h1>{data.mdx.frontmatter.title}</h1>
@@ -16,7 +16,7 @@ const ArticlePage = ({ data, children }) => {
           <MarkdownWrapper>{children}</MarkdownWrapper>
         </div>
       </ArticleLayout>
-    </ArticleContextProvider>
+    </ArticlePageContext>
   )
 }
 
