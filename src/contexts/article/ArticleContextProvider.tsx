@@ -15,7 +15,7 @@ type ArticlePageQueryType = {
   }
 }
 
-type ArticleContextProviderProps = {
+export type ArticleContextProviderProps = {
   data: ArticlePageQueryType
 } & ChildrenProps
 

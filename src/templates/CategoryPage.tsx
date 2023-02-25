@@ -6,6 +6,7 @@ import { AllMdxQuery } from 'types/mdx-types'
 import CategoryLayout from 'components/Layout/CategoryLayout'
 import filterArticleByCategories from 'utils/pageApi/filterArticleByCategories'
 import CategoryStrings from 'datastructures/category/CategoryStrings'
+import CategoryPageContext from 'contexts/CategoryPageContext'
 
 export type CategoryPageContext = {
   categoryDirectory: string
@@ -19,11 +20,13 @@ const CategoryPage: FC<PageProps<AllMdxQuery, CategoryPageContext>> = ({
   const articles = filterArticleByCategories(data.allMdx.nodes, categoryString)
 
   return (
-    <CategoryLayout>
-      {articles.map(article => {
-        return <ArticleBox {...article} />
-      })}
-    </CategoryLayout>
+    <CategoryPageContext>
+      <CategoryLayout>
+        {articles.map(article => {
+          return <ArticleBox {...article} />
+        })}
+      </CategoryLayout>
+    </CategoryPageContext>
   )
 }
 
