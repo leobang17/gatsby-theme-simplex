@@ -1239,6 +1239,11 @@
   resolved "https://registry.npmjs.org/@fontsource/nanum-gothic/-/nanum-gothic-4.5.7.tgz#686e7cae0d2f26bf41442610012a89c01a2bb00b"
   integrity sha512-vH3GQpsyNWPkUSnQasIjWAHEUP77mlQ4UH/ozXvgimQNvzO2SiTw5wiG/mxqRd8cNNZnFrSwHDU3GI3b4IgtnA==
 
+"@fontsource/noto-sans-kr@^4.5.12":
+  version "4.5.12"
+  resolved "https://registry.npmjs.org/@fontsource/noto-sans-kr/-/noto-sans-kr-4.5.12.tgz#382d6cdd1928943ca15e80ca013e3b6cf5809f50"
+  integrity sha512-6LBOzXw/V4guB/nATaiUjCcPxwJNGw+ky5DK7/wsgUZvfk8etH9IlKdvjFVidpeCuMVjOdlka2+MEw4hwEHaHA==
+
 "@fontsource/noto-sans@^4.5.11":
   version "4.5.11"
   resolved "https://registry.npmjs.org/@fontsource/noto-sans/-/noto-sans-4.5.11.tgz#9074486d876577f3688f884c7ad6196d6dbea27e"
