@@ -2,9 +2,10 @@ import { CreateNodeArgs, Node } from 'gatsby'
 import { createFilePath } from 'gatsby-source-filesystem'
 
 import { MdxNode } from '../@types/mdx-types'
-import { CreateNodeField, GraphQLNode } from '../@types/nodeapi-types'
 import CategoryStrings from '../datastructures/category/CategoryStrings'
-import * as appendNode from '../utils/nodeApi/appendNode'
+import appendCategoryDirectoryField from '../nodeApi/appendNodeField/appendCategoryDirectoryField'
+import appendSlugField from '../nodeApi/appendNodeField/appendSlugField'
+import appendTimeToRead from '../nodeApi/appendNodeField/appendTimeToReadField'
 import { slugify } from '../utils/slug'
 
 type CreateCategoriesArgs = Pick<CreateNodeArgs, 'node' | 'actions' | 'getNode'>
@@ -13,53 +14,32 @@ export default function onMdxAppendFields(args: CreateCategoriesArgs) {
   const { node, getNode, actions } = args
   const { createNodeField } = actions
   if (isMdx(node)) {
+    const mdxNode = node as MdxNode
     const path = createFilePath({ node, getNode })
     const categoryString = CategoryStrings.initializeWithFilePath(path)
-    const articleSlug = buildArticleSlug(node, categoryString)
+    const articleSlug = buildArticleSlug(mdxNode, categoryString)
 
-    appendSlugField(createNodeField, node, articleSlug)
+    appendTimeToRead(createNodeField, mdxNode)
+    appendSlugField(createNodeField, mdxNode, articleSlug)
     appendCategoryDirectoryField(
       createNodeField,
-      node,
+      mdxNode,
       categoryString.categoryDirectory,
     )
   }
 }
 
-function isMdx(node: GraphQLNode): boolean {
+function isMdx(node: Node): boolean {
   return node.internal.type === 'Mdx'
 }
 
-function buildArticleSlug(node: Node, categoryString: CategoryStrings) {
+function buildArticleSlug(node: MdxNode, categoryString: CategoryStrings) {
   escapeIfNotMdx(node)
-  const mdxNode = node as MdxNode
-  return categoryString.slug + slugify(mdxNode.frontmatter.title)
+  return categoryString.slug + slugify(node.frontmatter.title)
 }
 
-function escapeIfNotMdx(node: Node) {
+function escapeIfNotMdx(node: MdxNode) {
   if (!isMdx(node)) {
     throw new Error("DON'T CALL THIS FUNCTION INSIDE NON-MDX NODE")
   }
-}
-
-function appendSlugField(
-  createNodeField: CreateNodeField,
-  node: GraphQLNode,
-  slug: string,
-) {
-  appendNode.appendNodeField(createNodeField, node, {
-    key: 'slug',
-    value: slug,
-  })
-}
-
-function appendCategoryDirectoryField(
-  createNodeField: CreateNodeField,
-  node: GraphQLNode,
-  categoryDirectory: string,
-) {
-  appendNode.appendNodeField(createNodeField, node, {
-    key: 'categoryDirectory',
-    value: categoryDirectory,
-  })
 }

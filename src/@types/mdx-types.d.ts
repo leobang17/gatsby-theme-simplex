@@ -18,6 +18,7 @@ export type GroupByNode = {
 }
 
 export type MdxNode = Node & {
+  body: string
   fields: MdxField
   frontmatter: MdxFrontmatter
   excerpt: string
