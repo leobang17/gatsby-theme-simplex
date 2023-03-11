@@ -114,7 +114,8 @@
     "src/**/*.tsx",
     "src/pages/index.ts",
     "src/pages/about.js",
-    "src/@types/graphql-types.d.ts"
+    "src/@types/graphql-types.d.ts",
+    "src/styles/remark/index.ts"
   ],
   "exclude": ["node_modules", "dist/**/*"]
 }
