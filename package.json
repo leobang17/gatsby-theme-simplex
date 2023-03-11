@@ -48,10 +48,12 @@
     "gatsby-remark-smartypants": "^6.4.0",
     "gatsby-source-filesystem": "^5.3.1",
     "gatsby-transformer-sharp": "^5.3.1",
+    "prism-themes": "^1.9.0",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "reading-time": "^1.5.0"
+    "reading-time": "^1.5.0",
+    "remark-gfm": "^1"
   },
   "devDependencies": {
     "@jest/globals": "^29.4.1",
