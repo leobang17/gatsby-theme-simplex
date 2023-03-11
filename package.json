@@ -31,6 +31,7 @@
     "@emotion/styled": "^11.10.5",
     "@fontsource/nanum-gothic": "^4.5.7",
     "@fontsource/noto-sans": "^4.5.11",
+    "@fontsource/noto-sans-kr": "^4.5.12",
     "@mdx-js/react": "^2.2.1",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.5",
@@ -49,7 +50,8 @@
     "gatsby-transformer-sharp": "^5.3.1",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "reading-time": "^1.5.0"
   },
   "devDependencies": {
     "@jest/globals": "^29.4.1",

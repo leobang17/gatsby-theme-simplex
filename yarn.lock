@@ -1239,6 +1239,11 @@
   resolved "https://registry.npmjs.org/@fontsource/nanum-gothic/-/nanum-gothic-4.5.7.tgz#686e7cae0d2f26bf41442610012a89c01a2bb00b"
   integrity sha512-vH3GQpsyNWPkUSnQasIjWAHEUP77mlQ4UH/ozXvgimQNvzO2SiTw5wiG/mxqRd8cNNZnFrSwHDU3GI3b4IgtnA==
 
+"@fontsource/noto-sans-kr@^4.5.12":
+  version "4.5.12"
+  resolved "https://registry.npmjs.org/@fontsource/noto-sans-kr/-/noto-sans-kr-4.5.12.tgz#382d6cdd1928943ca15e80ca013e3b6cf5809f50"
+  integrity sha512-6LBOzXw/V4guB/nATaiUjCcPxwJNGw+ky5DK7/wsgUZvfk8etH9IlKdvjFVidpeCuMVjOdlka2+MEw4hwEHaHA==
+
 "@fontsource/noto-sans@^4.5.11":
   version "4.5.11"
   resolved "https://registry.npmjs.org/@fontsource/noto-sans/-/noto-sans-4.5.11.tgz#9074486d876577f3688f884c7ad6196d6dbea27e"
@@ -10528,6 +10533,11 @@ readdirp@~3.6.0:
   integrity sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==
   dependencies:
     picomatch "^2.2.1"
+
+reading-time@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/reading-time/-/reading-time-1.5.0.tgz#d2a7f1b6057cb2e169beaf87113cc3411b5bc5bb"
+  integrity sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==
 
 recursive-readdir@^2.2.2:
   version "2.2.3"
