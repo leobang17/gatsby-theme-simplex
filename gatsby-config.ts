@@ -12,11 +12,6 @@ import configs from './configs'
  */
 const config: GatsbyConfig = {
   siteMetadata: configs,
-  graphqlTypegen: {
-    typesOutputPath: `./src/@types/graphql-types.d.ts`,
-    generateOnBuild: false,
-    documentSearchPaths: [`./gatsby-node.ts`, `./plugins/**/gatsby-node.ts`],
-  },
   plugins: [
     /**
      * Typescript Config
