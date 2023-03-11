@@ -1,0 +1,25 @@
+{
+  "React Functional Component using Emotion CSS": {
+    "prefix": ["rfe"],
+    "body": [
+      "/** @jsx jsx */",
+      "",
+      "import { FC } from 'react'",
+      "import { jsx, css } from '@emotion/react'",
+      "",
+      "type ${1:$TM_FILENAME_BASE}Props = {}",
+      "",
+      "const style = css``",
+      "",
+      "const ${1:$TM_FILENAME_BASE}: FC<${1:$TM_FILENAME_BASE}Props> = ({}) => {",
+      "\treturn (",
+      "\t\t<div css={style}>${1:$TM_FILENAME_BASE}</div>",
+      "\t)",
+      "}",
+      "",
+      "export default ${1:$TM_FILENAME_BASE}",
+      ""
+    ],
+    "description": "Snippet for react functional component using Emotion CSS.\nCreate props type and css"
+  }
+}
