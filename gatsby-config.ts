@@ -63,6 +63,9 @@ const config: GatsbyConfig = {
             resolve: 'gatsby-remark-prismjs',
             options: {
               classPrefix: 'language-',
+              inlineCodeMarker: null,
+              showLineNumbers: false,
+              noInlineHighlight: false,
             },
           },
           {
@@ -80,6 +83,9 @@ const config: GatsbyConfig = {
             },
           },
         ],
+        mdxOptions: {
+          remarkPlugins: [require('remark-gfm')],
+        },
       },
     },
 
