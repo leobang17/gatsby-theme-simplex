@@ -29,8 +29,6 @@ export const query = graphql`
   query ($id: String) {
     mdx(id: { eq: $id }) {
       id
-      body
-      excerpt
       fields {
         slug
         timeToRead

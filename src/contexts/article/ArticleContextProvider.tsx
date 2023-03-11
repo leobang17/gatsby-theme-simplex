@@ -1,22 +1,15 @@
 import { FC, useState } from 'react'
 
-import { MdxField, MdxFrontmatter, MdxTableOfContent } from 'types/mdx-types'
+import { MdxNode } from 'types/mdx-types'
 import { ChildrenProps } from 'types/react-types'
 import TableOfContentTree from 'datastructures/tableOfContents/TableOfContentTree'
 
 import { ArticleContext } from './ArticleContext'
 
-type ArticlePageQueryType = {
-  mdx: {
-    id: string
-    fields: MdxField
-    frontmatter: MdxFrontmatter
-    tableOfContents: MdxTableOfContent
-  }
-}
-
 export type ArticleContextProviderProps = {
-  data: ArticlePageQueryType
+  data: {
+    mdx: MdxNode
+  }
 } & ChildrenProps
 
 const ArticleContextProvider: FC<ArticleContextProviderProps> = ({
