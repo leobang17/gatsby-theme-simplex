@@ -27,6 +27,7 @@ export type MdxNode = Node & {
 export type MdxField = {
   slug: string
   categoryDirectory: string
+  timeToRead: number
 }
 
 export type MdxFrontmatter = {
