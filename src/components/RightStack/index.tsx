@@ -9,6 +9,9 @@ type RightStackProps = {
 }
 
 const style = css(
+  css`
+    margin-right: 2rem;
+  `,
   l_mq({
     width: '256px',
     display: ['none', 'flex'],

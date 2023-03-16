@@ -25,10 +25,9 @@ const LayoutWrapper = styled.div`
 
 const HStack = styled.div`
   display: flex;
-  max-width: 1440px;
   flex-direction: row;
-  justify-content: space-between;
-  flex: 1;
+  justify-content: space-around;
+  width: 100vw;
 `
 
 const style = css`

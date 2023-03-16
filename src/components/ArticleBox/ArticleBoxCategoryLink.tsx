@@ -5,6 +5,7 @@ import { PAGE_PREFIX } from 'constants/PageConsts'
 import CategoryStrings from 'datastructures/category/CategoryStrings'
 import { Link } from 'gatsby'
 import { FC } from 'react'
+import { FIRST } from 'styles/Color'
 import getCategoriesWithCategoryLinks from 'utils/getCategoriesWithCategoryLinks'
 
 type ArticleCategoryLinkProps = {
@@ -12,7 +13,7 @@ type ArticleCategoryLinkProps = {
 }
 
 const style = css`
-  color: skyblue;
+  color: ${FIRST};
   padding-left: 3px;
   font-size: 0.8rem;
   padding-bottom: 0.2rem;
