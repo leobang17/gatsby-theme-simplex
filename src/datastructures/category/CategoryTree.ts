@@ -7,15 +7,17 @@ export type CategoryTreeObject = {
   categoryDirectory: string
   activated: boolean
   slug: string
+  nodeDepth: number
   sub: CategoryTreeObject[]
 }
 
 export class CategoryTree {
   private static readonly ROOT_NODE_NAME = 'total'
   private root: CategoryNode
+  private activatedNode?: CategoryNode
 
   constructor() {
-    this.root = new CategoryNode(CategoryTree.ROOT_NODE_NAME)
+    this.root = new CategoryNode(CategoryTree.ROOT_NODE_NAME, this)
   }
 
   append(categories: string[], count: number) {
@@ -24,6 +26,13 @@ export class CategoryTree {
 
   activateCurrentCategory(currentSlug: string) {
     this.root.activateRecursively(currentSlug)
+  }
+
+  changeActivatedNode(categoryNode: CategoryNode) {
+    if (this.activatedNode) {
+      this.activatedNode.deactivate()
+    }
+    this.activatedNode = categoryNode
   }
 
   toObject() {
@@ -40,6 +49,7 @@ class CategoryNode {
 
   constructor(
     readonly name: string,
+    readonly motherTree: CategoryTree,
     readonly nodeDepth: number = 0,
     readonly parent?: CategoryNode,
   ) {
@@ -73,10 +83,13 @@ class CategoryNode {
     return current
   }
 
+  deactivate() {
+    this.activated = false
+  }
+
   private _activate() {
-    if (this.parent) {
-      this.activated = true
-    }
+    this.motherTree.changeActivatedNode(this)
+    this.activated = true
   }
 
   private createCurrentObject() {
@@ -86,6 +99,7 @@ class CategoryNode {
       slug: this.categoryString.slug,
       activated: this.activated,
       categoryDirectory: this.categoryString.categoryDirectory,
+      nodeDepth: this.nodeDepth,
       sub: [],
     }
   }
@@ -101,7 +115,12 @@ class CategoryNode {
       return
     }
 
-    const subNode = new CategoryNode(name, this.nodeDepth + 1, this)
+    const subNode = new CategoryNode(
+      name,
+      this.motherTree,
+      this.nodeDepth + 1,
+      this,
+    )
     this.subCategories.set(name, subNode)
   }
 
