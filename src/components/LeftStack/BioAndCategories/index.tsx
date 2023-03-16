@@ -1,8 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/react'
 
-import Bio from 'components/Bio'
-import Categories from 'components/Categories'
+import CategoryTable from 'components/CategoryTable'
 
 const style = css`
   position: -webkit-sticky;
@@ -16,8 +15,7 @@ const style = css`
 const BioAndCategories = () => {
   return (
     <div css={style}>
-      <Bio />
-      <Categories />
+      <CategoryTable />
     </div>
   )
 }

@@ -9,6 +9,9 @@ type LeftStackProps = {
 }
 
 const style = css(
+  css`
+    margin-left: 2rem;
+  `,
   l_mq({
     width: '256px',
     display: ['none', 'block'],
