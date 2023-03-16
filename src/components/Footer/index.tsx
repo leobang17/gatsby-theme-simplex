@@ -2,7 +2,7 @@
 
 import { css, jsx } from '@emotion/react'
 import { FC } from 'react'
-import { BORDER_MUSK } from 'styles/Color'
+import { BORDER_MUSK, FIRST } from 'styles/Color'
 import FooterOrigin from './cells/FooterOrigin'
 import FooterUsername from './cells/FooterUsername'
 
@@ -22,7 +22,7 @@ const style = css`
   a {
     transition: color 0.15s ease;
     :hover {
-      color: skyblue;
+      color: ${FIRST};
     }
   }
 `
