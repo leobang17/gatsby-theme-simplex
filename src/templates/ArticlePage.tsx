@@ -3,18 +3,21 @@ import { graphql } from 'gatsby'
 
 import ArticleLayout from 'components/Layout/ArticleLayout'
 import MarkdownWrapper from 'components/MarkdownWrapper'
+import ArticleFrontmatter from 'components/ArticleFrontmatter'
 import ArticlePageContext from 'contexts/ArticlePageContext'
 
 // @ts-ignore
 const ArticlePage = ({ data, children }) => {
+  const frontmatters = {
+    ...data.mdx.frontmatter,
+    timeToRead: data.mdx.fields.timeToRead,
+  }
+
   return (
     <ArticlePageContext data={data}>
       <ArticleLayout>
-        <div>
-          <h1>{data.mdx.frontmatter.title}</h1>
-          <div>Post Date: {data.mdx.frontmatter.createdAt}</div>
-          <MarkdownWrapper>{children}</MarkdownWrapper>
-        </div>
+        <ArticleFrontmatter {...frontmatters} />
+        <MarkdownWrapper>{children}</MarkdownWrapper>
       </ArticleLayout>
     </ArticlePageContext>
   )
@@ -26,13 +29,12 @@ export const query = graphql`
   query ($id: String) {
     mdx(id: { eq: $id }) {
       id
-      body
-      excerpt
       fields {
         slug
+        timeToRead
       }
       frontmatter {
-        createdAt(formatString: "MMM DD, YYYY")
+        createdAt(formatString: "MMMM DD, YYYY")
         slug
         tags
         title

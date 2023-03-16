@@ -19,13 +19,15 @@ export type GroupByNode = {
 
 export type MdxNode = Node & {
   body: string
+  excerpt: string
   fields: MdxField
   frontmatter: MdxFrontmatter
-  excerpt: string
+  tableOfContents: MdxTableOfContent
 }
 
 export type MdxField = {
   slug: string
+  timeToRead: number
   categoryDirectory: string
 }
 
