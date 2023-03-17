@@ -9,10 +9,14 @@ import { GRAY } from 'styles/Color'
 import ArticleBoxTitle from './ArticleBoxTitle'
 import ArticleBoxCategoryLink from './ArticleBoxCategoryLink'
 import CategoryStrings from 'datastructures/category/CategoryStrings'
+import * as Default from 'styles/designSystem/default'
 
 const style = css`
-  /* width: 600px; */
-  margin: 3rem 0 3rem 0;
+  margin-block: 3rem;
+`
+
+const spanStyle = css`
+  display: block;
 `
 
 const CreatedAt = styled.div`
@@ -32,7 +36,7 @@ const ArticleBox: FC<MdxNode> = ({
         categoryString={CategoryStrings.initialize(categoryDirectory)}
       />
       <ArticleBoxTitle slug={slug} title={title} />
-      <div>{excerpt}</div>
+      <Default.SPAN css={spanStyle}>{excerpt}</Default.SPAN>
       <CreatedAt>{createdAt}</CreatedAt>
     </div>
   )
