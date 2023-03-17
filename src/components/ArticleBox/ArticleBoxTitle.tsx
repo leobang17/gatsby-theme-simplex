@@ -1,9 +1,11 @@
 /** @jsx jsx */
 
+import { FC } from 'react'
 import { css, jsx } from '@emotion/react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
-import { FC } from 'react'
+
+import * as Default from 'styles/designSystem/default'
 
 export type ArticleBoxTitleProps = {
   slug: string
@@ -14,7 +16,7 @@ const style = css`
   display: inline-block;
 `
 
-const TitleWrapper = styled.h2`
+const TitleWrapper = styled(Default.H2)`
   margin: 0;
 `
 
