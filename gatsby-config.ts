@@ -73,7 +73,10 @@ const config: GatsbyConfig = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 768,
+              maxWidth: 660,
+              linkImagesToOriginal: false,
+              showCaptions: ['alt', 'title'],
+              markdownCaptions: true,
               quality: 100,
               withWebp: true,
             },
