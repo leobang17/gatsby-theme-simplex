@@ -1,5 +1,7 @@
 import { MDXProvider } from '@mdx-js/react'
 import { FC, ReactNode } from 'react'
+import 'katex/dist/katex.min.css'
+
 import * as Remark from 'styles/designSystem/remark'
 import 'styles/remark'
 
@@ -22,6 +24,7 @@ const MarkdownWrapper: FC<MarkdownWrapperProps> = ({ children }) => {
           em: Remark.EM,
           del: Remark.DEL,
           hr: Remark.HR,
+          a: Remark.A,
           ol: Remark.OL,
           ul: Remark.UL,
           li: Remark.LI,

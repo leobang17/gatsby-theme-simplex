@@ -55,6 +55,13 @@ const config: GatsbyConfig = {
             },
           },
           {
+            resolve: 'gatsby-remark-external-links',
+            options: {
+              target: '_self',
+              rel: 'nofollow',
+            },
+          },
+          {
             resolve: 'gatsby-remark-prismjs',
             options: {
               classPrefix: 'language-',
@@ -66,7 +73,10 @@ const config: GatsbyConfig = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 768,
+              maxWidth: 660,
+              linkImagesToOriginal: false,
+              showCaptions: ['alt', 'title'],
+              markdownCaptions: true,
               quality: 100,
               withWebp: true,
             },
@@ -75,6 +85,12 @@ const config: GatsbyConfig = {
             resolve: 'gatsby-remark-smartypants',
             options: {
               dashes: 'oldschool',
+            },
+          },
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              strict: `ignore`,
             },
           },
         ],

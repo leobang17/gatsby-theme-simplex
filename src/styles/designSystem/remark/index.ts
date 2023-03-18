@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { BORDER_MUSK, GRAY, LIGHT_GRAY } from 'styles/Color'
+import { BORDER_MUSK, GRAY, LIGHT_GRAY, SECOND } from 'styles/Color'
 
 // Headers
 export const H1 = styled.h1`
@@ -64,6 +64,10 @@ export const BLOCKQUOTE = styled.blockquote`
 
 export const DEL = styled.del`
   font-weight: 300;
+`
+export const A = styled.a`
+  color: ${SECOND};
+  text-decoration: underline;
 `
 
 // Lists
