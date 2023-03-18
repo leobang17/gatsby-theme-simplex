@@ -22,6 +22,7 @@ const MarkdownWrapper: FC<MarkdownWrapperProps> = ({ children }) => {
           em: Remark.EM,
           del: Remark.DEL,
           hr: Remark.HR,
+          a: Remark.A,
           ol: Remark.OL,
           ul: Remark.UL,
           li: Remark.LI,
