@@ -87,6 +87,12 @@ const config: GatsbyConfig = {
               dashes: 'oldschool',
             },
           },
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              strict: `ignore`,
+            },
+          },
         ],
         mdxOptions: {
           remarkPlugins: [require('remark-gfm')],

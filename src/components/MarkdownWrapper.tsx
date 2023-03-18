@@ -1,5 +1,7 @@
 import { MDXProvider } from '@mdx-js/react'
 import { FC, ReactNode } from 'react'
+import 'katex/dist/katex.min.css'
+
 import * as Remark from 'styles/designSystem/remark'
 import 'styles/remark'
 
