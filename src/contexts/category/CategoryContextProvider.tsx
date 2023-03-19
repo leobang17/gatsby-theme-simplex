@@ -11,8 +11,8 @@ export type CategoryContextProviderProps = {} & ChildrenProps
 const CategoryContextProvider: FC<CategoryContextProviderProps> = ({
   children,
 }) => {
-  const API = DataLayer.singleton().API
-  const categoryTree = API.getCategoryTreeSync()
+  const api = DataLayer.singleton.categoryApi
+  const categoryTree = api.getCategoryTreeSync()
   activateCurrentCategories(categoryTree)
 
   return (
