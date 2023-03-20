@@ -3,13 +3,13 @@
 import { FC } from 'react'
 import { css, jsx } from '@emotion/react'
 
-import { fetchBlogDetail } from 'hooks/StaticQueries'
 import RESPONSIVE from 'styles/responsive'
 import { mq, s_mq } from 'styles/facepaint'
 
 import TitleCell from './cells/Title'
 import GithubCell from './cells/Github'
 import { BORDER_MUSK } from 'styles/Color'
+import MetadataApiConfigurator from 'datalayer/configurators/MetadataApiConfigurator'
 
 const navcss = css(
   {
@@ -29,11 +29,14 @@ const navcss = css(
 )
 
 const Nav: FC = () => {
-  const { title, githubUsername } = fetchBlogDetail()
+  const api = MetadataApiConfigurator.instance.api
+  const { title, githubUsername } = api.getBlogMetadata()
   return (
     <div css={navcss}>
-      <TitleCell title={title} />
-      {githubUsername ? <GithubCell username={githubUsername} /> : null}
+      <TitleCell title={title.value} />
+      {githubUsername.isValid() ? (
+        <GithubCell username={githubUsername.value} />
+      ) : null}
     </div>
   )
 }

@@ -5,8 +5,8 @@ import { css, jsx } from '@emotion/react'
 
 import { fetchSvgLogoUrl } from 'hooks/assetQueries'
 import { SocialProvider } from 'types/social-provider-types'
-import MetadataContext from 'datastructures/metadata/MetadataContext'
 import { SOCIAL_DEFAULT, SOCIAL_HOVERED } from 'styles/social'
+import MetadataApiConfigurator from 'datalayer/configurators/MetadataApiConfigurator'
 
 type SocialIconProp = {
   social: SocialProvider
@@ -21,7 +21,7 @@ const style = (social: SocialProvider) =>
   })
 
 const SocialIcon: FC<SocialIconProp> = ({ social }) => {
-  const property = MetadataContext.getInstance().getSocial(social)
+  const property = MetadataApiConfigurator.instance.api.getSocialSingle(social)
   const svgUrl = fetchSvgLogoUrl(social)
 
   return (

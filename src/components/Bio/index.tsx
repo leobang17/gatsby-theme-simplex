@@ -3,15 +3,14 @@
 import React, { FC } from 'react'
 import { jsx } from '@emotion/react'
 
-import MetadataContext from 'datastructures/metadata/MetadataContext'
-
 import BioProperty from './cells/BioProperty'
 import SocialList from './SocialList'
+import MetadataApiConfigurator from 'datalayer/configurators/MetadataApiConfigurator'
 
 const Bio: FC = () => {
-  const context = MetadataContext.getInstance()
+  const api = MetadataApiConfigurator.instance.api
   const { name, thumbnail, introduction, email, website, location, company } =
-    context.getBio()
+    api.getBio()
 
   return (
     <>

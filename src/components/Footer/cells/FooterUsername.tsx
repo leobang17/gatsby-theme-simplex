@@ -1,10 +1,10 @@
-import MetadataContext from 'datastructures/metadata/MetadataContext'
+import MetadataApiConfigurator from 'datalayer/configurators/MetadataApiConfigurator'
 import React from 'react'
 
 const FooterUsername = () => {
-  const instance = MetadataContext.getInstance()
-  const { name } = instance.getBio()
-  const githubLink = instance.getSocial('github')
+  const api = MetadataApiConfigurator.instance.api
+  const { name } = api.getBio()
+  const githubLink = api.getSocialSingle('github')
   return (
     <span>
       {githubLink.isValid() ? (

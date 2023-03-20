@@ -1,60 +1,34 @@
-import { fetchSiteMetadata } from 'hooks/StaticQueries'
 import {
   Bio,
   BioProperty,
   BlogDetail,
   BlogDetailProperty,
-  SiteMetadata,
   Social,
   SocialProperty,
 } from 'types/metadata-types'
-import { SocialProvider } from 'types/social-provider-types'
+import SiteMetadataQuery from '../queries/SiteMetadataQuery'
 
-import StringProperty from './properties/StringProperty'
-import EmailProperty from './properties/EmailProperty'
-import WebLinkProperty from './properties/WebLiinkProperty'
-import ConfigProperty from './properties/abstracts/ConfigProperty'
+import StringProperty from 'datastructures/metadata/properties/StringProperty'
+import EmailProperty from 'datastructures/metadata/properties/EmailProperty'
+import WebLinkProperty from 'datastructures/metadata/properties/WebLiinkProperty'
 
-class MetadataContext {
-  private static instance: MetadataContext
-  private readonly bioProperty: BioProperty
-  private readonly blogDetailProperty: BlogDetailProperty
-  private readonly socialProperty: SocialProperty
+class MetadataService {
+  constructor(private query: SiteMetadataQuery) {}
 
-  private constructor() {
-    const siteMetadata = fetchSiteMetadata()
-    const { bio, blogDetail, social } =
-      this.convertSiteMetadataToProperty(siteMetadata)
-    this.bioProperty = bio
-    this.blogDetailProperty = blogDetail
-    this.socialProperty = social
+  public getBioProperty() {
+    return this.convertSiteMetadataToProperty().bio
   }
 
-  static getInstance(): MetadataContext {
-    if (!this.instance) {
-      this.instance = new MetadataContext()
-    }
-    return this.instance
+  public getBlogMetadataProperty() {
+    return this.convertSiteMetadataToProperty().blogDetail
   }
 
-  getBio() {
-    return this.bioProperty
+  public getSocial() {
+    return this.convertSiteMetadataToProperty().social
   }
 
-  getAllSocials() {
-    return this.socialProperty
-  }
-
-  getSocial(social: SocialProvider): ConfigProperty {
-    return this.socialProperty[social]
-  }
-
-  getBlogDetail() {
-    return this.blogDetailProperty
-  }
-
-  private convertSiteMetadataToProperty(data: SiteMetadata) {
-    const { bio, blogDetail, social } = data
+  private convertSiteMetadataToProperty() {
+    const { bio, blogDetail, social } = this.query.getSiteMetadata()
     return {
       bio: this.convertBioToProperty(bio),
       blogDetail: this.convertBlogDetailToProperty(blogDetail),
@@ -94,4 +68,4 @@ class MetadataContext {
   }
 }
 
-export default MetadataContext
+export default MetadataService
