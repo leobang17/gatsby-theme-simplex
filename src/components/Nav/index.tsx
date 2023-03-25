@@ -30,13 +30,12 @@ const navcss = css(
 
 const Nav: FC = () => {
   const api = MetadataApiConfigurator.instance.api
-  const { title, githubUsername } = api.getBlogMetadata()
+  const { title } = api.getBlogMetadata()
+  const github = api.getSocialSingle('github')
   return (
     <div css={navcss}>
       <TitleCell title={title.value} />
-      {githubUsername.isValid() ? (
-        <GithubCell username={githubUsername.value} />
-      ) : null}
+      {github.isValid() ? <GithubCell siteUrl={github.value} /> : null}
     </div>
   )
 }
