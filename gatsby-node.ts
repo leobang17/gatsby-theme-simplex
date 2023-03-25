@@ -11,6 +11,7 @@ import { createArticlePages } from './src/hooks/createArticlePages'
 import { createCategoryPages } from './src/hooks/createCategoryPages'
 import onMdxAppendFields from './src/hooks/onMdxAppendFields'
 import onMdxCreateCategories from './src/hooks/onMdxCreateCategories'
+import redirectIndexToAllPosts from './src/nodeApi/redirectIndexToAllPosts'
 
 // Setup Import Alias
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({
@@ -50,6 +51,7 @@ export const createPages: GatsbyNode['createPages'] = async ({
   actions,
   graphql,
 }) => {
+  redirectIndexToAllPosts(actions)
   await createCategoryPages({ actions, graphql })
   await createArticlePages({ actions, graphql })
 }
