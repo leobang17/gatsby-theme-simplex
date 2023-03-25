@@ -27,16 +27,20 @@ const style = css`
   }
 `
 
+const sectionStyle = css`
+  margin-block: 1rem;
+`
+
 const Footer: FC<FooterProps> = ({}) => {
   return (
-    <div css={style}>
-      <p>
+    <footer css={style}>
+      <section css={sectionStyle}>
         <FooterUsername />
         <span>Theme by </span>
         <FooterOrigin />
         <span>, Built with Gatsby</span>
-      </p>
-    </div>
+      </section>
+    </footer>
   )
 }
 

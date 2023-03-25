@@ -33,10 +33,10 @@ const Nav: FC = () => {
   const { title } = api.getBlogMetadata()
   const github = api.getSocialSingle('github')
   return (
-    <div css={navcss}>
+    <header css={navcss}>
       <TitleCell title={title.value} />
       {github.isValid() ? <GithubCell siteUrl={github.value} /> : null}
-    </div>
+    </header>
   )
 }
 

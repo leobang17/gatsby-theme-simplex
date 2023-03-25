@@ -19,7 +19,7 @@ const style = css(
 )
 
 const LeftStack: FC<LeftStackProps> = ({ stack }) => {
-  return <div css={style}>{stack ?? null}</div>
+  return <aside css={style}>{stack ?? null}</aside>
 }
 
 export default LeftStack

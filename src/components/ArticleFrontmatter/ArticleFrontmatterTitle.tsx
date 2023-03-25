@@ -23,7 +23,11 @@ const style = css(
 const ArticleFrontmatterTitle: FC<ArticleFrontmatterTitleProps> = ({
   title,
 }) => {
-  return <h1 css={style}>{title}</h1>
+  return (
+    <hgroup>
+      <h1 css={style}>{title}</h1>
+    </hgroup>
+  )
 }
 
 export default ArticleFrontmatterTitle

@@ -9,7 +9,7 @@ import { GRAY } from 'styles/Color'
 import ArticleBoxTitle from './ArticleBoxTitle'
 import ArticleBoxCategoryLink from './ArticleBoxCategoryLink'
 import CategoryStrings from 'datastructures/category/CategoryStrings'
-import * as Default from 'styles/designSystem/default'
+import * as Semantic from 'styles/designSystem/semantic'
 
 const style = css`
   margin-block: 3rem;
@@ -19,7 +19,7 @@ const spanStyle = css`
   display: block;
 `
 
-const CreatedAt = styled.div`
+const CreatedAt = styled.time`
   color: ${GRAY};
   font-size: 0.8rem;
   margin-top: 0.5rem;
@@ -31,14 +31,14 @@ const ArticleBox: FC<MdxNode> = ({
   excerpt,
 }) => {
   return (
-    <div css={style}>
+    <section css={style}>
       <ArticleBoxCategoryLink
         categoryString={CategoryStrings.initialize(categoryDirectory)}
       />
       <ArticleBoxTitle slug={slug} title={title} />
-      <Default.SPAN css={spanStyle}>{excerpt}</Default.SPAN>
+      <Semantic.SUMMARY css={spanStyle}>{excerpt}</Semantic.SUMMARY>
       <CreatedAt>{createdAt}</CreatedAt>
-    </div>
+    </section>
   )
 }
 

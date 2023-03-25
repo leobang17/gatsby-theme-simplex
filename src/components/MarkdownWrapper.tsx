@@ -11,7 +11,7 @@ type MarkdownWrapperProps = {
 
 const MarkdownWrapper: FC<MarkdownWrapperProps> = ({ children }) => {
   return (
-    <div className="markdown-wrapper">
+    <article className="markdown-wrapper">
       <MDXProvider
         components={{
           h1: Remark.H1,
@@ -37,7 +37,7 @@ const MarkdownWrapper: FC<MarkdownWrapperProps> = ({ children }) => {
       >
         {children}
       </MDXProvider>
-    </div>
+    </article>
   )
 }
 
