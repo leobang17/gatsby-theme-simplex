@@ -1,11 +1,10 @@
 import { SiteMetadata } from './src/@types/metadata-types'
 
 export default <SiteMetadata>{
-  blogDetail: {
+  blogMetadata: {
     title: `Leo Bang의 블로그`,
     description: `Gatsby와 Typescript로 만든 Leo Bang의 블로그입니다`,
     siteUrl: `https://leobang17.github.io`,
-    githubUsername: `leobang17`,
   },
   bio: {
     name: 'Leo Bang',

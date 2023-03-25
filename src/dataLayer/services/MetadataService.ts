@@ -1,8 +1,8 @@
 import {
   Bio,
   BioProperty,
-  BlogDetail,
-  BlogDetailProperty,
+  BlogMetadata,
+  BlogMetadataProperty,
   Social,
   SocialProperty,
 } from 'types/metadata-types'
@@ -28,10 +28,10 @@ class MetadataService {
   }
 
   private convertSiteMetadataToProperty() {
-    const { bio, blogDetail, social } = this.query.getSiteMetadata()
+    const { bio, blogMetadata, social } = this.query.getSiteMetadata()
     return {
       bio: this.convertBioToProperty(bio),
-      blogDetail: this.convertBlogDetailToProperty(blogDetail),
+      blogDetail: this.convertBlogDetailToProperty(blogMetadata),
       social: this.convertSocialToProperty(social),
     }
   }
@@ -48,13 +48,12 @@ class MetadataService {
     } as BioProperty
   }
 
-  private convertBlogDetailToProperty(data: BlogDetail) {
+  private convertBlogDetailToProperty(data: BlogMetadata) {
     return {
       title: new StringProperty(data.title),
       description: new StringProperty(data.description),
       siteUrl: new StringProperty(data.siteUrl),
-      githubUsername: new StringProperty(data.githubUsername),
-    } as BlogDetailProperty
+    } as BlogMetadataProperty
   }
 
   private convertSocialToProperty(data: Social) {

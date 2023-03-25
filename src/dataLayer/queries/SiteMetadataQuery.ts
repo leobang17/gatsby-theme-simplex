@@ -19,11 +19,10 @@ class SiteMetadataQuery {
               location
               company
             }
-            blogDetail {
+            blogMetadata {
               title
               description
               siteUrl
-              githubUsername
             }
             social {
               github
