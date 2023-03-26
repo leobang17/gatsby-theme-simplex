@@ -27,3 +27,7 @@ export const CategoryPageHead: HeadAPI<AllMdxQuery, CategoryPageContext> = ({
 
   return <SEO titlePrefix={titlePrefix} canonical={pathname}></SEO>
 }
+
+export const NotFoundPageHead: HeadAPI = () => {
+  return <SEO titlePrefix="Oops, Page Not Found 😰" />
+}

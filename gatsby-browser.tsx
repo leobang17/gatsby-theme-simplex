@@ -33,3 +33,4 @@ import '@fontsource/noto-sans-kr/500.css'
 import '@fontsource/noto-sans-kr/700.css' // Bold
 
 import '@fontsource/nanum-gothic'
+import '@fontsource/nanum-gothic/800.css'
