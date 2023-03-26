@@ -112,6 +112,7 @@
   },
   "include": [
     "src/**/*.tsx",
+    "src/**/*.ts",
     "src/pages/index.ts",
     "src/pages/about.js",
     "src/@types/graphql-types.d.ts",

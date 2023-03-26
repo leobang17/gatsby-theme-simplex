@@ -14,9 +14,9 @@ const CategoryTable = () => {
   const { categoryTree } = useContext(CategoryContext)
 
   return (
-    <div css={style}>
+    <nav css={style}>
       <RecursiveCategories category={categoryTree.toObject()} />
-    </div>
+    </nav>
   )
 }
 

@@ -44,3 +44,5 @@ export const query = graphql`
     }
   }
 `
+
+export { ArticlePageHead as Head } from 'components/head'

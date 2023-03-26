@@ -17,7 +17,7 @@ export default function onMdxAppendFields(args: CreateCategoriesArgs) {
     const mdxNode = node as MdxNode
     const path = createFilePath({ node, getNode })
     const categoryString = CategoryStrings.initializeWithFilePath(path)
-    const articleSlug = buildArticleSlug(mdxNode, categoryString)
+    const articleSlug = buildArticleSlug(mdxNode)
 
     appendTimeToRead(createNodeField, mdxNode)
     appendSlugField(createNodeField, mdxNode, articleSlug)
@@ -33,9 +33,9 @@ function isMdx(node: Node): boolean {
   return node.internal.type === 'Mdx'
 }
 
-function buildArticleSlug(node: MdxNode, categoryString: CategoryStrings) {
+function buildArticleSlug(node: MdxNode) {
   escapeIfNotMdx(node)
-  return categoryString.slug + slugify(node.frontmatter.title)
+  return '/' + slugify(node.frontmatter.title)
 }
 
 function escapeIfNotMdx(node: MdxNode) {

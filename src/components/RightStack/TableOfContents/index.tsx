@@ -28,9 +28,9 @@ const TableOfContents: FC<TableOfContentsProps> = () => {
   const { tableOfContents } = useContext(ArticleContext)
 
   return (
-    <div css={style}>
+    <nav css={style}>
       <TableOfContentsCell data={tableOfContents!.root} />
-    </div>
+    </nav>
   )
 }
 

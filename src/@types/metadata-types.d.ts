@@ -1,16 +1,15 @@
 import { ConfigProperty } from 'datastructures/metadata/properties/abstracts/ConfigProperty'
 
 export type SiteMetadata = {
-  blogDetail: Readonly<BlogDetail>
+  blogMetadata: Readonly<BlogDetail>
   bio: Readonly<Bio>
   social: Readonly<Social>
 }
 
-export type BlogDetail = {
+export type BlogMetadata = {
   title: readonly string // REQUIRED
   description: readonly string // REQUIRED
   siteUrl: readonly string
-  githubUsername: readonly string
 }
 
 export type Bio = {
@@ -33,11 +32,11 @@ export type Social = {
 
 export type SiteMetadataProperty = {
   bio: BioProperty
-  blogDetail: BlogDetailProperty
+  blogMetadata: BlogMetadataProperty
   social: SocialProperty
 }
 
-export type BlogDetailProperty = {
+export type BlogMetadataProperty = {
   [K in keyof BlogDetail]: ConfigProperty
 }
 

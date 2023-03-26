@@ -42,7 +42,7 @@ const Layout: FC<LayoutProps> = ({ children, leftStack, rightStack }) => {
       <Nav />
       <HStack>
         <LeftStack stack={leftStack} />
-        <div css={style}>{children}</div>
+        <main css={style}>{children}</main>
         <RightStack stack={rightStack} />
       </HStack>
       <Footer />

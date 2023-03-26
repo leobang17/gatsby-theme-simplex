@@ -2,11 +2,12 @@
 
 import { FC } from 'react'
 import { css, jsx } from '@emotion/react'
-import { fetchSvgLogoUrl } from 'hooks/assetQueries'
+
 import { s_mq } from 'styles/facepaint'
+import AssetApiConfigurator from 'datalayer/configurators/AssetApiConfigurator'
 
 type GithubCellProps = {
-  username: string
+  siteUrl: string
 }
 
 const style = css(
@@ -18,12 +19,13 @@ const style = css(
   }),
 )
 
-const GithubCell: FC<GithubCellProps> = ({ username }) => {
-  const githubUrl = fetchSvgLogoUrl('github')
+const GithubCell: FC<GithubCellProps> = ({ siteUrl }) => {
+  const api = AssetApiConfigurator.instance.api
+  const githubUrl = api.getSvgLogoUrl('github')
 
   return (
-    <a css={style} href={`https://github.com/${username}`}>
-      <img alt={`${username}'s Github Page`} src={githubUrl} height={30} />
+    <a css={style} href={siteUrl}>
+      <img alt={`Github Page`} src={githubUrl} height={30} />
     </a>
   )
 }

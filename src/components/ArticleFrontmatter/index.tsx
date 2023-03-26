@@ -25,14 +25,14 @@ const ArticleFrontmatter: FC<ArticleFrontmatterProps> = ({
   timeToRead,
 }) => {
   return (
-    <div css={style}>
+    <section css={style}>
       <ArticleFrontmatterTitle title={title} />
       <ArticleFrontmatterDate
         createdAt={createdAt}
         modifiedAt={modifiedAt}
         timeToRead={timeToRead}
       />
-    </div>
+    </section>
   )
 }
 

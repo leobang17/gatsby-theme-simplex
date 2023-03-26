@@ -18,7 +18,7 @@ export const createCategoryPages = async (args: CreatePagesArgs) => {
     graphql,
   } = args
 
-  const api = DataLayer.singleton(graphql).API
+  const api = DataLayer.singleton.configurePageGraphql(graphql).categoryApi
   const categoryObject = (await api.getCategoryTree()).toObject()
   createPageRecur(createPage, categoryObject)
 }

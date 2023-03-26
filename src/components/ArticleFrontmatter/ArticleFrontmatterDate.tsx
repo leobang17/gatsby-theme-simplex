@@ -26,9 +26,9 @@ const ArticleFrontmatterDate: FC<ArticleFrontmatterDateProps> = ({
 }) => {
   return (
     <div css={style}>
-      <span css={creationCSS}>
+      <time css={creationCSS}>
         {createdAt} · ☕️ {timeToRead} min reads
-      </span>
+      </time>
     </div>
   )
 }
