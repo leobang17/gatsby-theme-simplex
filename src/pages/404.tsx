@@ -2,16 +2,34 @@
 
 import { FC } from 'react'
 import Layout from 'components/Layout'
-import { jsx } from '@emotion/react'
+import { jsx, css } from '@emotion/react'
 import 'styles/404.css'
 import { GRAY, SECOND } from 'styles/Color'
+import { s_mq } from 'styles/facepaint'
+
+const titleStyle = css(
+  s_mq({
+    fontSize: ['1.5rem', '2rem'],
+  }),
+)
+
+const descriptionStyle = css(
+  s_mq({
+    fontSize: ['0.8rem', '0.9rem'],
+  }),
+)
 
 const NotFoundPage: FC = () => (
   <Layout>
-    <figure>
-      <img src={`/404-illustrate.svg`} alt="404 Not Found Page Image" />
+    <figure className="not-found-figure">
+      <img
+        className="not-found-image"
+        src={`/404-illustrate.svg`}
+        alt="404 Not Found Page Image"
+      />
       <figcaption
         id="title-caption"
+        css={titleStyle}
         style={{
           color: SECOND,
         }}
@@ -20,6 +38,7 @@ const NotFoundPage: FC = () => (
       </figcaption>
       <figcaption
         id="description-caption"
+        css={descriptionStyle}
         style={{
           color: GRAY,
         }}

@@ -32,6 +32,7 @@ const HStack = styled.div`
 `
 
 const style = css`
+  width: 100%;
   max-width: 770px;
   margin-inline: 20px;
 `
