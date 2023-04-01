@@ -1,31 +1,29 @@
-figure {
+.not-found-figure {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 740px;
+  width: 100%;
+  max-width: 740px;
   margin-top: 50px;
   margin-inline: 0;
   font-family: Nanum Gothic;
 }
 
-img {
+.not-found-image {
   user-drag: none;
   -webkit-user-drag: none;
   user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  padding-inline: 5rem;
 }
 
 #title-caption {
-  position: relative;
-  top: -50px;
-  font-size: 2rem;
   font-weight: 900;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 #description-caption {
-  position: relative;
-  top: -30px;
-  font-size: 0.9rem;
 }
