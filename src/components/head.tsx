@@ -31,3 +31,7 @@ export const CategoryPageHead: HeadAPI<AllMdxQuery, CategoryPageContext> = ({
 export const NotFoundPageHead: HeadAPI = () => {
   return <SEO titlePrefix="Oops, Page Not Found 😰" />
 }
+
+export const InternalErrorPageHead: HeadAPI = () => {
+  return <SEO titlePrefix="Something went wrong 😱" />
+}
