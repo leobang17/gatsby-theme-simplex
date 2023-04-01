@@ -6,6 +6,7 @@ import { jsx, css } from '@emotion/react'
 import 'styles/404.css'
 import { GRAY, SECOND } from 'styles/Color'
 import { s_mq } from 'styles/facepaint'
+import ErrorPageContext from 'contexts/ErrorPageContext'
 
 const titleStyle = css(
   s_mq({
@@ -20,33 +21,35 @@ const descriptionStyle = css(
 )
 
 const NotFoundPage: FC = () => (
-  <Layout>
-    <figure className="not-found-figure">
-      <img
-        className="not-found-image"
-        src={`/404-illustrate.svg`}
-        alt="404 Not Found Page Image"
-      />
-      <figcaption
-        id="title-caption"
-        css={titleStyle}
-        style={{
-          color: SECOND,
-        }}
-      >
-        404: PAGE NOT FOUND
-      </figcaption>
-      <figcaption
-        id="description-caption"
-        css={descriptionStyle}
-        style={{
-          color: GRAY,
-        }}
-      >
-        찾고 있는 페이지가 존재하지 않네요 😢
-      </figcaption>
-    </figure>
-  </Layout>
+  <ErrorPageContext>
+    <Layout>
+      <figure className="not-found-figure">
+        <img
+          className="not-found-image"
+          src={`/404-illustrate.svg`}
+          alt="404 Not Found Page Image"
+        />
+        <figcaption
+          id="title-caption"
+          css={titleStyle}
+          style={{
+            color: SECOND,
+          }}
+        >
+          404: PAGE NOT FOUND
+        </figcaption>
+        <figcaption
+          id="description-caption"
+          css={descriptionStyle}
+          style={{
+            color: GRAY,
+          }}
+        >
+          찾고 있는 페이지가 존재하지 않네요 😢
+        </figcaption>
+      </figure>
+    </Layout>
+  </ErrorPageContext>
 )
 
 export default NotFoundPage

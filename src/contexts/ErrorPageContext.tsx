@@ -1,7 +1,4 @@
-/** @jsx jsx */
-
-import { FC } from 'react'
-import { jsx } from '@emotion/react'
+import React, { FC } from 'react'
 import CategoryContextProvider, {
   CategoryContextProviderProps,
 } from './category/CategoryContextProvider'

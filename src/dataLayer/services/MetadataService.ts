@@ -20,7 +20,7 @@ class MetadataService {
   }
 
   public getBlogMetadataProperty() {
-    return this.convertSiteMetadataToProperty().blogDetail
+    return this.convertSiteMetadataToProperty().blogMetadata
   }
 
   public getSocial() {
@@ -31,7 +31,7 @@ class MetadataService {
     const { bio, blogMetadata, social } = this.query.getSiteMetadata()
     return {
       bio: this.convertBioToProperty(bio),
-      blogDetail: this.convertBlogDetailToProperty(blogMetadata),
+      blogMetadata: this.convertBlogMetadataToProperty(blogMetadata),
       social: this.convertSocialToProperty(social),
     }
   }
@@ -48,7 +48,7 @@ class MetadataService {
     } as BioProperty
   }
 
-  private convertBlogDetailToProperty(data: BlogMetadata) {
+  private convertBlogMetadataToProperty(data: BlogMetadata) {
     return {
       title: new StringProperty(data.title),
       description: new StringProperty(data.description),

@@ -3,7 +3,7 @@
 import { FC } from 'react'
 import { css, jsx } from '@emotion/react'
 
-import { s_mq } from 'styles/facepaint'
+import { l_mq } from 'styles/facepaint'
 import AssetApiConfigurator from 'datalayer/configurators/AssetApiConfigurator'
 
 type GithubCellProps = {
@@ -14,7 +14,7 @@ const style = css(
   css`
     margin-inline: 3rem;
   `,
-  s_mq({
+  l_mq({
     display: ['none', 'flex'],
   }),
 )

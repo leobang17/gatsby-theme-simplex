@@ -2,7 +2,7 @@
 
 import { FC, useState } from 'react'
 import { jsx, css } from '@emotion/react'
-import { s_mq } from 'styles/facepaint'
+import { l_mq } from 'styles/facepaint'
 import { Box, IconButton, SwipeableDrawer, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/MenuRounded'
 import CloseIcon from '@mui/icons-material/CloseRounded'
@@ -17,7 +17,7 @@ const style = css(
     right: 1rem;
     align-items: center;
   `,
-  s_mq({
+  l_mq({
     display: ['flex', 'none'],
   }),
 )
