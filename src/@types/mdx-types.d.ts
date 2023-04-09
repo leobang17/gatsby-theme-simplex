@@ -33,10 +33,7 @@ export type MdxField = {
 
 export type MdxFrontmatter = {
   title: string
-  tags: string
-  slug: string
   createdAt: string
-  updatedAt: string
 }
 
 export type MdxTableOfContent = {

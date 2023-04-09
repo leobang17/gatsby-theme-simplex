@@ -12,12 +12,12 @@ class SiteMetadataQuery {
           siteMetadata {
             bio {
               name
-              thumbnail
-              introduction
-              email
-              website
-              location
-              company
+              #   thumbnail
+              #   introduction
+              #   email
+              #   website
+              #   location
+              #   company
             }
             blogMetadata {
               title
@@ -26,10 +26,10 @@ class SiteMetadataQuery {
             }
             social {
               github
-              instagram
-              facebook
-              linkedin
-              twitter
+              # instagram
+              # facebook
+              # linkedin
+              # twitter
             }
           }
         }
