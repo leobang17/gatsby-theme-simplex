@@ -1,1 +1,5 @@
-{}
+{
+  "[markdown]": {
+    "editor.quickSuggestions": true
+  }
+}
