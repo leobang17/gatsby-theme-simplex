@@ -35,11 +35,8 @@ export const query = graphql`
         categoryDirectory
       }
       frontmatter {
-        createdAt(formatString: "MMMM DD, YYYY")
-        slug
-        tags
         title
-        updatedAt
+        createdAt(formatString: "MMMM DD, YYYY")
       }
       tableOfContents
     }
