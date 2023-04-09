@@ -5,13 +5,13 @@
  */
 
 import { GatsbyConfig } from 'gatsby'
-import configs from './configs'
+import { siteMetadata } from './src/configuration'
 
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
 const config: GatsbyConfig = {
-  siteMetadata: configs,
+  siteMetadata,
   plugins: [
     /**
      * Typescript Config
