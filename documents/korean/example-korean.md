@@ -1,9 +1,6 @@
 ---
 title: '제목 예시 입니다.'
-tags: ['태그1', '태그2', '태그3']
 createdAt: 2023-01-17
-updatedAt: 2023-01-18
-slug: 'this-is-for-uri-endpoint-korean'
 ---
 
 # Heading1
