@@ -1,11 +1,11 @@
 /** @jsx jsx */
 
 import { css, jsx } from '@emotion/react'
+import { themeConfigs } from '../../configuration'
 import { PAGE_PREFIX } from 'constants/PageConsts'
 import CategoryStrings from 'datastructures/category/CategoryStrings'
 import { Link } from 'gatsby'
 import { FC } from 'react'
-import { FIRST } from 'styles/Color'
 import getCategoriesWithCategoryLinks from 'utils/getCategoriesWithCategoryLinks'
 
 type ArticleCategoryLinkProps = {
@@ -13,7 +13,7 @@ type ArticleCategoryLinkProps = {
 }
 
 const style = css`
-  color: ${FIRST};
+  color: ${themeConfigs.light.main};
   padding-left: 3px;
   font-size: 0.8rem;
   padding-bottom: 0.2rem;

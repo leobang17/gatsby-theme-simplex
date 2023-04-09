@@ -1,7 +1,8 @@
-import { CATEGORY_THRESHOLD } from '../../constants/CategoryConsts'
+import { categoryConfigs } from '../../configuration'
 import { slugify } from '../../utils/slug'
 
 class CategoryStringParser {
+  private static CATEGORY_MAX_DEPTH: number = categoryConfigs.maxDepth
   private static instance: CategoryStringParser
   private constructor() {}
 
@@ -48,7 +49,7 @@ class CategoryStringParser {
   }
 
   private dropExeedingCategories(splited: string[]) {
-    while (splited.length > CATEGORY_THRESHOLD) {
+    while (splited.length > CategoryStringParser.CATEGORY_MAX_DEPTH) {
       splited.pop()
     }
   }

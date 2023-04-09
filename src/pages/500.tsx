@@ -2,9 +2,10 @@
 
 import { css, jsx } from '@emotion/react'
 import Layout from 'components/Layout'
+import { themeConfigs } from '../configuration'
 import ErrorPageContext from 'contexts/ErrorPageContext'
 import { FC } from 'react'
-import { GRAY, SECOND } from 'styles/Color'
+import { GRAY } from 'styles/Color'
 import { s_mq } from 'styles/facepaint'
 
 const titleStyle = css(
@@ -33,7 +34,7 @@ const InternalErrorPage: FC = () => {
             id="title-caption"
             css={titleStyle}
             style={{
-              color: SECOND,
+              color: themeConfigs.light.sub,
             }}
           >
             500: INTERNAL SERVER ERROR

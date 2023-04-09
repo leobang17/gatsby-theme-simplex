@@ -7,7 +7,7 @@ import { css, jsx } from '@emotion/react'
 import { PAGE_PREFIX } from 'constants/PageConsts'
 import { CategoryTreeObject } from 'datastructures/category/CategoryTree'
 import CategoryCount from './CategoryCount'
-import { FIRST } from 'styles/Color'
+import { themeConfigs } from '../../../configuration'
 
 type CategoryRowProps = {
   category: CategoryTreeObject
@@ -18,7 +18,7 @@ const style = (activated: boolean) => css`
   align-items: center;
   padding-block: 0.3rem;
   padding-inline: 0.5rem;
-  border-left: 2px solid ${activated ? FIRST : 'inherit'};
+  border-left: 2px solid ${activated ? themeConfigs.light.main : 'inherit'};
   background-color: ${activated ? '#EEEEEE' : null};
   font-weight: ${activated ? 400 : 300};
 
