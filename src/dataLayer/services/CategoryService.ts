@@ -1,4 +1,4 @@
-import { CategoryTree } from '../../datastructures/category/CategoryTree'
+import CategoryTree from '../../datastructures/category/CategoryTree'
 import { GroupByNode } from '../../@types/mdx-types'
 import CategoryQueryService from './CategoryQueryService'
 import CategoryStrings from '../../datastructures/category/CategoryStrings'

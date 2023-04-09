@@ -1,0 +1,14 @@
+{
+  "Markdown Frontmatter Snippet": {
+    "prefix": ["post"],
+    "body": [
+      "---",
+      "title: ${1:Title of this article}",
+      "createdAt: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      "---",
+      "",
+      "# ${2}"
+    ],
+    "description": "Snippet for markdown file to automatically create frontmatter input form"
+  }
+}

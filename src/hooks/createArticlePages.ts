@@ -34,11 +34,8 @@ const getAllMdx = async (graphql: PageGraphQL) => {
             slug
           }
           frontmatter {
-            createdAt(formatString: "MMM DD YYYY")
-            slug
-            tags
             title
-            updatedAt
+            createdAt(formatString: "MMM DD YYYY")
           }
           excerpt(pruneLength: 250)
           internal {

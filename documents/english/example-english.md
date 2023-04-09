@@ -1,9 +1,6 @@
 ---
 title: 'This is title example'
-tags: ['tag1', 'tag2', 'tag3']
 createdAt: 2023-01-17
-updatedAt: 2023-01-18
-slug: 'this-is-for-uri-endpoint-english'
 ---
 
 # Heading1

@@ -1,15 +1,12 @@
 import {
-  Bio,
   BioProperty,
-  BlogMetadata,
   BlogMetadataProperty,
-  Social,
   SocialProperty,
 } from 'types/metadata-types'
+import { Bio, BlogMetadata, Social } from 'types/user-input.types'
 import SiteMetadataQuery from '../queries/SiteMetadataQuery'
 
 import StringProperty from 'datastructures/metadata/properties/StringProperty'
-import EmailProperty from 'datastructures/metadata/properties/EmailProperty'
 import WebLinkProperty from 'datastructures/metadata/properties/WebLiinkProperty'
 
 class MetadataService {
@@ -39,12 +36,12 @@ class MetadataService {
   private convertBioToProperty(data: Bio) {
     return {
       name: new StringProperty(data.name),
-      thumbnail: new StringProperty(data.thumbnail),
-      introduction: new StringProperty(data.introduction),
-      email: new EmailProperty(data.email),
-      website: new StringProperty(data.website),
-      location: new StringProperty(data.location),
-      company: new StringProperty(data.company),
+      // thumbnail: new StringProperty(data.thumbnail),
+      // introduction: new StringProperty(data.introduction),
+      // email: new EmailProperty(data.email),
+      // website: new StringProperty(data.website),
+      // location: new StringProperty(data.location),
+      // company: new StringProperty(data.company),
     } as BioProperty
   }
 
@@ -59,10 +56,10 @@ class MetadataService {
   private convertSocialToProperty(data: Social) {
     return {
       github: new WebLinkProperty(data.github),
-      instagram: new WebLinkProperty(data.instagram),
-      facebook: new WebLinkProperty(data.facebook),
-      linkedin: new WebLinkProperty(data.linkedin),
-      twitter: new WebLinkProperty(data.twitter),
+      // instagram: new WebLinkProperty(data.instagram),
+      // facebook: new WebLinkProperty(data.facebook),
+      // linkedin: new WebLinkProperty(data.linkedin),
+      // twitter: new WebLinkProperty(data.twitter),
     } as SocialProperty
   }
 }

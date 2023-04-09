@@ -6,15 +6,17 @@ import activateCurrentCategories from 'utils/pageApi/activateCurrentCatgeories'
 
 import { CategoryContext } from './CategoryContext'
 
-export type CategoryContextProviderProps = {} & ChildrenProps
+export type CategoryContextProviderProps = {
+  categoryDirectory?: string
+} & ChildrenProps
 
 const CategoryContextProvider: FC<CategoryContextProviderProps> = ({
+  categoryDirectory,
   children,
 }) => {
   const api = DataLayer.singleton.categoryApi
   const categoryTree = api.getCategoryTreeSync()
-  activateCurrentCategories(categoryTree)
-
+  activateCurrentCategories(categoryTree, categoryDirectory)
   return (
     <CategoryContext.Provider
       value={{

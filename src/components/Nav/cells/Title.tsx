@@ -1,9 +1,9 @@
 /** @jsx jsx */
 
 import { css, jsx } from '@emotion/react'
+import { themeConfigs } from '../../../configuration'
 import { Link } from 'gatsby'
 import { FC } from 'react'
-import { SECOND } from 'styles/Color'
 
 type TitleCellProps = {
   title: string
@@ -16,7 +16,7 @@ const style = css`
   transition: all 0.15s ease;
 
   :hover {
-    color: ${SECOND};
+    color: ${themeConfigs.light.sub};
     scale: 105%;
   }
 `

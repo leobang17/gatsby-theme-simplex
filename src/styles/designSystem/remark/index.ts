@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
-import { BORDER_MUSK, GRAY, LIGHT_GRAY, SECOND } from 'styles/Color'
+import { themeConfigs } from '../../../configuration'
+import { BORDER_MUSK, GRAY, LIGHT_GRAY } from 'styles/Color'
 
 // Headers
 export const H1 = styled.h1`
@@ -66,7 +67,7 @@ export const DEL = styled.del`
   font-weight: 300;
 `
 export const A = styled.a`
-  color: ${SECOND};
+  color: ${themeConfigs.light.sub};
   text-decoration: underline;
 `
 

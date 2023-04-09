@@ -4,9 +4,10 @@ import { FC } from 'react'
 import Layout from 'components/Layout'
 import { jsx, css } from '@emotion/react'
 import 'styles/404.css'
-import { GRAY, SECOND } from 'styles/Color'
+import { GRAY } from 'styles/Color'
 import { s_mq } from 'styles/facepaint'
 import ErrorPageContext from 'contexts/ErrorPageContext'
+import { themeConfigs } from '../configuration'
 
 const titleStyle = css(
   s_mq({
@@ -33,7 +34,7 @@ const NotFoundPage: FC = () => (
           id="title-caption"
           css={titleStyle}
           style={{
-            color: SECOND,
+            color: themeConfigs.light.sub,
           }}
         >
           404: PAGE NOT FOUND

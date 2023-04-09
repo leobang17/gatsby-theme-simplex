@@ -1,0 +1,10 @@
+article.markdown-wrapper img:not([class]):not([id]) {
+  display: block;
+  max-width: 660px;
+  width: 85vw;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+  margin-block: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+}

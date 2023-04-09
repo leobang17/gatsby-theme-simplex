@@ -1,7 +1,9 @@
+import { tableOfContentConfigs } from '../../configuration'
 import { MdxTableOfContent } from 'types/mdx-types'
 import TableOfContentTree from './TableOfContentTree'
 
 export default class TableNode {
+  private static MAX_DEPTH: number = tableOfContentConfigs.maxDepth
   readonly url?: string
   readonly title?: string
   readonly items: TableNode[] = new Array()
@@ -31,15 +33,21 @@ export default class TableNode {
   }
 
   private _appendItems(items?: MdxTableOfContent[]) {
-    items?.map(table => {
-      const childTable = new TableNode(this.motherTree, table, this.depth + 1)
-      this.items.push(childTable)
-    })
+    if (this.depthAvailable()) {
+      items?.map(table => {
+        const childTable = new TableNode(this.motherTree, table, this.depth + 1)
+        this.items.push(childTable)
+      })
+    }
   }
 
   private _mapDictionaryToMotherTree() {
     if (this.url) {
       this.motherTree.dictionary.set(this.url, this)
     }
+  }
+
+  private depthAvailable() {
+    return this.depth < TableNode.MAX_DEPTH
   }
 }

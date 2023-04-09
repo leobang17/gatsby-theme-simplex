@@ -32,13 +32,11 @@ export const query = graphql`
       fields {
         slug
         timeToRead
+        categoryDirectory
       }
       frontmatter {
-        createdAt(formatString: "MMMM DD, YYYY")
-        slug
-        tags
         title
-        updatedAt
+        createdAt(formatString: "MMMM DD, YYYY")
       }
       tableOfContents
     }
