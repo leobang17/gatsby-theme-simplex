@@ -15,7 +15,7 @@ type TOCTitleProps = {
 
 const style = (activated?: boolean) => css`
   position: relative;
-  /* padding-block: 1px; */
+  padding-block: 1px;
   font-size: 0.9rem;
   font-weight: 300;
   left: ${activated ? '-5px' : '0'};

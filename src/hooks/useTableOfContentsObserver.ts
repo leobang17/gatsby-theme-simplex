@@ -11,7 +11,7 @@ export default function useTableOfContentsObserver() {
 
   const observerOptions: IntersectionObserverInit = {
     root: null,
-    rootMargin: '0px 0px -95% 0px',
+    rootMargin: '0px 0px -90% 0px',
     threshold: 0.1,
   }
 
