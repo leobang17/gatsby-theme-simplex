@@ -1,10 +1,17 @@
 import { Pages, PAGE_PREFIX } from 'constants/PageConsts'
-import { CategoryTree } from 'datastructures/category/CategoryTree'
+import CategoryTree from 'datastructures/category/CategoryTree'
 
-export default function activateCurrentCategories(tree: CategoryTree) {
+export default function activateCurrentCategories(
+  tree: CategoryTree,
+  categoryDirectory?: string,
+) {
   const currentEndpoint = getCurrentEndpointDecoded()
   const page = findCurrentPageByEndpoint(currentEndpoint)
-  const currentSlug = getCurrentSlug(currentEndpoint, page)
+  let currentSlug = getCurrentSlug(currentEndpoint, page)
+
+  if (categoryDirectory) {
+    currentSlug = categoryDirectory
+  }
 
   switch (page) {
     case 'INDEX':

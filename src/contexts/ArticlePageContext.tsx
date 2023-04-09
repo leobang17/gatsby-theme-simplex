@@ -16,7 +16,9 @@ const ArticlePageContext: FC<ArticlePageContextProps> = ({
 }) => {
   return (
     <>
-      <CategoryContextProvider>
+      <CategoryContextProvider
+        categoryDirectory={data.mdx.fields.categoryDirectory}
+      >
         <ArticleContextProvider data={data}>{children}</ArticleContextProvider>
       </CategoryContextProvider>
     </>
