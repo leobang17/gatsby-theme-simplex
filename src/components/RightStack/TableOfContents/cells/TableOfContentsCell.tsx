@@ -24,8 +24,8 @@ const TableOfContentsCell: FC<TableOfContentsCellProps> = ({
     <div css={style(data.depth)}>
       <TOCTitle {...data} />
       {data.items
-        ? data.items.map(item => (
-            <TableOfContentsCell data={item} depth={depth + 1} />
+        ? data.items.map((item, id) => (
+            <TableOfContentsCell key={id} data={item} depth={depth + 1} />
           ))
         : null}
     </div>

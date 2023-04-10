@@ -22,8 +22,8 @@ const CategoryPage: FC<PageProps<AllMdxQuery, CategoryPageContext>> = ({
   return (
     <CategoryPageContext>
       <CategoryLayout>
-        {articles.map(article => {
-          return <ArticleBox {...article} />
+        {articles.map((article, id) => {
+          return <ArticleBox key={id} {...article} />
         })}
       </CategoryLayout>
     </CategoryPageContext>

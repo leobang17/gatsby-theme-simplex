@@ -28,13 +28,13 @@ const ArticleBoxCategoryLink: FC<ArticleCategoryLinkProps> = ({
   return (
     <div css={style}>
       <Link to={PAGE_PREFIX.CATEGORY}>total</Link>
-      {categoriesWithCategoryLinks.map(categoryWithCategoryLink => {
+      {categoriesWithCategoryLinks.map((categoryWithCategoryLink, id) => {
         const [category, categoryLink] = categoryWithCategoryLink
         return (
-          <text>
+          <span key={id}>
             {' > '}
             <Link to={categoryLink}>{category}</Link>
-          </text>
+          </span>
         )
       })}
     </div>
