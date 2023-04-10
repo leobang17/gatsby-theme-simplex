@@ -6665,10 +6665,10 @@ gatsby-remark-images@^7.7.0:
     unist-util-select "^3.0.4"
     unist-util-visit-parents "^3.1.1"
 
-gatsby-remark-katex@^7.7.0:
-  version "7.7.0"
-  resolved "https://registry.npmjs.org/gatsby-remark-katex/-/gatsby-remark-katex-7.7.0.tgz#a2f65ef7aac56e6527c6be287b2c8c4ffafea59a"
-  integrity sha512-JezKmMeSD7oZvayVcmC8FBP1shfkKZPzZiWs87hNE6h3pWgEm8+uwdlWtB/KD+oSry5hU24s9I6hkfKPxjwHXg==
+gatsby-remark-katex@^7.8.0:
+  version "7.8.0"
+  resolved "https://registry.npmjs.org/gatsby-remark-katex/-/gatsby-remark-katex-7.8.0.tgz#2087ecbeccfcaf11367def4f40ad9554db2748cd"
+  integrity sha512-bA86AyuuIfCNY2i9gZQRlpnb4TR6z9BuVd2HaADy2O55ZxY2jJ9DcV7Nbbx2J2m1oUKe7CmUfjEl48ehOBqfPQ==
   dependencies:
     "@babel/runtime" "^7.20.13"
     rehype-parse "^7.0.1"
