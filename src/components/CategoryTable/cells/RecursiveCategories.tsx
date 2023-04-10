@@ -18,8 +18,8 @@ const RecursiveCategories: FC<CategoryCellProps> = ({ category }) => {
   return (
     <div css={style}>
       <CategoryRow category={category} />
-      {category.sub.map(cat => {
-        return <RecursiveCategories category={cat} />
+      {category.sub.map((cat, id) => {
+        return <RecursiveCategories category={cat} key={id} />
       })}
     </div>
   )

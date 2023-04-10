@@ -7,8 +7,8 @@ import SocialIcon from './cells/SocialIcon'
 const SocialList = () => {
   return (
     <div>
-      {socialProviders.map(social => (
-        <SocialIcon social={social} />
+      {socialProviders.map((social, id) => (
+        <SocialIcon key={id} social={social} />
       ))}
     </div>
   )

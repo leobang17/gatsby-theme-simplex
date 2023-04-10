@@ -6665,10 +6665,10 @@ gatsby-remark-images@^7.7.0:
     unist-util-select "^3.0.4"
     unist-util-visit-parents "^3.1.1"
 
-gatsby-remark-katex@^7.7.0:
-  version "7.7.0"
-  resolved "https://registry.npmjs.org/gatsby-remark-katex/-/gatsby-remark-katex-7.7.0.tgz#a2f65ef7aac56e6527c6be287b2c8c4ffafea59a"
-  integrity sha512-JezKmMeSD7oZvayVcmC8FBP1shfkKZPzZiWs87hNE6h3pWgEm8+uwdlWtB/KD+oSry5hU24s9I6hkfKPxjwHXg==
+gatsby-remark-katex@^7.8.0:
+  version "7.8.0"
+  resolved "https://registry.npmjs.org/gatsby-remark-katex/-/gatsby-remark-katex-7.8.0.tgz#2087ecbeccfcaf11367def4f40ad9554db2748cd"
+  integrity sha512-bA86AyuuIfCNY2i9gZQRlpnb4TR6z9BuVd2HaADy2O55ZxY2jJ9DcV7Nbbx2J2m1oUKe7CmUfjEl48ehOBqfPQ==
   dependencies:
     "@babel/runtime" "^7.20.13"
     rehype-parse "^7.0.1"
@@ -8617,10 +8617,10 @@ katex@^0.12.0:
   dependencies:
     commander "^2.19.0"
 
-katex@^0.16.4:
-  version "0.16.4"
-  resolved "https://registry.npmjs.org/katex/-/katex-0.16.4.tgz#87021bc3bbd80586ef715aeb476794cba6a49ad4"
-  integrity sha512-WudRKUj8yyBeVDI4aYMNxhx5Vhh2PjpzQw1GRu/LVGqL4m1AxwD1GcUp0IMbdJaf5zsjtj8ghP0DOQRYhroNkw==
+katex@^0.13.3:
+  version "0.13.24"
+  resolved "https://registry.npmjs.org/katex/-/katex-0.13.24.tgz#fe55455eb455698cb24b911a353d16a3c855d905"
+  integrity sha512-jZxYuKCma3VS5UuxOx/rFV1QyGSl3Uy/i0kTJF3HgQ5xMinCQVF8Zd4bMY/9aI9b9A2pjIBOsjSSm68ykTAr8w==
   dependencies:
     commander "^8.0.0"
 
