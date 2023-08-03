@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 import { css, jsx } from '@emotion/react'
 
 import RESPONSIVE from 'styles/responsive'
@@ -11,6 +11,8 @@ import GithubCell from './cells/Github'
 import { BORDER_MUSK } from 'styles/Color'
 import MetadataApiConfigurator from 'datalayer/configurators/MetadataApiConfigurator'
 import DrawerNavigation from './cells/DrawerNavigation'
+import { ModeSwitch } from './cells/ModeSwitch'
+import { ThemeContext } from 'contexts/theme/ThemeContext'
 
 const navcss = css(
   {
@@ -37,11 +39,16 @@ const Nav: FC = () => {
   const api = MetadataApiConfigurator.instance.api
   const { title } = api.getBlogMetadata()
   const github = api.getSocialSingle('github')
+  const { mode, switchMode } = useContext(ThemeContext)
 
   return (
     <header css={navcss}>
       <TitleCell title={title.value} />
       {github.isValid() ? <GithubCell siteUrl={github.value} /> : null}
+      <ModeSwitch
+        onChange={switchMode}
+        defaultChecked={mode === 'dark' ? true : false}
+      />
       <DrawerNavigation />
     </header>
   )
