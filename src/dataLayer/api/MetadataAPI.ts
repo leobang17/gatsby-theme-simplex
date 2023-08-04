@@ -21,6 +21,10 @@ class MetadataAPI {
   getSocialSingle(social: SocialProvider): ConfigProperty {
     return this.getSocial()[social]
   }
+
+  getUtterance() {
+    return this.service.getUtterence()
+  }
 }
 
 export default MetadataAPI

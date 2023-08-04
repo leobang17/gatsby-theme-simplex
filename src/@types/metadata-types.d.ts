@@ -5,12 +5,18 @@ export type SiteMetadata = {
   blogMetadata: BlogMetadata
   bio: Bio
   social: Social
+  utterance: {
+    issue_repo: string
+  }
 }
 
 export type SiteMetadataProperty = {
   bio: BioProperty
   blogMetadata: BlogMetadataProperty
   social: SocialProperty
+  utterence: {
+    issue_repo: ConfigProperty
+  }
 }
 
 export type BlogMetadataProperty = {

@@ -31,6 +31,9 @@ class SiteMetadataQuery {
               # linkedin
               # twitter
             }
+            utterance {
+              issue_repo
+            }
           }
         }
       }

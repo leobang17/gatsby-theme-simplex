@@ -5,6 +5,9 @@ export type UserInput = {
   tableOfContents: TableOfContentConfigs
   category: CategoryConfigs
   theme: BlogTheme
+  utterance: {
+    issue_repo: string
+  }
 }
 
 export type BlogMetadata = {

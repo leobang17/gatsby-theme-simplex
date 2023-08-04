@@ -11,7 +11,7 @@ import { FIRST, SECOND } from './styles/Color'
 
 import userInput from '../blog.config.json'
 
-const { metadata, bio, social, tableOfContents, category, theme } =
+const { metadata, bio, social, tableOfContents, category, theme, utterance } =
   userInput as UserInput
 
 export const siteMetadata = {
@@ -27,6 +27,7 @@ export const siteMetadata = {
   bio: fillDefaultConfiguration<Bio>(bio, {
     name: 'Default Name',
   }),
+  utterance,
 }
 
 export const tableOfContentConfigs =
