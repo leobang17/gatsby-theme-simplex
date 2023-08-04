@@ -5,6 +5,7 @@ import ArticleLayout from 'components/Layout/ArticleLayout'
 import MarkdownWrapper from 'components/MarkdownWrapper'
 import ArticleFrontmatter from 'components/ArticleFrontmatter'
 import ArticlePageContext from 'contexts/ArticlePageContext'
+import Utterances from 'components/Utterance'
 
 // @ts-ignore
 const ArticlePage = ({ data, children }) => {
@@ -18,6 +19,7 @@ const ArticlePage = ({ data, children }) => {
       <ArticleLayout>
         <ArticleFrontmatter {...frontmatters} />
         <MarkdownWrapper>{children}</MarkdownWrapper>
+        <Utterances />
       </ArticleLayout>
     </ArticlePageContext>
   )

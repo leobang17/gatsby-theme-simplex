@@ -12,24 +12,35 @@ import WebLinkProperty from 'datastructures/metadata/properties/WebLiinkProperty
 class MetadataService {
   constructor(private query: SiteMetadataQuery) {}
 
-  public getBioProperty() {
+  getBioProperty() {
     return this.convertSiteMetadataToProperty().bio
   }
 
-  public getBlogMetadataProperty() {
+  getBlogMetadataProperty() {
     return this.convertSiteMetadataToProperty().blogMetadata
   }
 
-  public getSocial() {
+  getSocial() {
     return this.convertSiteMetadataToProperty().social
   }
 
+  getUtterence() {
+    return this.convertSiteMetadataToProperty().utterence
+  }
+
   private convertSiteMetadataToProperty() {
-    const { bio, blogMetadata, social } = this.query.getSiteMetadata()
+    const { bio, blogMetadata, social, utterance } =
+      this.query.getSiteMetadata()
     return {
       bio: this.convertBioToProperty(bio),
       blogMetadata: this.convertBlogMetadataToProperty(blogMetadata),
       social: this.convertSocialToProperty(social),
+      utterence: this.convertUtteranceToProperty(utterance),
+    }
+  }
+  private convertUtteranceToProperty(utterance: { issue_repo: string }) {
+    return {
+      issue_repo: new StringProperty(utterance.issue_repo),
     }
   }
 
