@@ -1,20 +1,30 @@
-import { createTheme } from '@mui/material'
-import { blue, purple } from '@mui/material/colors'
+import {
+  PaletteColor,
+  PaletteColorOptions,
+  PaletteMode,
+  createTheme,
+} from '@mui/material'
+import { teal } from '@mui/material/colors'
 
-export const darkTheme = createTheme({
-  palette: {
-    primary: {
-      main: blue[500],
-    },
-    mode: 'dark',
-  },
-})
+declare module '@mui/material/styles' {
+  interface Palette {
+    navbar: PaletteColor
+  }
+  interface PaletteOptions {
+    navbar?: PaletteColorOptions
+  }
+}
 
-export const lightTheme = createTheme({
-  palette: {
-    primary: {
-      main: purple[100],
+export const configureTheme = (mode: PaletteMode) => {
+  return createTheme({
+    palette: {
+      primary: {
+        main: teal[600],
+      },
+      secondary: {
+        main: '#146C94',
+      },
+      mode,
     },
-    mode: 'light',
-  },
-})
+  })
+}

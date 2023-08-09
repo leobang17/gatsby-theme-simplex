@@ -3,7 +3,7 @@ import React from 'react'
 import { ChildrenProps } from 'types/react-types'
 import { ThemeContext } from './ThemeContext'
 import { Theme, ThemeProvider } from '@mui/material'
-import { darkTheme, lightTheme } from 'styles/themes'
+import { configureTheme } from 'styles/themes'
 import { useDarkmode } from 'hooks/useDarkmode'
 
 export type ThemeContextProviderProps = {} & ChildrenProps
@@ -14,7 +14,7 @@ const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
   const { mode, switchMode } = useDarkmode()
 
   const theme = React.useMemo<Theme>(() => {
-    return mode === 'dark' ? darkTheme : lightTheme
+    return configureTheme(mode)
   }, [mode])
 
   return (
