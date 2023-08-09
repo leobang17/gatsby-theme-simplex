@@ -1,6 +1,6 @@
 /** @jsx jsx */
 
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 import { css, jsx } from '@emotion/react'
 
 import RESPONSIVE from 'styles/responsive'
@@ -11,6 +11,9 @@ import GithubCell from './cells/Github'
 import { BORDER_MUSK } from 'styles/Color'
 import MetadataApiConfigurator from 'datalayer/configurators/MetadataApiConfigurator'
 import DrawerNavigation from './cells/DrawerNavigation'
+import { ModeSwitch } from './cells/ModeSwitch'
+import { ThemeContext } from 'contexts/theme/ThemeContext'
+import { Box, Grid } from '@mui/material'
 
 const navcss = css(
   {
@@ -21,7 +24,7 @@ const navcss = css(
     flexDirection: 'row',
     alignItems: 'center',
     borderBottom: `1px solid ${BORDER_MUSK}`,
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
     zIndex: 99,
   },
   mq({
@@ -37,13 +40,23 @@ const Nav: FC = () => {
   const api = MetadataApiConfigurator.instance.api
   const { title } = api.getBlogMetadata()
   const github = api.getSocialSingle('github')
+  const { mode, switchMode } = useContext(ThemeContext)
 
   return (
-    <header css={navcss}>
-      <TitleCell title={title.value} />
+    <Grid container css={navcss}>
+      <Grid item>
+        <TitleCell title={title.value} />
+      </Grid>
       {github.isValid() ? <GithubCell siteUrl={github.value} /> : null}
+      <Grid item display={{ xs: 'none', md: 'none', lg: 'block' }}>
+        <ModeSwitch
+          onChange={switchMode}
+          defaultChecked={mode === 'dark' ? true : false}
+        />
+      </Grid>
+
       <DrawerNavigation />
-    </header>
+    </Grid>
   )
 }
 

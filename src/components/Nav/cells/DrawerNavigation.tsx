@@ -2,7 +2,6 @@
 
 import { FC, useState } from 'react'
 import { jsx, css } from '@emotion/react'
-import { l_mq } from 'styles/facepaint'
 import { Box, IconButton, SwipeableDrawer, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/MenuRounded'
 import CloseIcon from '@mui/icons-material/CloseRounded'
@@ -17,16 +16,13 @@ const style = css(
     right: 1rem;
     align-items: center;
   `,
-  l_mq({
-    display: ['flex', 'none'],
-  }),
 )
 
 const DrawerNavigation: FC<DrawerNavigationProps> = ({}) => {
   const [drawerState, setDrawerState] = useState<boolean>(false)
 
   return (
-    <nav css={style}>
+    <Box component="nav" css={style} display={{ md: 'block', lg: 'none' }}>
       <IconButton
         size="small"
         edge="start"
@@ -72,7 +68,7 @@ const DrawerNavigation: FC<DrawerNavigationProps> = ({}) => {
           </div>
         </Box>
       </SwipeableDrawer>
-    </nav>
+    </Box>
   )
 }
 

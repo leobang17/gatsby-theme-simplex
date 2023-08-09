@@ -6,6 +6,7 @@ import ArticleContextProvider, {
 import CategoryContextProvider, {
   CategoryContextProviderProps,
 } from './category/CategoryContextProvider'
+import ThemeContextProvider from './theme/ThemeContextProvider'
 
 type ArticlePageContextProps = {} & CategoryContextProviderProps &
   ArticleContextProviderProps
@@ -16,11 +17,15 @@ const ArticlePageContext: FC<ArticlePageContextProps> = ({
 }) => {
   return (
     <>
-      <CategoryContextProvider
-        categoryDirectory={data.mdx.fields.categoryDirectory}
-      >
-        <ArticleContextProvider data={data}>{children}</ArticleContextProvider>
-      </CategoryContextProvider>
+      <ThemeContextProvider>
+        <CategoryContextProvider
+          categoryDirectory={data.mdx.fields.categoryDirectory}
+        >
+          <ArticleContextProvider data={data}>
+            {children}
+          </ArticleContextProvider>
+        </CategoryContextProvider>
+      </ThemeContextProvider>
     </>
   )
 }
