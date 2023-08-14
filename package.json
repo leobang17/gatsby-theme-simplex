@@ -56,7 +56,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "reading-time": "^1.5.0",
-    "remark-gfm": "^1"
+    "remark-gfm": "^1",
+    "tss-react": "^4.8.8"
   },
   "devDependencies": {
     "@jest/globals": "^29.4.1",
