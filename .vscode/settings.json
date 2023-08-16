@@ -4,6 +4,7 @@
       "comments": "on",
       "strings": "on",
       "other": "on"
-    }
+    },
+    "editor.formatOnSave": false
   }
 }
