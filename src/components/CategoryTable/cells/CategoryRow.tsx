@@ -1,50 +1,71 @@
 /** @jsx jsx */
 
 import { Link } from 'gatsby'
-import { FC } from 'react'
-import { css, jsx } from '@emotion/react'
+import { FC, useContext } from 'react'
+import { jsx } from '@emotion/react'
 
 import { PAGE_PREFIX } from 'constants/PageConsts'
 import { CategoryTreeObject } from 'datastructures/category/CategoryTree'
 import CategoryCount from './CategoryCount'
-import { themeConfigs } from '../../../configuration'
+
+import { Paper, Typography } from '@mui/material'
+import { makeStyles } from 'tss-react/mui'
 
 type CategoryRowProps = {
   category: CategoryTreeObject
 }
 
-const style = (activated: boolean) => css`
-  display: flex;
-  align-items: center;
-  padding-block: 0.3rem;
-  padding-inline: 0.5rem;
-  border-left: 2px solid ${activated ? themeConfigs.light.main : 'inherit'};
-  background-color: ${activated ? '#EEEEEE' : null};
-  font-weight: ${activated ? 400 : 300};
+const useStyles = makeStyles<{
+  activated: boolean
+  nodeDepth: number
+}>()((theme, { activated, nodeDepth }) => ({
+  categoryRow: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingBlock: '0.3rem',
+    paddingInline: '0.5rem',
+    marginBlock: '1px',
+    fontWeight: activated ? 600 : 500,
+    backgroundColor: activated
+      ? theme.palette.mode === 'dark'
+        ? theme.palette.navbar.dark
+        : theme.palette.navbar.main
+      : 'inherit',
 
-  :hover {
-    background-color: ${activated ? '#EEEEEE' : '#F4F7F7'};
-  }
-`
+    ':hover': {
+      backgroundColor:
+        theme.palette.mode === 'dark'
+          ? theme.palette.navbar.dark
+          : theme.palette.navbar.main,
+    },
+  },
 
-const linkStyle = (nodeDepth: number) => css`
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
-  padding-left: ${nodeDepth * 0.5}rem;
-`
+  categoryTypo: {
+    fontWeight: activated ? 600 : 500,
+    color: activated
+      ? theme.palette.mode === 'dark'
+        ? theme.palette.primary.dark
+        : theme.palette.primary.light
+      : 'inherit',
+    paddingLeft: `${0.5 + nodeDepth * 0.5}rem`,
+  },
+}))
 
 const CategoryRow: FC<CategoryRowProps> = ({ category }) => {
+  const { classes } = useStyles({
+    activated: category.activated,
+    nodeDepth: category.nodeDepth,
+  })
+
   return (
-    <Link
-      css={style(category.activated)}
-      to={PAGE_PREFIX.CATEGORY + category.slug}
-    >
-      <div css={linkStyle(category.nodeDepth)}>
-        <div>{category.name}</div>
+    <Link to={PAGE_PREFIX.CATEGORY + category.slug}>
+      <Paper className={classes.categoryRow} elevation={0}>
+        <Typography className={classes.categoryTypo}>
+          {category.name}
+        </Typography>
         <CategoryCount count={category.count} />
-      </div>
+      </Paper>
     </Link>
   )
 }

@@ -6,7 +6,6 @@ import { Box, IconButton, SwipeableDrawer, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/MenuRounded'
 import CloseIcon from '@mui/icons-material/CloseRounded'
 import CategoryTable from 'components/CategoryTable'
-import { themeConfigs } from '../../../configuration'
 
 type DrawerNavigationProps = {}
 
@@ -52,11 +51,7 @@ const DrawerNavigation: FC<DrawerNavigationProps> = ({}) => {
               fontSize="small"
             />
           </IconButton>
-          <Typography
-            fontWeight="bold"
-            margin="0 0 10px 10px"
-            color={themeConfigs.light.sub}
-          >
+          <Typography fontWeight="bold" margin="0 0 10px 10px" color="primary">
             카테고리
           </Typography>
           <div

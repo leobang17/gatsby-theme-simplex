@@ -1,7 +1,6 @@
 /** @jsx jsx */
 
-import { css, jsx } from '@emotion/react'
-import styled from '@emotion/styled'
+import { jsx } from '@emotion/react'
 import { FC } from 'react'
 
 import { MdxNode } from 'types/mdx-types'
@@ -9,36 +8,55 @@ import { GRAY } from 'styles/Color'
 import ArticleBoxTitle from './ArticleBoxTitle'
 import ArticleBoxCategoryLink from './ArticleBoxCategoryLink'
 import CategoryStrings from 'datastructures/category/CategoryStrings'
-import * as Semantic from 'styles/designSystem/semantic'
 
-const style = css`
-  margin-block: 3rem;
-`
+import { Box, Typography } from '@mui/material'
+import { makeStyles } from 'tss-react/mui'
 
-const spanStyle = css`
-  display: block;
-`
-
-const CreatedAt = styled.time`
-  color: ${GRAY};
-  font-size: 0.8rem;
-  margin-top: 0.5rem;
-`
+const useStyles = makeStyles()(theme => ({
+  root: {
+    marginBlock: '3rem',
+  },
+  summary: {
+    display: 'block',
+  },
+  createdAt: {
+    color:
+      theme.palette.mode === 'dark'
+        ? theme.palette.subText.contrastText
+        : theme.palette.subText.main,
+    marginTop: '0.5rem',
+  },
+}))
 
 const ArticleBox: FC<MdxNode> = ({
   fields: { slug, categoryDirectory },
   frontmatter: { title, createdAt },
   excerpt,
 }) => {
+  const { classes } = useStyles()
   return (
-    <section css={style}>
+    <Box component="section" className={classes.root}>
       <ArticleBoxCategoryLink
         categoryString={CategoryStrings.initialize(categoryDirectory)}
       />
       <ArticleBoxTitle slug={slug} title={title} />
-      <Semantic.SUMMARY css={spanStyle}>{excerpt}</Semantic.SUMMARY>
-      <CreatedAt>{createdAt}</CreatedAt>
-    </section>
+
+      <Typography
+        component="summary"
+        variant="body1"
+        className={classes.summary}
+      >
+        {excerpt}
+      </Typography>
+
+      <Typography
+        component="time"
+        variant="body2"
+        className={classes.createdAt}
+      >
+        {createdAt}
+      </Typography>
+    </Box>
   )
 }
 

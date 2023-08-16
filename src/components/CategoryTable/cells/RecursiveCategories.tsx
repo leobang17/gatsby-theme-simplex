@@ -5,6 +5,7 @@ import { FC } from 'react'
 
 import { CategoryTreeObject } from 'datastructures/category/CategoryTree'
 import CategoryRow from './CategoryRow'
+import Stack from '@mui/material/Stack'
 
 type CategoryCellProps = {
   category: CategoryTreeObject
@@ -16,12 +17,12 @@ const style = css`
 
 const RecursiveCategories: FC<CategoryCellProps> = ({ category }) => {
   return (
-    <div css={style}>
+    <Stack css={style}>
       <CategoryRow category={category} />
       {category.sub.map((cat, id) => {
         return <RecursiveCategories category={cat} key={id} />
       })}
-    </div>
+    </Stack>
   )
 }
 

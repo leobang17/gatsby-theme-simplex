@@ -1,29 +1,38 @@
 /** @jsx jsx */
 
 import { FC } from 'react'
-import { css, jsx } from '@emotion/react'
-import styled from '@emotion/styled'
+import { jsx } from '@emotion/react'
+import { Typography } from '@mui/material'
 import { Link } from 'gatsby'
 
-import * as Semantic from 'styles/designSystem/semantic'
+import { PAGE_PREFIX } from 'constants/PageConsts'
+import { makeStyles } from 'tss-react/mui'
 
 export type ArticleBoxTitleProps = {
   slug: string
   title: string
 }
 
-const style = css`
-  display: inline-block;
-`
+const useStyles = makeStyles()(theme => ({
+  root: {
+    transition: 'all 0.1s ease',
 
-const TitleWrapper = styled(Semantic.H2)`
-  margin: 0;
-`
+    ':hover': {
+      color:
+        theme.palette.mode === 'dark'
+          ? theme.palette.primary.dark
+          : theme.palette.primary.light,
+    },
+  },
+}))
 
 const ArticleBoxTitle: FC<ArticleBoxTitleProps> = ({ slug, title }) => {
+  const { classes } = useStyles()
   return (
-    <Link css={style} to={'/posts' + slug}>
-      <TitleWrapper>{title}</TitleWrapper>
+    <Link to={PAGE_PREFIX.ARTICLE + slug}>
+      <Typography variant="h5" className={classes.root}>
+        {title}
+      </Typography>
     </Link>
   )
 }
