@@ -1,25 +1,38 @@
 /** @jsx jsx */
 
 import { FC } from 'react'
-import { css, jsx } from '@emotion/react'
-import { l_mq } from 'styles/facepaint'
+import { jsx } from '@emotion/react'
+import { Stack } from '@mui/material'
+import { makeStyles } from 'tss-react/mui'
 
 type LeftStackProps = {
   stack?: JSX.Element
 }
 
-const style = css(
-  css`
-    margin-left: 2rem;
-  `,
-  l_mq({
-    width: '256px',
-    display: ['none', 'block'],
-  }),
-)
+const useStyles = makeStyles()({
+  stack: {
+    width: '20vw',
+  },
+})
 
 const LeftStack: FC<LeftStackProps> = ({ stack }) => {
-  return <aside css={style}>{stack ?? null}</aside>
+  const { classes } = useStyles()
+  return (
+    <Stack
+      component="aside"
+      className={classes.stack}
+      sx={{
+        display: {
+          xs: 'none',
+          sm: 'none',
+          md: 'none',
+          lg: 'block',
+        },
+      }}
+    >
+      {stack ?? null}
+    </Stack>
+  )
 }
 
 export default LeftStack

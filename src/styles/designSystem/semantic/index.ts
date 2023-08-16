@@ -13,16 +13,16 @@ export const H2 = styled.h2`
 `
 
 export const P = styled.p`
-  font-weight: 300;
+  font-weight: 400;
 `
 
 export const SPAN = styled.span`
-  font-weight: 300;
+  font-weight: 400;
 `
 
 // Semantic tags for Structure
 export const SUMMARY = styled.summary`
-  font-weight: 300;
+  font-weight: 400;
 `
 
 export const ASIDE = styled.aside`

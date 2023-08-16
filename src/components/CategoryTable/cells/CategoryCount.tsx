@@ -1,21 +1,24 @@
 /** @jsx jsx */
 
 import { FC } from 'react'
-import { jsx, css } from '@emotion/react'
+import { jsx } from '@emotion/react'
+import { Chip } from '@mui/material'
 
 type CategoryCountProps = {
   count: number
 }
 
-const style = css`
-  padding-inline: 5px;
-  margin-inline: 10px;
-  border-radius: 5px;
-  background-color: whitesmoke;
-`
-
 const CategoryCount: FC<CategoryCountProps> = ({ count }) => {
-  return <div css={style}>{count}</div>
+  return (
+    <Chip
+      label={count}
+      sx={{
+        borderRadius: '5px',
+        marginInline: '10px',
+        height: '1.5rem',
+      }}
+    />
+  )
 }
 
 export default CategoryCount

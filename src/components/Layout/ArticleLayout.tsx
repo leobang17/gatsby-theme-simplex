@@ -5,7 +5,6 @@ import { ChildrenProps } from 'types/react-types'
 
 import Layout from '.'
 import BioAndCategories from 'components/LeftStack/BioAndCategories'
-import { Container } from '@mui/material'
 
 type ArticleLayoutProps = {} & ChildrenProps
 
@@ -15,11 +14,7 @@ const layoutProps = {
 }
 
 const ArticleLayout: FC<ArticleLayoutProps> = ({ children }) => {
-  return (
-    <Layout {...layoutProps}>
-      <Container>{children}</Container>
-    </Layout>
-  )
+  return <Layout {...layoutProps}>{children}</Layout>
 }
 
 export default ArticleLayout
