@@ -1,22 +1,26 @@
-import {
-  PaletteColor,
-  PaletteColorOptions,
-  PaletteMode,
-  createTheme,
-} from '@mui/material'
+import { PaletteColor, PaletteColorOptions, PaletteMode } from '@mui/material'
+import { createTheme } from '@mui/material/styles'
 import { teal } from '@mui/material/colors'
+import { BORDER_MUSK, LIGHT_GRAY } from './Color'
+
+type AdditionalPaletteProperty = 'navbar' | 'category' | 'border' | 'subText'
+
+type AdditionalPalette = {
+  [key in AdditionalPaletteProperty]: PaletteColor
+}
+
+type AdditionalPaletteOptions = {
+  [key in AdditionalPaletteProperty]?: PaletteColorOptions
+}
 
 declare module '@mui/material/styles' {
-  interface Palette {
-    navbar: PaletteColor
-  }
-  interface PaletteOptions {
-    navbar?: PaletteColorOptions
-  }
+  interface Palette extends AdditionalPalette {}
+
+  interface PaletteOptions extends AdditionalPaletteOptions {}
 }
 
 export const configureTheme = (mode: PaletteMode) => {
-  return createTheme({
+  const theme = createTheme({
     palette: {
       primary: {
         main: teal[600],
@@ -25,6 +29,32 @@ export const configureTheme = (mode: PaletteMode) => {
         main: '#146C94',
       },
       mode,
+    },
+  })
+
+  return createTheme(theme, {
+    palette: {
+      category: theme.palette.augmentColor({
+        color: {
+          main: teal[100],
+        },
+      }),
+      navbar: theme.palette.augmentColor({
+        color: {
+          main: '#EBEBEB',
+          dark: '#22262C',
+        },
+      }),
+      border: theme.palette.augmentColor({
+        color: {
+          main: BORDER_MUSK,
+        },
+      }),
+      subText: theme.palette.augmentColor({
+        color: {
+          main: LIGHT_GRAY,
+        },
+      }),
     },
   })
 }
