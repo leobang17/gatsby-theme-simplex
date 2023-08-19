@@ -7,7 +7,6 @@ import 'styles/404.css'
 import { GRAY } from 'styles/Color'
 import { s_mq } from 'styles/facepaint'
 import ErrorPageContext from 'contexts/ErrorPageContext'
-import { themeConfigs } from '../configuration'
 
 const titleStyle = css(
   s_mq({
@@ -34,7 +33,7 @@ const NotFoundPage: FC = () => (
           id="title-caption"
           css={titleStyle}
           style={{
-            color: themeConfigs.light.sub,
+            color: GRAY,
           }}
         >
           404: PAGE NOT FOUND
