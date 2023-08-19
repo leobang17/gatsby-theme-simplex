@@ -1,0 +1,195 @@
+/* Language Tab */
+.gatsby-highlight pre[class*='language-']::before {
+  background: black;
+  border-radius: 0 0 0.25rem 0.25rem;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.025rem;
+  padding: 0.1rem 0.5rem;
+  position: absolute;
+  right: 1rem;
+  text-align: right;
+  /* text-transform: uppercase; */
+  top: 0.9rem;
+}
+
+/* Javascript */
+.gatsby-highlight pre[class~='language-javascript']::before {
+  content: 'Javascript';
+  background: #f7df1e;
+  color: black;
+}
+.gatsby-highlight pre[class~='language-js']::before {
+  content: 'Javascript';
+  background: #f7df1e;
+  color: black;
+}
+
+/* HTML */
+.gatsby-highlight pre[class~='language-html']::before {
+  content: 'HTML';
+  background: #005a9c;
+  color: white;
+}
+
+/* CSS */
+.gatsby-highlight pre[class~='language-css']::before {
+  content: 'CSS';
+  background: #ff9800;
+  color: white;
+}
+
+/* Typescript */
+.gatsby-highlight pre[class~='language-typescript']::before {
+  content: 'Typescript';
+  background: #2661b9;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-ts']::before {
+  content: 'Typescript';
+  background: #2661b9;
+  color: white;
+}
+
+/* Java */
+.gatsby-highlight pre[class~='language-java']::before {
+  content: 'Java';
+  background: red;
+  color: white;
+}
+
+/* Python */
+.gatsby-highlight pre[class~='language-python']::before {
+  content: 'Python';
+  background: #0c5a92;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-py']::before {
+  content: 'Python';
+  background: #0c5a92;
+  color: white;
+}
+
+/* Go */
+.gatsby-highlight pre[class~='language-go']::before {
+  content: 'Go';
+  background: #69cafd;
+  color: white;
+}
+
+/* Kotlin */
+.gatsby-highlight pre[class~='language-kotlin']::before {
+  content: 'Kotlin';
+  background: #6b30ff;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-kt']::before {
+  content: 'Kotlin';
+  background: #6b30ff;
+  color: white;
+}
+
+/* php */
+.gatsby-highlight pre[class~='language-php']::before {
+  content: 'php';
+  background: #3e4780;
+  color: white;
+}
+
+/* C# */
+.gatsby-highlight pre[class~='language-c#']::before {
+  content: 'C#';
+  background: #531067;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-cs']::before {
+  content: 'C#';
+  background: #531067;
+  color: white;
+}
+
+/* C++ */
+.gatsby-highlight pre[class~='language-c#']::before {
+  content: 'C++';
+  background: #07458a;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-cpp']::before {
+  content: 'C++';
+  background: #07458a;
+  color: white;
+}
+
+/* C */
+.gatsby-highlight pre[class~='language-c']::before {
+  content: 'C';
+  background: #07458a;
+  color: white;
+}
+
+/* SQL */
+.gatsby-highlight pre[class~='language-sql']::before {
+  content: 'SQL';
+  background: #99acc2;
+  color: white;
+}
+
+/* Rust */
+.gatsby-highlight pre[class~='language-rust']::before {
+  content: 'Rust';
+  background: #000000;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-rs']::before {
+  content: 'Rust';
+  background: #000000;
+  color: white;
+}
+
+/* Ruby On Rails */
+.gatsby-highlight pre[class~='language-ruby']::before {
+  content: 'Ruby';
+  background: #be0004;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-rb']::before {
+  content: 'Ruby';
+  background: #be0004;
+  color: white;
+}
+
+/* Swift */
+.gatsby-highlight pre[class~='language-swift']::before {
+  content: 'Swift';
+  background: #e93a2b;
+  color: white;
+}
+
+/* Shell */
+.gatsby-highlight pre[class~='language-sh']::before {
+  content: 'shell';
+  background: gray;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-shell']::before {
+  content: 'shell';
+  background: gray;
+  color: white;
+}
+
+/* Json */
+.gatsby-highlight pre[class~='language-json']::before {
+  content: 'JSON';
+  background: #f4dc16;
+  color: black;
+}

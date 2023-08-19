@@ -1,0 +1,13 @@
+/* Code Block div tags */
+.gatsby-highlight {
+  position: relative;
+  overflow: scroll;
+}
+
+/* pre tag inside of code block */
+.gatsby-highlight pre[class*='language-'] {
+  font-size: 0.9rem;
+  overflow: scroll;
+  padding: 1rem 0.75rem;
+  border-radius: 0.5rem;
+}

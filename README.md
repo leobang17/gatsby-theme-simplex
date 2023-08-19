@@ -76,12 +76,6 @@ npm run dev
   },
   "category": {
     "maxDepth": 1
-  },
-  "theme": {
-    "light": {
-      "main": "메인으로 이용하고 싶은 색",
-      "sub": "서브로 이용하고 싶은 색"
-    }
   }
 }
 ```
@@ -101,8 +95,6 @@ npm run dev
 | `bio.name`                 | 작성자의 이름 혹은 닉네임을 입력합니다.                                                               | `string`           | _"Default Name"_                                                       |
 | `tableOfContents.maxDepth` | 자동으로 생성되는 [카테고리](#gatsby-theme-simplex의-카테고리)의 depth를 설정합니다.                  | `1 \| 2 \| 3 \| 4` | _4_                                                                    |
 | `category.maxDepth`        | 자동으로 생성되는 [목차](#gatsby-theme-simplex의-목차-table-of-contents)의 깊이 (depth)를 설정합니다. | `1 \| 2`           | _2_                                                                    |
-| `theme.light.main`         | 메인으로 이용하고 싶은 색의 Hex 코드를 입력합니다.                                                    | `string`           | _#00B7C2_                                                              |
-| `theme.light.sub`          | 서브로 이용하고 싶은 색의 Hex 코드를 입력합니다.                                                      | `string`           | _#146C94_                                                              |
 
 ## 💫 GitHub Pages를 이용해 배포하기
 

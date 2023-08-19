@@ -16,12 +16,6 @@
   "category": {
     "maxDepth": 2
   },
-  "theme": {
-    "light": {
-      "main": "",
-      "sub": ""
-    }
-  },
   "utterance": {
     "issue_repo": ""
   }
