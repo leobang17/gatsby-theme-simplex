@@ -186,3 +186,10 @@
   background: gray;
   color: white;
 }
+
+/* Json */
+.gatsby-highlight pre[class~='language-json']::before {
+  content: 'JSON';
+  background: #f4dc16;
+  color: black;
+}
