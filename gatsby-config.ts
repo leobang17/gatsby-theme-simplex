@@ -62,15 +62,6 @@ const config: GatsbyConfig = {
             },
           },
           {
-            resolve: 'gatsby-remark-prismjs',
-            options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              showLineNumbers: false,
-              noInlineHighlight: false,
-            },
-          },
-          {
             resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 660,

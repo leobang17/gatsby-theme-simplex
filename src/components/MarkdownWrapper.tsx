@@ -4,6 +4,7 @@ import 'katex/dist/katex.min.css'
 
 import * as Remark from 'styles/designSystem/remark'
 import 'styles/remark'
+import CodeBlock from 'styles/remark/CodeBlock'
 
 type MarkdownWrapperProps = {
   children: ReactNode
@@ -33,6 +34,8 @@ const MarkdownWrapper: FC<MarkdownWrapperProps> = ({ children }) => {
           td: Remark.TD,
           table: Remark.TABLE,
           tbody: Remark.TBODY,
+          pre: Remark.PRE,
+          code: CodeBlock as unknown as keyof JSX.IntrinsicElements,
         }}
       >
         {children}

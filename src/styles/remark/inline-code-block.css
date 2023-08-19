@@ -1,0 +1,13 @@
+/* Inline 'pre' tag: not an child of div tag class named .gatsby-highlight */
+pre[class^='prism-code language-']:not(.gatsby-highlight pre.prism-code) {
+  display: inline;
+  padding-inline: 4px;
+  padding-block: 3px;
+  border-radius: 5px;
+}
+
+/* Inline 'div' tag: not an child of div tag class named .gatsby-highlight */
+div.token-line:not(.gatsby-highlight div.token-line) {
+  display: inline;
+  font-size: 0.9rem;
+}
