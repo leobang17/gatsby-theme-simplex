@@ -5,7 +5,7 @@ createdAt: 2023-04-08
 
 # Gatsby Theme Simplex
 
-Gatsby Theme Simplex는 *Gatsby 프레임워크*를 기반으로 구축된 블로그 스타터입니다. 마크다운을 사용하여 글을 작성할 수 있으며, 코드를 수정해 사용자의 필요에 맞게 블로그를 꾸밀 수 있습니다.
+Gatsby Theme Simplex는 *Gatsby 프레임워크*를 기반으로 구축된 블로그 스타터입니다. 마크다운을 문법을 사용하여 글을 작성할 수 있으며, 코드를 수정해 사용자의 필요에 맞게 블로그를 꾸밀 수 있습니다.
 
 Gatsby Theme Simplex는 다음과 같은 기술들을 사용합니다.
 
@@ -26,7 +26,35 @@ Gatsby Theme Simplex는 다음과 같은 기술들을 사용합니다.
 - SEO
 - 유저 커스텀
 
-## 🚀 Quick start
+## 🚀 Gatsby Theme Simplex 시작하기
+
+#### 1. Prerequisites
+
+`gatsby-cli` 가 설치되어있지 않다면, 다음 커맨드를 입력해 `gatsby-cli`를 전역으로 설치해주세요.
+
+```shell
+npm install --global gatsby-cli
+```
+
+#### 2. Gatsby Theme Simplex 생성
+
+Gatsby CLI를 이용해 Gatsby Theme Simplex 프로젝트를 클론합니다.
+
+```shell
+npx gatsby new [rootPath] leobang17/gatsby-theme-simplex
+```
+
+- `[rootPath]`에 프로젝트르 생성하고자 하는 디렉토리를 입력해주세요.
+
+#### 3. 블로그 실행!
+
+새로 만든 [rootPath]로 이동한 후, 다음의 커맨드를 입력해 로컬 환경에서 블로그를 실행합니다.
+
+```shell
+npm run dev
+```
+
+`http://localhost:8000`에서 테스트를 위해 준비해둔 글들과 함께 블로그가 실행되고 있으니 확인해보세요!
 
 ## ⚙️ 블로그 설정하기
 
@@ -51,12 +79,6 @@ Gatsby Theme Simplex는 다음과 같은 기술들을 사용합니다.
   },
   "category": {
     "maxDepth": 1
-  },
-  "theme": {
-    "light": {
-      "main": "메인으로 이용하고 싶은 색",
-      "sub": "서브로 이용하고 싶은 색"
-    }
   }
 }
 ```
@@ -67,17 +89,49 @@ Gatsby Theme Simplex는 다음과 같은 기술들을 사용합니다.
 
 #### 프로퍼티 명세
 
-| 프로퍼티                   | 설명                                                                                                  | 타입                                                                                            | 기본값                                                                 |
-| -------------------------- | ----------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `metadata.title`           | 블로그 제목을 입력합니다.                                                                             | `string`                                                                                        | _Blog Simplex_                                                         |
-| `metadata.description`     | 블로그 설명을 입력합니다                                                                              | `string`                                                                                        | _Blog created using the "gatsby-theme-simplex" theme. Find on Github._ |
-| `metadata.siteUrl`         | 해당 블로그의 url을 입력합니다                                                                        | `string`                                                                                        | _https://github.com/leobang17/gatsby-theme-simplex_                    |
-| `social.github`            | 작성자의 github 링크를 입력합니다.                                                                    | `string`                                                                                        | _https://github.com/leobang17/gatsby-theme-simplex_                    |
-| `bio.name`                 | 작성자의 이름 혹은 닉네임을 입력합니다.                                                               | `string`                                                                                        | _"Default Name"_                                                       |
-| `tableOfContents.maxDepth` | 자동으로 생성되는 [카테고리](#gatsby-theme-simplex의-카테고리)의 depth를 설정합니다.                  | `1 \|       2                                                    \|                   3  \|  4` | _4_                                                                    |
-| `category.maxDepth`        | 자동으로 생성되는 [목차](#gatsby-theme-simplex의-목차-table-of-contents)의 깊이 (depth)를 설정합니다. | `1       \| 2`                                                                                  | _2_                                                                    |
-| `theme.light.main`         | 메인으로 이용하고 싶은 색의 Hex 코드를 입력합니다.                                                    | `string`                                                                                        | _#00B7C2_                                                              |
-| `theme.light.sub`          | 서브로 이용하고 싶은 색의 Hex 코드를 입력합니다.                                                      | `string`                                                                                        | _#146C94_                                                              |
+| 프로퍼티                   | 설명                                                                                                  | 타입               | 기본값                                                                 |
+| -------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------ | ---------------------------------------------------------------------- |
+| `metadata.title`           | 블로그 제목을 입력합니다.                                                                             | `string`           | _Blog Simplex_                                                         |
+| `metadata.description`     | 블로그 설명을 입력합니다                                                                              | `string`           | _Blog created using the "gatsby-theme-simplex" theme. Find on Github._ |
+| `metadata.siteUrl`         | 해당 블로그의 url을 입력합니다                                                                        | `string`           | _https://github.com/leobang17/gatsby-theme-simplex_                    |
+| `social.github`            | 작성자의 github 링크를 입력합니다.                                                                    | `string`           | _https://github.com/leobang17/gatsby-theme-simplex_                    |
+| `bio.name`                 | 작성자의 이름 혹은 닉네임을 입력합니다.                                                               | `string`           | _"Default Name"_                                                       |
+| `tableOfContents.maxDepth` | 자동으로 생성되는 [카테고리](#gatsby-theme-simplex의-카테고리)의 depth를 설정합니다.                  | `1 \| 2 \| 3 \| 4` | _4_                                                                    |
+| `category.maxDepth`        | 자동으로 생성되는 [목차](#gatsby-theme-simplex의-목차-table-of-contents)의 깊이 (depth)를 설정합니다. | `1 \| 2`           | _2_                                                                    |
+
+## 💫 GitHub Pages를 이용해 배포하기
+
+Gatsby Theme Simplex는 Github Pages의 호스팅을 위한 *Github Action 배포 스크립트*가 준비되어있습니다.
+준비된 스크립트를 이용해 배포를 원한다면 다음과 같은 준비사항이 필요합니다.
+
+#### 1. Git Repository 생성
+
+Github Pages는 무료 이용자에게는 **Public** 레포지토리만 Github Pages 호스팅 기능을 제공합니다.
+따라서 무료이용자라면 레포지토리를 **Public**으로 생성해주세요.
+
+#### 2. Personal Access Token (PAT) 발급받기
+
+Github Action workflow가 유저의 repository에서 작업하기 위해서는 유저가 직접 발급한 Access Token이 필요합니다.
+[Personal Access Token 발급받기](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)를 참고하여 토큰을 발행해주세요.
+
+> **important!** 토큰에는 만료일이 있으니 만료일이 지나기 전 갱신 혹은 재발급 절차를 밟아주세요.
+
+#### 3. Git Repository에 PAT를 환경변수로 등록하기
+
+PAT는 민감한 정보에 해당하므로 타인에게 노출해선 안됩니다. Github Action workflow는 Git Repository의 환경변수에 등록된 PAT를 읽어들이고 있습니다. Github Actionw workflow가 발급한 토큰을 이용할 수 있도록 블로그 레포지토리의 환경변수에 PAT를 등록해주세요.
+
+레포지토리 페이지의 `Settings >> Secrets and variables >> Actions`로 이동해주세요.
+새로운 Repository secrets를 생성합니다.
+
+1. Name은 **`ACCESS_TOKEN`** 입니다.
+2. Secret 항목에 발급받은 PAT를 붙여넣어주세요.
+
+`ACCESS_TOKEN`을 name으로 설정하지 않으면 Github Action workflow가 토큰을 읽어오지 못하니 주의해주세요.
+
+#### 4. source 브랜치를 생성하고 push 합니다!
+
+Github Actions workflow는 특정 이벤트가 발생할 때 실행됩니다. 해당 프로젝트의 workflow를 트리거하는 이벤트는 `source` 이름을 가진 브랜치에 `push` 활동이 일어날 때 입니다.
+`source` 브랜치를 생성하고 git 저장소에 push 해주세요.
 
 ## 💡 Gatsby Theme Simplex 이해하기
 
@@ -196,7 +250,7 @@ Gatsby Theme Simplex는 이미지 첨부 기능을 지원합니다. 이미지를
 
 현재 외부 링크를 통한 이미지 출력은 caption 기능을 지원하지 않으므로 프로젝트 내부에 저장하는 것을 권장합니다.
 
-#### 프로젝트 내부에 저장된 이미지 첨부하기 (권장)
+#### 프로젝트 내부에 저장된 이미지 첨부하기 (`권장`)
 
 **다음의 디렉토리 구조를 따라하길 권장합니다.** 작성하려는 글과 동일한 위치에 `/imgs` 폴더를 생성합니다. 이 `/imgs` 폴더는 해당 폴더가 위치한 바로 상위의 카테고리에 속하는 글의 모든 이미지를 저장하는 데 사용됩니다.
 
@@ -255,5 +309,3 @@ $a^2 + b^2 = c^2$
 수식 문법은 [TeX](https://en.wikipedia.org/wiki/TeX) 문법을 준수하며, [gatsby remark katex](https://www.gatsbyjs.com/plugins/gatsby-remark-katex/?=katex) 플러그인을 이용해 [KaTeX 라이브러리](https://github.com/KaTeX/KaTeX)를 지원합니다.
 
 수식 작성 방식에 대한 더 많은 정보는 [KaTeX에서 지원하는 TeX 문법](https://katex.org/docs/support_table.html)를 참고하십시오.
-
-## 💫 Deploy
