@@ -36,7 +36,7 @@
 
 /* CSS */
 .gatsby-highlight pre[class~='language-css']::before {
-  content: 'CSS';
+  content: 'css';
   background: #ff9800;
   color: white;
 }
@@ -145,6 +145,7 @@
 .gatsby-highlight pre[class~='language-rust']::before {
   content: 'Rust';
   background: #000000;
+
   color: white;
 }
 
@@ -167,7 +168,7 @@
   color: white;
 }
 
-/* Swift */
+/* swift */
 .gatsby-highlight pre[class~='language-swift']::before {
   content: 'Swift';
   background: #e93a2b;
@@ -192,4 +193,24 @@
   content: 'JSON';
   background: #f4dc16;
   color: black;
+}
+
+/* Markdown */
+.gatsby-highlight pre[class~='language-markdown']::before {
+  content: 'Markdown';
+  background: gray;
+  color: white;
+}
+
+.gatsby-highlight pre[class~='language-md']::before {
+  content: 'Markdown';
+  background: gray;
+  color: white;
+}
+
+/* Dart */
+.gatsby-highlight pre[class~='language-dart']::before {
+  content: 'Dart';
+  background: #1b95b8;
+  color: white;
 }

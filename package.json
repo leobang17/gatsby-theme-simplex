@@ -1,19 +1,22 @@
 {
-  "name": "gatsby-theme",
+  "name": "gatsby-theme-simplex",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "Leo Bang <bluke8489@gmail.com>",
   "license": "0BSD",
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "typescript",
+    "blog",
+    "react"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/leobang17/gatsby-theme"
+    "url": "https://github.com/leobang17/gatsby-theme-simplex/"
   },
   "bugs": {
-    "url": "https://github.com/leobang17/gatsby-theme/issues"
+    "url": "https://github.com/leobang17/gatsby-theme-simplex/issues"
   },
   "scripts": {
     "deploy": "gatsby build && gh-pages -d public -b main",

@@ -22,8 +22,9 @@ Gatsby Theme Simplex는 다음과 같은 기술들을 사용합니다.
 - [목차 (Table Of Contents)](#gatsby-theme-simplex의-목차-table-of-contents)
 - [카테고리](#gatsby-theme-simplex의-카테고리)
 - 수식 지원 (Katex)
-- 반응형 웹
+- 반응형 디자인
 - SEO
+- [댓글 (utterance)](https://utteranc.es)
 - 유저 커스텀
 
 ## 🚀 Gatsby Theme Simplex 시작하기
@@ -56,6 +57,22 @@ npm run dev
 
 `http://localhost:8000`에서 테스트를 위해 준비해둔 글들과 함께 블로그가 실행되고 있으니 확인해보세요!
 
+## 🐥 최근 버전으로 업데이트하기
+다음의 git CLI 커맨드를 실행해 가장 최근의 Gatsby Theme Simplex을 반영할 수 있습니다.
+
+최신 버전은 `release-latest` 브랜치에 저장됩니다. 프로젝트의 `release-latest` 브랜치를 upstream으로 설정해줍니다.
+
+``` shell
+git remote add upstream https://github.com/leobang17/gatsby-theme-simplex --track release-latest
+```
+
+upstream의 내용을 로컬로 fetch해온 후 원하는 브랜치로 merge하여 변경사항들을 반영합니다.
+
+``` shell
+git fetch upstream 
+git merge --allow-unrelated-histories -X theirs FETCH_HEAD
+```
+
 ## ⚙️ 블로그 설정하기
 
 `blog.config.json` 파일을 통해 블로그의 기본적인 설정을 커스터마이징할 수 있습니다.
@@ -79,6 +96,9 @@ npm run dev
   },
   "category": {
     "maxDepth": 1
+  },
+  "utterance": {
+    "issue_repo": "utterance(깃허브 코멘트)가 활성화된 레포지토리."
   }
 }
 ```
@@ -98,6 +118,13 @@ npm run dev
 | `bio.name`                 | 작성자의 이름 혹은 닉네임을 입력합니다.                                                               | `string`           | _"Default Name"_                                                       |
 | `tableOfContents.maxDepth` | 자동으로 생성되는 [카테고리](#gatsby-theme-simplex의-카테고리)의 depth를 설정합니다.                  | `1 \| 2 \| 3 \| 4` | _4_                                                                    |
 | `category.maxDepth`        | 자동으로 생성되는 [목차](#gatsby-theme-simplex의-목차-table-of-contents)의 깊이 (depth)를 설정합니다. | `1 \| 2`           | _2_                                                                    |
+| `utterance.issue_repo` | utterance 코멘트가 작성될 깃허브 레포지토리 이름을 설정합니다. | `string` | - |
+
+
+## 🗣 깃허브 코멘트 이용하기 (Utterance)
+https://utteranc.es/ 를 참고해 댓글이 작성될 깃허브 레포지토리를 설정하고 utterance 애플리케이션을 설치하세요
+이 후 `blog.config.json` 파일의 `utterance.issue_repo`에 해당 레포지토리 명을 기입하세요.
+
 
 ## 💫 GitHub Pages를 이용해 배포하기
 
