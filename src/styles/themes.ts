@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material/styles'
 import { teal } from '@mui/material/colors'
 import { BORDER_MUSK, LIGHT_GRAY } from './Color'
 
-type AdditionalPaletteProperty = 'navbar' | 'category' | 'border' | 'subText'
+type AdditionalPaletteProperty = 'gray' | 'border' | 'subText'
 
 type AdditionalPalette = {
   [key in AdditionalPaletteProperty]: PaletteColor
@@ -34,12 +34,7 @@ export const configureTheme = (mode: PaletteMode) => {
 
   return createTheme(theme, {
     palette: {
-      category: theme.palette.augmentColor({
-        color: {
-          main: teal[100],
-        },
-      }),
-      navbar: theme.palette.augmentColor({
+      gray: theme.palette.augmentColor({
         color: {
           main: '#EBEBEB',
           dark: '#22262C',

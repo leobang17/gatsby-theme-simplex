@@ -5,7 +5,10 @@ import { jsx, css } from '@emotion/react'
 import { Box, IconButton, SwipeableDrawer, Typography } from '@mui/material'
 import MenuIcon from '@mui/icons-material/MenuRounded'
 import CloseIcon from '@mui/icons-material/CloseRounded'
+
 import CategoryTable from 'components/CategoryTable'
+import GithubCell from './Github'
+import MetadataApiConfigurator from 'datalayer/configurators/MetadataApiConfigurator'
 
 type DrawerNavigationProps = {}
 
@@ -18,6 +21,8 @@ const style = css(
 )
 
 const DrawerNavigation: FC<DrawerNavigationProps> = ({}) => {
+  const api = MetadataApiConfigurator.instance.api
+  const github = api.getSocialSingle('github')
   const [drawerState, setDrawerState] = useState<boolean>(false)
 
   return (
@@ -61,6 +66,9 @@ const DrawerNavigation: FC<DrawerNavigationProps> = ({}) => {
           >
             <CategoryTable />
           </div>
+        </Box>
+        <Box alignSelf="flex-end" marginX="0.5rem" marginY="1.5rem">
+          <GithubCell siteUrl={github.value} drawer />
         </Box>
       </SwipeableDrawer>
     </Box>

@@ -1,7 +1,7 @@
 /** @jsx jsx */
 
 import { Link } from 'gatsby'
-import { FC, useContext } from 'react'
+import { FC } from 'react'
 import { jsx } from '@emotion/react'
 
 import { PAGE_PREFIX } from 'constants/PageConsts'
@@ -29,15 +29,15 @@ const useStyles = makeStyles<{
     fontWeight: activated ? 600 : 500,
     backgroundColor: activated
       ? theme.palette.mode === 'dark'
-        ? theme.palette.navbar.dark
-        : theme.palette.navbar.main
+        ? theme.palette.gray.dark
+        : theme.palette.gray.main
       : 'inherit',
 
     ':hover': {
       backgroundColor:
         theme.palette.mode === 'dark'
-          ? theme.palette.navbar.dark
-          : theme.palette.navbar.main,
+          ? theme.palette.gray.dark
+          : theme.palette.gray.main,
     },
   },
 
