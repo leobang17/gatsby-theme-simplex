@@ -3,8 +3,9 @@ import React from 'react'
 import { ChildrenProps } from 'types/react-types'
 import { ThemeContext } from './ThemeContext'
 import { Theme, ThemeProvider } from '@mui/material'
-import { configureTheme } from 'styles/themes'
+import { configureTheme, muiCache } from 'styles/themes'
 import { useDarkmode } from 'hooks/useDarkmode'
+import { CacheProvider } from '@emotion/react'
 
 export type ThemeContextProviderProps = {} & ChildrenProps
 
@@ -24,7 +25,9 @@ const ThemeContextProvider: React.FC<ThemeContextProviderProps> = ({
         mode,
       }}
     >
-      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      <CacheProvider value={muiCache}>
+        <ThemeProvider theme={theme}>{children}</ThemeProvider>
+      </CacheProvider>
     </ThemeContext.Provider>
   )
 }

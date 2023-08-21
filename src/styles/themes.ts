@@ -2,6 +2,7 @@ import { PaletteColor, PaletteColorOptions, PaletteMode } from '@mui/material'
 import { createTheme } from '@mui/material/styles'
 import { teal } from '@mui/material/colors'
 import { BORDER_MUSK, LIGHT_GRAY } from './Color'
+import { makeMuiCache } from 'styles/cache'
 
 type AdditionalPaletteProperty = 'gray' | 'border' | 'subText'
 
@@ -53,3 +54,5 @@ export const configureTheme = (mode: PaletteMode) => {
     },
   })
 }
+
+export const muiCache = makeMuiCache()
