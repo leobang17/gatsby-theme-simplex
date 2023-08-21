@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
+    "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.10.5",
     "@fontsource/nanum-gothic": "^4.5.7",
     "@fontsource/noto-sans": "^4.5.11",
