@@ -2,7 +2,7 @@
   "name": "gatsby-theme-simplex",
   "private": true,
   "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Leo Bang <bluke8489@gmail.com>",
   "license": "0BSD",
   "keywords": [
@@ -31,6 +31,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
+    "@emotion/server": "^11.11.0",
     "@emotion/styled": "^11.10.5",
     "@fontsource/nanum-gothic": "^4.5.7",
     "@fontsource/noto-sans": "^4.5.11",

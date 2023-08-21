@@ -22,7 +22,12 @@ export default function activateCurrentCategories(
 }
 
 function getCurrentEndpointDecoded() {
-  return decodeURIComponent(window.location.pathname)
+  let pathname = '/'
+  if (typeof window !== 'undefined') {
+    pathname = window.location.pathname
+  }
+
+  return pathname
 }
 
 function getCurrentSlug(currentEndpoint: string, page: Pages) {
