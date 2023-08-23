@@ -6,6 +6,7 @@ import FooterOrigin from './cells/FooterOrigin'
 import FooterUsername from './cells/FooterUsername'
 import { Box, Typography } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
+import { themeMainLight } from 'styles/theme/colorProcessor'
 
 type FooterProps = {}
 
@@ -26,18 +27,14 @@ const useStyles = makeStyles()(theme => ({
 
   text: {
     marginBlock: '1rem',
-    color:
-      theme.palette.mode === 'dark'
-        ? theme.palette.subText.contrastText
-        : theme.palette.subText.main,
 
     a: {
       transition: 'color 0.15s ease',
       ':hover': {
         color:
           theme.palette.mode === 'dark'
-            ? theme.palette.primary.dark
-            : theme.palette.primary.light,
+            ? theme.palette.primary.light
+            : theme.palette.primary.main,
       },
     },
   },
@@ -51,11 +48,14 @@ const Footer: FC<FooterProps> = ({}) => {
         component="section"
         variant="subtitle2"
         className={classes.text}
+        color={themeMainLight('subText')}
       >
         <FooterUsername />
-        <span>Theme by </span>
+        <span>, Theme by </span>
         <FooterOrigin />
-        <span>, Built with Gatsby</span>
+        <span>
+          , Built with <a href="https://www.gatsbyjs.com/">Gatsby</a>
+        </span>
       </Typography>
     </Box>
   )
