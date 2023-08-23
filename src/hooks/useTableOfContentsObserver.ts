@@ -1,6 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
 import { ArticleContext } from 'contexts/article/ArticleContext'
 
+export const OBSERVING_KEY = 'obsrv' as const
+
 export default function useTableOfContentsObserver() {
   const { activateTarget } = useContext(ArticleContext)
   const [, triggerRerender] = useState<string>()
@@ -17,7 +19,7 @@ export default function useTableOfContentsObserver() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(observerCallback, observerOptions)
-    const headerLinks = document.querySelectorAll('.header-links')
+    const headerLinks = document.querySelectorAll('.' + OBSERVING_KEY)
     headerLinks.forEach(headerLink => observer.observe(headerLink))
 
     return () => observer.disconnect()
@@ -36,12 +38,12 @@ export default function useTableOfContentsObserver() {
   }
 
   function retrieveHrefFromEntry(entry: IntersectionObserverEntry) {
-    return entry.target.getAttribute('href')
+    return entry.target.getAttribute('id')
   }
 
   function activateIfHrefExistsAndRerender(url: string | null) {
     if (url) {
-      activateTarget(url)
+      activateTarget('#' + url)
       triggerRerender(url)
     }
   }
