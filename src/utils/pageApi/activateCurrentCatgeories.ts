@@ -27,7 +27,7 @@ function getCurrentEndpointDecoded() {
     pathname = window.location.pathname
   }
 
-  return pathname
+  return decodeURIComponent(pathname)
 }
 
 function getCurrentSlug(currentEndpoint: string, page: Pages) {
