@@ -2,7 +2,8 @@
 
 import { FC } from 'react'
 import { jsx, css } from '@emotion/react'
-import { GRAY } from 'styles/Color'
+import { Box, Typography } from '@mui/material'
+import { themeMainLight } from 'styles/theme/colorProcessor'
 
 type ArticleFrontmatterDateProps = {
   createdAt: string
@@ -16,7 +17,6 @@ const style = css`
 
 const creationCSS = css`
   font-size: 0.9rem;
-  color: ${GRAY};
 `
 
 const ArticleFrontmatterDate: FC<ArticleFrontmatterDateProps> = ({
@@ -25,11 +25,15 @@ const ArticleFrontmatterDate: FC<ArticleFrontmatterDateProps> = ({
   modifiedAt,
 }) => {
   return (
-    <div css={style}>
-      <time css={creationCSS}>
+    <Box component="section" css={style}>
+      <Typography
+        component="time"
+        color={themeMainLight('subText')}
+        css={creationCSS}
+      >
         {createdAt} · ☕️ {timeToRead} min reads
-      </time>
-    </div>
+      </Typography>
+    </Box>
   )
 }
 

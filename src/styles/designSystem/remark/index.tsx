@@ -1,55 +1,81 @@
 import styled from '@emotion/styled'
-import { Box, Typography, useTheme } from '@mui/material'
-import {} from 'react'
+import { Box, SxProps, Theme, Typography, useTheme } from '@mui/material'
+import { OBSERVING_KEY } from 'hooks/useTableOfContentsObserver'
+import { themeMainContrast, themeMainDark } from 'styles/theme/colorProcessor'
+
+function headerProps(props: JSX.IntrinsicElements['h1']) {
+  const { id, children, style } = props
+  return { children, style, id: id, className: OBSERVING_KEY }
+}
 
 // Headers
 export const H1 = (props: JSX.IntrinsicElements['h1']) => {
-  const theme = useTheme()
-  const H1 = styled.h1`
-    font-size: 2rem;
-    font-weight: 600;
-    padding-bottom: 0.2rem;
-    border-bottom: 1px solid
-      ${theme.palette.mode === 'dark'
-        ? theme.palette.border.dark
-        : theme.palette.border.main};
-  `
-  return <H1 {...props} />
+  const sx: SxProps<Theme> = {
+    paddingBottom: '0.4rem',
+    borderBottom: '1px solid',
+    borderColor: themeMainDark('border'),
+    color: themeMainContrast('plainText'),
+  }
+
+  return <Typography variant="h1" {...headerProps(props)} sx={sx} />
 }
 
 export const H2 = (props: JSX.IntrinsicElements['h2']) => {
-  const theme = useTheme()
-  const H2 = styled.h2`
-    font-size: 1.7rem;
-    font-weight: 600;
-    padding-bottom: 0.2rem;
-    border-bottom: 1px solid
-      ${theme.palette.mode === 'dark'
-        ? theme.palette.border.dark
-        : theme.palette.border.main};
-  `
-  return <H2 {...props} />
+  const sx: SxProps<Theme> = {
+    paddingBottom: '0.4rem',
+    borderBottom: '1px solid',
+    borderColor: themeMainDark('border'),
+    color: themeMainContrast('plainText'),
+  }
+  return <Typography variant="h2" {...headerProps(props)} sx={sx} />
 }
 
-export const H3 = styled.h3`
-  font-size: 1.5rem;
-  font-weight: 600;
-`
+export const H3 = (props: JSX.IntrinsicElements['h3']) => {
+  return (
+    <Typography
+      variant="h3"
+      color={themeMainContrast('plainText')}
+      {...headerProps(props)}
+    />
+  )
+}
 
-export const H4 = styled.h4`
-  font-size: 1.3rem;
-  font-weight: 600;
-`
+export const H4 = (props: JSX.IntrinsicElements['h4']) => {
+  return (
+    <Typography
+      variant="h4"
+      color={themeMainContrast('plainText')}
+      {...headerProps(props)}
+    />
+  )
+}
 
-export const H5 = styled.h5`
-  font-size: 1rem;
-  font-weight: 600;
-`
+export const H5 = (props: JSX.IntrinsicElements['h5']) => {
+  return (
+    <Typography
+      variant="h5"
+      color={themeMainContrast('plainText')}
+      {...headerProps(props)}
+    />
+  )
+}
 
 // Texts
-export const P = styled.p`
-  line-height: 1.6rem;
-`
+export const P = (props: JSX.IntrinsicElements['p']) => {
+  const sx: SxProps<Theme> = {
+    marginBlock: '1em',
+    lineHeight: '1.6rem',
+    color: themeMainContrast('plainText'),
+  }
+  return (
+    <Typography
+      component="p"
+      variant="body1"
+      children={props.children}
+      sx={sx}
+    />
+  )
+}
 
 export const STRONG = styled.strong``
 
@@ -96,24 +122,48 @@ export const DEL = (props: JSX.IntrinsicElements['del']) => (
 export const A = (props: JSX.IntrinsicElements['a']) => {
   const theme = useTheme()
   const Anchor = styled.a`
-    color: ${theme.palette.primary.main};
+    color: ${theme.palette.mode === 'dark'
+      ? theme.palette.primary.light
+      : theme.palette.primary.main};
     text-decoration: underline;
+
+    :hover {
+      font-weight: 500;
+    }
   `
   return <Anchor {...props} />
 }
 
 // Lists
-export const UL = styled.ul`
-  padding-inline-start: 25px;
-`
+export const UL = (props: JSX.IntrinsicElements['ul']) => (
+  <Typography
+    component="ul"
+    color={themeMainContrast('plainText')}
+    children={props.children}
+    sx={{
+      paddingInlineStart: '25px',
+    }}
+  />
+)
 
-export const OL = styled.ol`
-  padding-inline-start: 25px;
-`
+export const OL = (props: JSX.IntrinsicElements['ol']) => (
+  <Typography
+    component="ol"
+    color={themeMainContrast('plainText')}
+    children={props.children}
+    sx={{
+      paddingInlineStart: '25px',
+    }}
+  />
+)
 
-export const LI = styled.li`
-  font-weight: 400;
-`
+export const LI = (props: JSX.IntrinsicElements['li']) => (
+  <Typography
+    component="li"
+    color={themeMainContrast('plainText')}
+    children={props.children}
+  />
+)
 
 // Tables
 export const TH = (props: JSX.IntrinsicElements['th']) => {
@@ -133,7 +183,9 @@ export const TH = (props: JSX.IntrinsicElements['th']) => {
         }`,
       }}
     >
-      <Typography variant="subtitle1">{props.children}</Typography>
+      <Typography variant="subtitle1" color={themeMainContrast('plainText')}>
+        {props.children}
+      </Typography>
     </Box>
   )
 }
@@ -152,7 +204,9 @@ export const TD = (props: JSX.IntrinsicElements['td']) => {
         }`,
       }}
     >
-      <Typography variant="body1">{props.children}</Typography>
+      <Typography variant="body1" color={themeMainContrast('plainText')}>
+        {props.children}
+      </Typography>
     </Box>
   )
 }

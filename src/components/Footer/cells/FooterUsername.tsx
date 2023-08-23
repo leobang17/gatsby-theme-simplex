@@ -8,7 +8,7 @@ const FooterUsername = () => {
   return (
     <span>
       {githubLink.isValid() ? (
-        <a href={githubLink.value}>{`Ⓒ${name.value}, `}</a>
+        <a href={githubLink.value}>{`Ⓒ${name.value}`}</a>
       ) : (
         <span>{`Ⓒ${name.value}, `}</span>
       )}

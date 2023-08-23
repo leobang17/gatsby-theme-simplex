@@ -42,11 +42,12 @@ const useStyles = makeStyles<{
   },
 
   categoryTypo: {
+    fontFamily: 'Roboto, Helvetica, Arial, sans-serif',
     fontWeight: activated ? 600 : 500,
     color: activated
       ? theme.palette.mode === 'dark'
-        ? theme.palette.primary.dark
-        : theme.palette.primary.light
+        ? theme.palette.primary.light
+        : theme.palette.primary.main
       : 'inherit',
     paddingLeft: `${0.5 + nodeDepth * 0.5}rem`,
   },
