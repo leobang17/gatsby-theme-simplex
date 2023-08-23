@@ -5,11 +5,11 @@ import { Link } from 'gatsby'
 import { FC, useContext } from 'react'
 
 import { ArticleContext } from 'contexts/article/ArticleContext'
-import { Typography } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
 
-import { LIGHT_GRAY } from 'styles/Color'
 import { PAGE_PREFIX } from 'constants/PageConsts'
+import { themeDarkContrast, themeMainLight } from 'styles/theme/colorProcessor'
 
 type TOCTitleProps = {
   title?: string
@@ -18,17 +18,23 @@ type TOCTitleProps = {
 }
 
 const useStyles = makeStyles<{ activated?: boolean }>()((_, { activated }) => ({
-  tableIndex: {
+  root: {
     position: 'relative',
     left: activated ? '-5px' : '0',
-    transform: activated ? 'scale(107%)' : 'scale(100%)',
-    color: activated ? 'primary' : LIGHT_GRAY,
+    transform: activated ? 'scale(105%)' : 'scale(100%)',
+    transition: 'left 0.2s ease, transform 0.2s ease',
+    marginBlock: '0.2em',
+  },
+  tableIndex: {
+    fontSize: '0.95rem',
+    color: activated
+      ? themeDarkContrast('plainText')
+      : themeMainLight('subText'),
 
     ':hover': {
-      color: 'primary',
+      color: themeDarkContrast('plainText'),
     },
-
-    transition: 'color 0.2s ease, left 0.2s ease, transform 0.2s ease',
+    transition: 'color 100ms ease',
   },
 }))
 
@@ -39,9 +45,11 @@ const TOCTitle: FC<TOCTitleProps> = ({ title, url, activated }) => {
   } = useContext(ArticleContext)
 
   return (
-    <Typography component="a" variant="body1" className={classes.tableIndex}>
-      <Link to={PAGE_PREFIX.ARTICLE + slug + url}>{title}</Link>
-    </Typography>
+    <Box className={classes.root}>
+      <Typography component="a" className={classes.tableIndex}>
+        <Link to={PAGE_PREFIX.ARTICLE + slug + url}>{title}</Link>
+      </Typography>
+    </Box>
   )
 }
 

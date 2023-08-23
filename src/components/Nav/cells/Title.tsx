@@ -20,8 +20,8 @@ const useStyles = makeStyles()(theme => ({
     ':hover': {
       color:
         theme.palette.mode === 'dark'
-          ? theme.palette.primary.dark
-          : theme.palette.primary.light,
+          ? theme.palette.primary.light
+          : theme.palette.primary.main,
       scale: '105%',
     },
   },

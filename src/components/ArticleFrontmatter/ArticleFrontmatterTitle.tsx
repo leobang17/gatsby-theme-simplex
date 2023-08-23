@@ -1,9 +1,11 @@
 /** @jsx jsx */
 
 import { css, jsx } from '@emotion/react'
+import { Typography } from '@mui/material'
 import { FC } from 'react'
 
 import { m_mq } from 'styles/facepaint'
+import { themeMainContrast } from 'styles/theme/colorProcessor'
 import Mapper from 'utils/Mapper'
 
 type ArticleFrontmatterTitleProps = {
@@ -25,7 +27,13 @@ const ArticleFrontmatterTitle: FC<ArticleFrontmatterTitleProps> = ({
 }) => {
   return (
     <hgroup>
-      <h1 css={style}>{title}</h1>
+      <Typography
+        variant="h1"
+        color={themeMainContrast('plainText')}
+        css={style}
+      >
+        {title}
+      </Typography>
     </hgroup>
   )
 }

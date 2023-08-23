@@ -2,6 +2,10 @@
   Gatsby Theme Simplex
 </h1>
 
+> [데모 페이지 방문하기](https://leobang.me/posts/gatsby-theme-simplex-사용법/)
+
+![데모 페이지](./documents/blog/imgs/demo.png)
+
 Gatsby Theme Simplex는 *Gatsby 프레임워크*를 기반으로 구축된 블로그 스타터입니다. 마크다운을 문법을 사용하여 글을 작성할 수 있으며, 코드를 수정해 사용자의 필요에 맞게 블로그를 꾸밀 수 있습니다.
 
 Gatsby Theme Simplex는 다음과 같은 기술들을 사용합니다.

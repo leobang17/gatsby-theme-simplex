@@ -2,20 +2,20 @@ import React from 'react'
 import { PaletteMode, useMediaQuery } from '@mui/material'
 
 const THEME_TOKEN = 'gatsbt-theme-simplex-theme'
+const isBrowser = typeof window !== 'undefined'
 
 export function useDarkmode() {
   const systemTheme = useMediaQuery('(prefers-color-scheme: dark)')
     ? 'dark'
     : 'light'
 
-  const [mode, setMode] = React.useState<PaletteMode>(systemTheme)
+  const cachedTheme = isBrowser
+    ? (localStorage.getItem(THEME_TOKEN) as null | PaletteMode)
+    : undefined
 
-  React.useEffect(() => {
-    const cachedTheme = localStorage.getItem(THEME_TOKEN) as null | PaletteMode
-    if (cachedTheme) {
-      setMode(cachedTheme)
-    }
-  }, [])
+  const [mode, setMode] = React.useState<PaletteMode>(
+    cachedTheme ?? systemTheme,
+  )
 
   const { switchMode } = React.useMemo<{ switchMode: () => void }>(() => {
     return {

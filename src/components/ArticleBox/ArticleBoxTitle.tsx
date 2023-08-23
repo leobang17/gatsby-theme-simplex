@@ -7,6 +7,7 @@ import { Link } from 'gatsby'
 
 import { PAGE_PREFIX } from 'constants/PageConsts'
 import { makeStyles } from 'tss-react/mui'
+import { themeMainContrast } from 'styles/theme/colorProcessor'
 
 export type ArticleBoxTitleProps = {
   slug: string
@@ -16,12 +17,14 @@ export type ArticleBoxTitleProps = {
 const useStyles = makeStyles()(theme => ({
   root: {
     transition: 'all 0.1s ease',
+    fontSize: '1.5rem',
+    marginBlock: '0.2em',
 
     ':hover': {
       color:
         theme.palette.mode === 'dark'
-          ? theme.palette.primary.dark
-          : theme.palette.primary.light,
+          ? theme.palette.primary.light
+          : theme.palette.primary.main,
     },
   },
 }))
@@ -30,7 +33,10 @@ const ArticleBoxTitle: FC<ArticleBoxTitleProps> = ({ slug, title }) => {
   const { classes } = useStyles()
   return (
     <Link to={PAGE_PREFIX.ARTICLE + slug}>
-      <Typography variant="h5" className={classes.root}>
+      <Typography
+        color={themeMainContrast('plainText')}
+        className={classes.root}
+      >
         {title}
       </Typography>
     </Link>

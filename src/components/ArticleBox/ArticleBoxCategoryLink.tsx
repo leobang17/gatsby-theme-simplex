@@ -8,6 +8,7 @@ import { FC } from 'react'
 import getCategoriesWithCategoryLinks from 'utils/getCategoriesWithCategoryLinks'
 import { Typography } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
+import { themeMainLight } from 'styles/theme/colorProcessor'
 
 type ArticleCategoryLinkProps = {
   categoryString: CategoryStrings
@@ -25,7 +26,11 @@ const ArticleBoxCategoryLink: FC<ArticleCategoryLinkProps> = ({
     getCategoriesWithCategoryLinks(categoryString)
 
   return (
-    <Typography color="primary" variant="subtitle2" className={classes.root}>
+    <Typography
+      color={themeMainLight('primary')}
+      variant="subtitle2"
+      className={classes.root}
+    >
       <Link to={PAGE_PREFIX.CATEGORY}>total</Link>
       {categoriesWithCategoryLinks.map((categoryWithCategoryLink, id) => {
         const [category, categoryLink] = categoryWithCategoryLink

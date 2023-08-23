@@ -4,29 +4,28 @@ import { jsx } from '@emotion/react'
 import { FC } from 'react'
 
 import { MdxNode } from 'types/mdx-types'
-import { GRAY } from 'styles/Color'
 import ArticleBoxTitle from './ArticleBoxTitle'
 import ArticleBoxCategoryLink from './ArticleBoxCategoryLink'
 import CategoryStrings from 'datastructures/category/CategoryStrings'
 
 import { Box, Typography } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
+import { themeMainContrast, themeMainLight } from 'styles/theme/colorProcessor'
 
-const useStyles = makeStyles()(theme => ({
+const useStyles = makeStyles()({
   root: {
     marginBlock: '3rem',
+  },
+  title: {
+    marginBlock: '1em',
   },
   summary: {
     display: 'block',
   },
   createdAt: {
-    color:
-      theme.palette.mode === 'dark'
-        ? theme.palette.subText.contrastText
-        : theme.palette.subText.main,
     marginTop: '0.5rem',
   },
-}))
+})
 
 const ArticleBox: FC<MdxNode> = ({
   fields: { slug, categoryDirectory },
@@ -44,6 +43,7 @@ const ArticleBox: FC<MdxNode> = ({
       <Typography
         component="summary"
         variant="body1"
+        color={themeMainContrast('plainText')}
         className={classes.summary}
       >
         {excerpt}
@@ -52,6 +52,7 @@ const ArticleBox: FC<MdxNode> = ({
       <Typography
         component="time"
         variant="body2"
+        color={themeMainLight('subText')}
         className={classes.createdAt}
       >
         {createdAt}
