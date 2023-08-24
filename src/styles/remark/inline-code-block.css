@@ -4,6 +4,8 @@ pre[class^='prism-code language-']:not(.gatsby-highlight pre.prism-code) {
   padding-inline: 4px;
   padding-block: 3px;
   border-radius: 5px;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 /* Inline 'div' tag: not an child of div tag class named .gatsby-highlight */

@@ -19,7 +19,7 @@ type LayoutProps = {
   rightStack?: JSX.Element
 } & ChildrenProps
 
-const LayoutWrapper = styled.html`
+const LayoutWrapper = styled.div`
   width: 100vw;
   min-height: 100vh;
   display: flex;
@@ -27,7 +27,16 @@ const LayoutWrapper = styled.html`
   align-items: center;
 `
 
-const useStyles = makeStyles()({
+const useStyles = makeStyles()(theme => ({
+  layoutWrapper: {
+    width: '100vw',
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    backgroundColor: theme.palette.mode === 'dark' ? 'black' : 'white',
+    color: theme.palette.mode === 'dark' ? 'white' : 'black',
+  },
   pageWrapper: {
     display: 'flex',
     flexGrow: 1,
@@ -40,7 +49,7 @@ const useStyles = makeStyles()({
     maxWidth: '770px',
     marginInline: '20px',
   },
-})
+}))
 
 const Layout: FC<LayoutProps> = ({ children, leftStack, rightStack }) => {
   const { classes } = useStyles()
@@ -49,7 +58,8 @@ const Layout: FC<LayoutProps> = ({ children, leftStack, rightStack }) => {
   return (
     <React.Fragment>
       <CssBaseline />
-      <LayoutWrapper>
+      {/* <LayoutWrapper> */}
+      <Box className={classes.layoutWrapper}>
         <MUINav />
         <Box className={classes.pageWrapper}>
           <LeftStack stack={leftStack} />
@@ -85,7 +95,8 @@ const Layout: FC<LayoutProps> = ({ children, leftStack, rightStack }) => {
           onChange={switchMode}
           defaultChecked={mode === 'dark' ? true : false}
         />
-      </LayoutWrapper>
+      </Box>
+      {/* </LayoutWrapper> */}
     </React.Fragment>
   )
 }

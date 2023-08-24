@@ -1,4 +1,4 @@
-import { PaletteColor, useTheme } from '@mui/material/styles'
+import { PaletteColor, Theme, useTheme } from '@mui/material/styles'
 import { AllPaletteProperty } from 'styles/themes'
 
 function usePaletteColor(
@@ -7,6 +7,14 @@ function usePaletteColor(
 ) {
   const { palette } = useTheme()
   return consumer(palette[paletteOpt], palette.mode === 'dark')
+}
+
+export function usePalette(
+  theme: Theme,
+  paletteOpt: AllPaletteProperty,
+  consumer: (color: PaletteColor, isDarkmode: boolean) => string,
+) {
+  return consumer(theme.palette[paletteOpt], theme.palette.mode === 'dark')
 }
 
 export function themeLightDark(color: AllPaletteProperty) {
