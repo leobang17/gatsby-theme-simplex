@@ -9,7 +9,7 @@ import { Box, Typography } from '@mui/material'
 import { makeStyles } from 'tss-react/mui'
 
 import { PAGE_PREFIX } from 'constants/PageConsts'
-import { themeDarkContrast, themeMainLight } from 'styles/theme/colorProcessor'
+import { usePalette } from 'styles/theme/colorProcessor'
 
 type TOCTitleProps = {
   title?: string
@@ -17,35 +17,38 @@ type TOCTitleProps = {
   activated?: boolean
 }
 
-const useStyles = makeStyles<{ activated?: boolean }>()((_, { activated }) => ({
+const useStyles = makeStyles()(theme => ({
   root: {
     position: 'relative',
-    left: activated ? '-5px' : '0',
-    transform: activated ? 'scale(105%)' : 'scale(100%)',
     transition: 'left 0.2s ease, transform 0.2s ease',
     marginBlock: '0.2em',
   },
   tableIndex: {
     fontSize: '0.95rem',
-    color: activated
-      ? themeDarkContrast('plainText')
-      : themeMainLight('subText'),
-
     ':hover': {
-      color: themeDarkContrast('plainText'),
+      color: usePalette(theme, 'plainText', (color, dm) =>
+        dm ? color.contrastText : color.dark,
+      ),
     },
-    transition: 'color 100ms ease',
+    transition: 'color 50ms ease',
   },
 }))
 
 const TOCTitle: FC<TOCTitleProps> = ({ title, url, activated }) => {
-  const { classes } = useStyles({ activated })
+  const { classes } = useStyles()
   const {
     fields: { slug },
   } = useContext(ArticleContext)
 
   return (
-    <Box className={classes.root}>
+    <Box
+      className={activated ? 'activated' : ''}
+      sx={{
+        position: 'relative',
+        transition: 'color 0.2s ease, left 0.2s ease, transform 0.2s ease',
+        marginBlock: '3px',
+      }}
+    >
       <Typography component="a" className={classes.tableIndex}>
         <Link to={PAGE_PREFIX.ARTICLE + slug + url}>{title}</Link>
       </Typography>

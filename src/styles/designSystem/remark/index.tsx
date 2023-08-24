@@ -14,7 +14,7 @@ export const H1 = (props: JSX.IntrinsicElements['h1']) => {
     paddingBottom: '0.4rem',
     borderBottom: '1px solid',
     borderColor: themeMainDark('border'),
-    color: themeMainContrast('plainText'),
+    // color: themeMainContrast('plainText'),
   }
 
   return <Typography variant="h1" {...headerProps(props)} sx={sx} />
@@ -25,7 +25,7 @@ export const H2 = (props: JSX.IntrinsicElements['h2']) => {
     paddingBottom: '0.4rem',
     borderBottom: '1px solid',
     borderColor: themeMainDark('border'),
-    color: themeMainContrast('plainText'),
+    // color: themeMainContrast('plainText'),
   }
   return <Typography variant="h2" {...headerProps(props)} sx={sx} />
 }
@@ -34,7 +34,7 @@ export const H3 = (props: JSX.IntrinsicElements['h3']) => {
   return (
     <Typography
       variant="h3"
-      color={themeMainContrast('plainText')}
+      // color={themeMainContrast('plainText')}
       {...headerProps(props)}
     />
   )
@@ -44,7 +44,7 @@ export const H4 = (props: JSX.IntrinsicElements['h4']) => {
   return (
     <Typography
       variant="h4"
-      color={themeMainContrast('plainText')}
+      // color={themeMainContrast('plainText')}
       {...headerProps(props)}
     />
   )
@@ -54,7 +54,7 @@ export const H5 = (props: JSX.IntrinsicElements['h5']) => {
   return (
     <Typography
       variant="h5"
-      color={themeMainContrast('plainText')}
+      // color={themeMainContrast('plainText')}
       {...headerProps(props)}
     />
   )
@@ -65,7 +65,7 @@ export const P = (props: JSX.IntrinsicElements['p']) => {
   const sx: SxProps<Theme> = {
     marginBlock: '1em',
     lineHeight: '1.6rem',
-    color: themeMainContrast('plainText'),
+    // color: themeMainContrast('plainText'),
   }
   return (
     <Typography
@@ -138,7 +138,7 @@ export const A = (props: JSX.IntrinsicElements['a']) => {
 export const UL = (props: JSX.IntrinsicElements['ul']) => (
   <Typography
     component="ul"
-    color={themeMainContrast('plainText')}
+    // color={themeMainContrast('plainText')}
     children={props.children}
     sx={{
       paddingInlineStart: '25px',
@@ -149,7 +149,7 @@ export const UL = (props: JSX.IntrinsicElements['ul']) => (
 export const OL = (props: JSX.IntrinsicElements['ol']) => (
   <Typography
     component="ol"
-    color={themeMainContrast('plainText')}
+    // color={themeMainContrast('plainText')}
     children={props.children}
     sx={{
       paddingInlineStart: '25px',
@@ -160,7 +160,7 @@ export const OL = (props: JSX.IntrinsicElements['ol']) => (
 export const LI = (props: JSX.IntrinsicElements['li']) => (
   <Typography
     component="li"
-    color={themeMainContrast('plainText')}
+    // color={themeMainContrast('plainText')}
     children={props.children}
   />
 )
@@ -183,7 +183,10 @@ export const TH = (props: JSX.IntrinsicElements['th']) => {
         }`,
       }}
     >
-      <Typography variant="subtitle1" color={themeMainContrast('plainText')}>
+      <Typography
+        variant="subtitle1"
+        // color={themeMainContrast('plainText')}
+      >
         {props.children}
       </Typography>
     </Box>
@@ -204,7 +207,10 @@ export const TD = (props: JSX.IntrinsicElements['td']) => {
         }`,
       }}
     >
-      <Typography variant="body1" color={themeMainContrast('plainText')}>
+      <Typography
+        variant="body1"
+        // color={themeMainContrast('plainText')}
+      >
         {props.children}
       </Typography>
     </Box>

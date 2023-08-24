@@ -7,7 +7,6 @@ import { Link } from 'gatsby'
 
 import { PAGE_PREFIX } from 'constants/PageConsts'
 import { makeStyles } from 'tss-react/mui'
-import { themeMainContrast } from 'styles/theme/colorProcessor'
 
 export type ArticleBoxTitleProps = {
   slug: string
@@ -34,7 +33,7 @@ const ArticleBoxTitle: FC<ArticleBoxTitleProps> = ({ slug, title }) => {
   return (
     <Link to={PAGE_PREFIX.ARTICLE + slug}>
       <Typography
-        color={themeMainContrast('plainText')}
+        // color={themeMainContrast('plainText')}
         className={classes.root}
       >
         {title}
