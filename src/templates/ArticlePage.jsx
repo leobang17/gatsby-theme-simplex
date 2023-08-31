@@ -8,8 +8,9 @@ import ArticlePageContext from 'contexts/ArticlePageContext'
 import Utterances from 'components/Utterance'
 import RecentPosts from 'components/RecentPosts/RecentPosts'
 
-// @ts-ignore
-const ArticlePage = ({ data, children }) => {
+const isBrowser = typeof window !== undefined
+
+const ArticlePage = ({ data, children, serverData }) => {
   const { prevPost, nextPost } = data
   const frontmatters = {
     ...data.mdx.frontmatter,

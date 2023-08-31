@@ -93,7 +93,7 @@ const Layout: FC<LayoutProps> = ({ children, leftStack, rightStack }) => {
             },
           }}
           onChange={switchMode}
-          defaultChecked={mode === 'dark' ? true : false}
+          checked={mode === 'dark' ? true : false}
         />
       </Box>
       {/* </LayoutWrapper> */}

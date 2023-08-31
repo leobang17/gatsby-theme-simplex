@@ -1,4 +1,4 @@
-import { resolve } from 'path'
+const path = require('path')
 
 import { AllMdxQuery, MdxNode } from '../@types/mdx-types'
 import { PageGraphQL } from '../@types/nodeapi-types'
@@ -11,7 +11,7 @@ export const createArticlePages = async (args: CreatePagesArgs) => {
     graphql,
   } = args
 
-  const postTemplate = resolve(`src/templates/ArticlePage.tsx`)
+  const postTemplate = path.resolve('./src/templates/ArticlePage.jsx')
   const results = await getAllMdx(graphql)
 
   let nextNode: MdxNode | undefined

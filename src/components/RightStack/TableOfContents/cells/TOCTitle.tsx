@@ -18,11 +18,6 @@ type TOCTitleProps = {
 }
 
 const useStyles = makeStyles()(theme => ({
-  root: {
-    position: 'relative',
-    transition: 'left 0.2s ease, transform 0.2s ease',
-    marginBlock: '0.2em',
-  },
   tableIndex: {
     fontSize: '0.95rem',
     ':hover': {
@@ -46,7 +41,8 @@ const TOCTitle: FC<TOCTitleProps> = ({ title, url, activated }) => {
       sx={{
         position: 'relative',
         transition: 'color 0.2s ease, left 0.2s ease, transform 0.2s ease',
-        marginBlock: '3px',
+        left: '0px',
+        marginBlock: '0.2em',
       }}
     >
       <Typography component="a" className={classes.tableIndex}>

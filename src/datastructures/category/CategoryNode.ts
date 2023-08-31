@@ -29,7 +29,7 @@ export default class CategoryNode {
   }
 
   activateRecursively(currentSlug: string) {
-    if (currentSlug.startsWith(this.categoryString.slug)) {
+    if (currentSlug.startsWith(this.categoryString.categoryDirectory)) {
       this._activate()
     }
     this.subCategories.forEach(cat => cat.activateRecursively(currentSlug))

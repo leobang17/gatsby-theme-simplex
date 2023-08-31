@@ -20,7 +20,7 @@ const CategoryPage: FC<PageProps<AllMdxQuery, CategoryPageContext>> = ({
   const articles = filterArticleByCategories(data.allMdx.nodes, categoryString)
 
   return (
-    <CategoryPageContext>
+    <CategoryPageContext categoryDirectory={categoryDirectory}>
       <CategoryLayout>
         {articles.map((article, id) => {
           return <ArticleBox key={id} {...article} />

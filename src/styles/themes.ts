@@ -27,9 +27,7 @@ declare module '@mui/material/styles' {
 export const configureTheme = (mode: PaletteMode) => {
   const theme = createTheme({
     palette: {
-      primary: {
-        main: teal[600],
-      },
+      primary: teal,
       secondary: {
         main: '#146C94',
       },
