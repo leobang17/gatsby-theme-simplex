@@ -1,8 +1,9 @@
 import { ThemeContext } from 'contexts/theme/ThemeContext'
 import MetadataApiConfigurator from 'datalayer/configurators/MetadataApiConfigurator'
-import React, { createRef, useLayoutEffect } from 'react'
+import React from 'react'
 
 const src = 'https://utteranc.es/client.js'
+const utteranceId = 'utterance-comment'
 
 export interface UtterancesProps {}
 
@@ -10,11 +11,11 @@ const Utterances: React.FC<UtterancesProps> = React.memo(() => {
   const { issue_repo } = MetadataApiConfigurator.instance.api.getUtterance()
   const { mode } = React.useContext(ThemeContext)
 
-  const containerRef = createRef<HTMLDivElement>()
+  const containerRef = React.useRef<HTMLDivElement>(null)
 
-  useLayoutEffect(() => {
+  React.useLayoutEffect(() => {
     const utterances = document.createElement('script')
-    const containerDiv = containerRef.current!
+    const containerDiv = containerRef.current
 
     const attributes = {
       src,
@@ -30,14 +31,19 @@ const Utterances: React.FC<UtterancesProps> = React.memo(() => {
       utterances.setAttribute(key, value)
     })
 
-    while (containerDiv.lastChild) {
-      containerDiv.removeChild(containerDiv.lastChild)
+    utterances.onload = _ => {
+      const comments = document.getElementById(utteranceId)
+      if (comments && comments.children[1]) {
+        comments.removeChild(comments.firstChild!)
+      }
     }
 
-    containerDiv.appendChild(utterances)
-  }, [issue_repo])
+    utterances.async = true
 
-  return <div ref={containerRef} />
+    containerDiv?.appendChild(utterances)
+  }, [mode])
+
+  return <div ref={containerRef} id={utteranceId} />
 })
 
 Utterances.displayName = 'Utterances'
