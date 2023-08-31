@@ -1,7 +1,7 @@
 {
   "name": "gatsby-theme-simplex",
   "description": "A simple blog-starter to get up and develop quickly with GatsbyJS",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Leo Bang <bluke8489@gmail.com>",
   "license": "0BSD",
   "keywords": [
@@ -62,6 +62,7 @@
     "tss-react": "^4.8.8"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.22.11",
     "@jest/globals": "^29.4.1",
     "@types/facepaint": "^1.2.2",
     "@types/jest": "^29.4.0",
