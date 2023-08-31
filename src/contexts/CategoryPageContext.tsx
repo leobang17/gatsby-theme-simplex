@@ -7,11 +7,16 @@ import ThemeContextProvider from './theme/ThemeContextProvider'
 
 type CategoryPageContextProps = {} & CategoryContextProviderProps
 
-const CategoryPageContext: FC<CategoryPageContextProps> = ({ children }) => {
+const CategoryPageContext: FC<CategoryPageContextProps> = ({
+  children,
+  categoryDirectory,
+}) => {
   return (
     <>
       <ThemeContextProvider>
-        <CategoryContextProvider>{children}</CategoryContextProvider>
+        <CategoryContextProvider categoryDirectory={categoryDirectory}>
+          {children}
+        </CategoryContextProvider>
       </ThemeContextProvider>
     </>
   )
