@@ -1,7 +1,7 @@
 import React from 'react'
 import { PaletteMode, useMediaQuery } from '@mui/material'
 
-const THEME_TOKEN = 'gatsbt-theme-simplex-theme'
+const THEME_TOKEN = 'theme'
 const isBrowser = typeof window !== 'undefined'
 
 export function useDarkmode() {
@@ -9,13 +9,16 @@ export function useDarkmode() {
     ? 'dark'
     : 'light'
 
-  const cachedTheme = isBrowser
-    ? (localStorage.getItem(THEME_TOKEN) as null | PaletteMode)
-    : undefined
+  const [mode, setMode] = React.useState<PaletteMode>(systemTheme)
 
-  const [mode, setMode] = React.useState<PaletteMode>(
-    cachedTheme ?? systemTheme,
-  )
+  React.useEffect(() => {
+    const cachedTheme = localStorage.getItem(THEME_TOKEN) as null | PaletteMode
+    if (cachedTheme) {
+      setMode(cachedTheme)
+    } else {
+      localStorage.setItem(THEME_TOKEN, mode)
+    }
+  }, [])
 
   const { switchMode } = React.useMemo<{ switchMode: () => void }>(() => {
     return {
